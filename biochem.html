@@ -219,7 +219,8 @@ select[name="end-time"] {
 
 
   // Create a new anchor element with the WhatsApp share URL
-  const shareUrl = 'whatsapp://send?text='+"Topic:"+topicName+"%0aTime:"+timeOptionString+"%0aFaculty:"+facultyName+"%0aAbsentees:"+absenteesString;
+  const texts = "Topic:"+topicName+"%0aTime:"+timeOptionString+"%0aFaculty:"+facultyName+"%0aAbsentees:"+absenteesString;
+  const shareUrl = 'whatsapp://send?text=${texts}';
   const shareLink = document.createElement('a');
   shareLink.href = shareUrl;
 
