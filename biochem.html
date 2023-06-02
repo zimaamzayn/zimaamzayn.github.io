@@ -222,7 +222,7 @@ select[name="end-time"] {
   const img = document.getElementById('h2cimg');
 
   // Create a new anchor element with the WhatsApp share URL
-  const shareUrl = 'whatsapp://send?text=Attendence&source&data=image/jpeg;base64,'+${encodedImageData};
+  const shareUrl = 'whatsapp://send?text=Attendence&source&data=image/jpeg;base64,${encodedImageData}';
   const shareLink = document.createElement('a');
   shareLink.href = shareUrl;
 
