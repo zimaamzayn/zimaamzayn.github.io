@@ -217,15 +217,6 @@ select[name="end-time"] {
   // Generate the image
   generateAbsenteesList();
 
-
-  // Create a new anchor element with the WhatsApp share URL
-  const texts = "Topic:"+topicName+"%0aTime:"+timeOptionString+"%0aFaculty:"+facultyName+"%0aAbsentees:"+absenteesString;
-  const shareUrl = 'whatsapp://send?text=${texts}';
-  const shareLink = document.createElement('a');
-  shareLink.href = shareUrl;
-
-  // Simulate a click on the anchor element to open the WhatsApp share dialog
-  shareLink.click();
 }
 	</script>
         </tbody>
@@ -235,7 +226,6 @@ select[name="end-time"] {
 	<br>
 	<button onclick='generateAbsenteesList()' style='background-color: steelblue; color: white; font-size: 16px;'>Generate List of Absentees</button><br>
 	<br>
-  <button onclick="shareOnWhatsApp()" style="background-color: #25D366; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer;">Share on WhatsApp</button>
   <button id="clipbut" onclick="navigator.clipboard.writeText(this.getAttribute('clips'));" clips="" style="background-color: #25b3d3; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer;">COPY</button>
 </div>
 
