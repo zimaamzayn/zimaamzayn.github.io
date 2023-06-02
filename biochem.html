@@ -170,7 +170,8 @@ select[name="end-time"] {
                         //document.body.insertBefore(time, img);
                     // Take screenshot of absentees list div and convert to image
                     html2canvas(adst).then(function(canvas) {
-                        const image = canvas.toDataURL();
+                        const image = canvas.toDataURL("image/jpeg");
+			const encodedImageData = encodeURIComponent(image.split(",")[1]);
 
                         // Add image to document
                         var img = document.getElementById('h2cimg');
@@ -221,7 +222,7 @@ select[name="end-time"] {
   const img = document.getElementById('h2cimg');
 
   // Create a new anchor element with the WhatsApp share URL
-  const shareUrl = 'whatsapp://send?text=Check out this attendance list! ' + encodeURIComponent(img.src);
+  const shareUrl = 'whatsapp://send?text=Attendence&source&data=image/jpeg;base64,'+${encodedImageData};
   const shareLink = document.createElement('a');
   shareLink.href = shareUrl;
 
