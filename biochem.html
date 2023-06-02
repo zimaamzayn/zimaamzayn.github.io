@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+        }
+		select {
+  display: inline-block;
+  width: 150px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+h1,h2{
+  margin:auto;
+  width:fit-content;
+}
+
+select[name="end-time"] {
+  margin-right: 0;
+}
+
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .present {
+            background-color: lightgreen;
+        }
+
+        .absent {
+            background-color: lightcoral;
+        }
+
+        #absenteesList {
+            margin-top: 20px;
+			font-size: 16px; font-family: Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Attendance List</h1>
+
+    <label for="topicName">Topic Name:</label>
+    <input type="text" id="topicName"><br>
+
+    <label for="facultyName">Faculty Name:</label>
+    <select id="facultyName">
+        <option value="Dr. A.Bhagya Lakshmi">Dr. A.Bhagya Lakshmi</option>
+        <option value="Dr. Asra Naweed">Dr. Asra Naweed</option>
+        <option value="Dr. D.Sridevi">Dr. D.Sridevi</option>
+        <option value="Dr. K.Lavanya">Dr. K.Lavanya</option>
+        <option value="Dr. Koppukonda Ravi Babu">Dr. Koppukonda Ravi Babu</option>
+        <option value="Mrs. Sankeerthi">Mrs. Sankeerthi</option>
+    </select><br>
+	<select name="start-time">
+  <option value="09:00">9:00 AM</option>
+  <option value="09:30">9:30 AM</option>
+  <option value="10:00">10:00 AM</option>
+  <option value="10:30">10:30 AM</option>
+  <option value="11:00">11:00 AM</option>
+  <option value="11:30">11:30 AM</option>
+  <option value="12:00">12:00 PM</option>
+  <option value="12:30">12:30 PM</option>
+  <option value="13:00">1:00 PM</option>
+  <option value="13:30">1:30 PM</option>
+  <option value="14:00">2:00 PM</option>
+  <option value="14:30">2:30 PM</option>
+  <option value="15:00">3:00 PM</option>
+  <option value="15:30">3:30 PM</option>
+  <option value="16:00">4:00 PM</option>
+</select>
+
+<select name="end-time">
+  <optionvalue="">-- Select end time --</option>
+  <option value="09:30">9:30 AM</option>
+  <option value="10:00">10:00 AM</option>
+  <option value="10:30">10:30 AM</option>
+  <option value="11:00">11:00 AM</option>
+  <option value="11:30">11:30 AM</option>
+  <option value="12:00">12:00 PM</option>
+  <option value="12:30">12:30 PM</option>
+  <option value="13:00">1:00 PM</option>
+  <option value="13:30">1:30 PM</option>
+  <option value="14:00">2:00 PM</option>
+  <option value="14:30">2:30 PM</option>
+  <option value="15:00">3:00 PM</option>
+  <option value="15:30">3:30 PM</option>
+  <option value="16:00">4:00 PM</option>
+</select>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Attendance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through 200 students -->
+            <script>
+			const cars = ["","A USHASRI","ABDUR REHMAAN PAREKH","ABHEESHTA BHAT","ABHILAS SINGHA","ABHINAYA OTIKUNTA","AJJAN NAVYA TEJA","AKURATI AASRITA","ALAPARTHI SAI HRUTHIKA","ALIGE MADHUSUDHAN","ALLURI LEESHMA SRI","ANNAPAREDDY CHETAN","ANOOP AGINA (CR)","ANSHIKA MISHRA","ANUGU AISHWARYA","APPARI ADITYA","ARIMANDA CHAITANYA LAASYA","ASHMI PATRO","AYYAVARI SAI CHARAN","BANOTH RAJASHEKAR","BAPANAPALLI CHAYANJALI","BARDE VAISHNAVI","BATCHU RISHI","BATHULA GREESHMA REDDY","BATTULA SRAVAN KUMAR","BHAVIN BANSAL","BHAVNA KANUMURI","BHEEMPARAM MADHU","BHUKYA NAVEEN","BIBHAS PARIDA","BOINAPALLY THRISHA","BURGULA MEGHANA","BURMA SRIVALLI","BUYANKAR ASHMITHA","CH MEGHANA","CH SAHITHI","CHENNU AKHILA","CHERUKURI RACHANA","CHILUMULA REDDY","CHOUTUPALEM RAJESH","CHOWDAVARAPU RAMYA","DALAVAI TEJASWINI","DAMPURU HARISRIYA","DANDU YOSHITHA","DARAM VARSHA","DASARI DEVAYANI","DHAMUKA VISHISTA","DHARAVATHU DEEKSHITHA","DINGARI LASYA","EERLA SNEHAL","EESARAPU RENU SRI","EMBADI SAIPRIYA","ERUGULA SRAVAN REDDY","ETHYALA GAYATHRI","G SUPRIYA","GANESHYAM PRAJWALA","GEEDI PRITIKA","GOGIKAR MANIKARNIKA","GONEGANDLA SUSRUTHA","GORAKANTI RAMYA","GOUTHA REDDY VARSHA","GUNDE AVINASH","GURUVULA VARSHA MANOGNA","HARIKA KODURI","HUDA QADAR","ISHITA BHARGAVA (LR)","J KETHAN REDDY","JAIADITYA","JATAVATH ASHOK","JERIPET SHAMITHA RAJ","K SANDHYA RANI","KADERI PIYUSH RAO","KANDI ANUSHKA","KANDI SAI KEERTHANA","KARINGULA RITHIKA","KASULA SRIJA","KAVALI CHETAN","KETHAVATH ARUNA","KHANAPUR SMRITI","KHIDSE SANKET","KHUSHI BORAD","KODEM KAVYA","KOLLA RAGA DEEPIKA","KOLLI VARUN","KOLLOJU KARTHIKEYAN","KONDLE VISHNUPRIYA","KOOLLA PRANNAV","KOTHURU MANVIK","KOTTE TANVI","KURESHI MUQADDAS RUHI","LASYANJALI SAMBARAJU","LAXMI PRANAV CHAUHAN","M YASHASREE","MADAPU SRISTI","MADHIREDDY SIDDARTH","MALAPATI LAHARI","MALLADI SAI MEENAKSHI","MANEPU ASHRITHA","MARAM PUJITHA","MARLAPALLE KRUSHNANAND","MARZOUQ ZAHEER AHMED","MEDISETTI SOWMYA","METTU RIYA GRACE","MISRILAL DEVYANI","MOHAMMED MADIHA SABAHATH","MOHD ZIA UDDIN ","MUHAMMAD ZIMAAM ZAYN","MUKKA SADHIKA","MUKKA VAISHVIKA","MUKKAWAR PARI","MYLAVARAM HIMAJA","N VISHNUPRIYA","NAGABANDHI PRIYA","NALKILA HARSHA","NANDIKANTI MEHER","NARAPUREDDY LASYA","NARENDULA MEGHANA","NAVGALE AAYUSH VIKRAM","NEERATI THARUN","NIDADAVOLU SAKETH","NIRJEPLA AKSHAYA","NIRUPAM SANGINEEDI","NOONE RISHITHA","NUNSAVATH SRAVANTHI","NUTHETI KAVYA SRI","ONTERU ANUSHARANI","P ABHIJISHYA REDDY","P SAMARJITH","P SIDHARTHA","P TEJA ADITYA","PADERU JHANAVI","PADURI SAI CHARITHA","PAGADALA DIVYA","PAGIDIMARRI BHARGAV","PARIKE TEJASWINI","PESARU RISHMIKA","PESARU VISHNU","PINAPATHRUNI NAAGA PRANAVI","PINNEM RITHIKA","POLLENI DHARANI","PORALA LAXMI DEVI","POREDDY AAYUSH KUMAR","POTHULA SRIVARSHA","PRATHIT REDDY","PRIYANKA PITLA","PULIGADDA DIVYA SRI","R PRATEEKSHA","R RONIT KOUSHAL","R SAI KEERTHANA","RA SENBAGA GUNA ARTHI","RAGINI KANDUKURY","APATHI SANJANA","RAVULAKOLU ","RAYARAO SWATHI","RESHMA KUMARI RAJ PUROHIT","RISHI SAI VUPPALA","RITHIK SIDHARTH","RITIKA DUMMALA","ROYYURU KESAVI PRIYA","S VENU PRAKASH","SANGEPU RAMYA","SANIA QURESHI","SARA FATIMAH","SAREDDY VAISHNAVI","SHIVANGI","SHREYANK DECONDA","SHREYANS KESARKAR","SINGAM RICHA","SIRIPURAM SHREYAS","SOBHAN KANUNGO","SOHAIL ALI","SONAWALE PRIYAL","SRI SAHITHI PODURI","SRI SHREYANI KADIYALA","SRIRAMOJU CHANDANA","SUNKARA NAVYA SATWIKA","SURA SHARAYU","SURAJ KOTTE","SWECHA YADAV","SYED ABDUL WASI","TALLA LAXMAN","TARUNADITYA","TELUGU VAISHNAVI","U CHETNA","UDDAGIRI BHARATH","UPADRASTA LOHITH","V AMITHA SRI","V KEERTHI","V S V PAVANI MAYUKHA","VANAPARTHI DIVYA SRI","VED PRANAY ANGARA","VEDULA SANTOSH NARAYANA ADITYA","VEESAM SRIYA","VELIDE GAYATRI","VENKAT DEEPAK","VENNA PRERANA","VOLLALA ANSHU","VUDATHA SAI KALYAN","YAGANTI KEERTHI","YELAMANCHILI VISWANATH","YEMIREDDY SPANDANA"];
+                for (let i=1; i<=200; i++) {
+                    document.write("<tr>");
+                        document.write("<td>" + i + "</td>");
+                        document.write("<td>" + cars[i] + "</td>");
+                        document.write("<td><input type='checkbox' id='check" + i + "' onchange='updateAttendance(" + i + ")'></td>");
+                    document.write("</tr>");
+                }
+
+                // Function to pad a number with leading zeroes  pad(i, 3)
+                //function pad(num, length) {
+                 //   return num.toString().padStart(length, '0');
+                //}
+
+                // Initialize attendance array
+                const attendance = [];
+                for (let i = 1; i <= 200; i++) {
+                    attendance.push(false);
+                }
+
+                // Function to update attendance
+                function updateAttendance(rollNo) {
+                    const checkbox = document.getElementById('check' + rollNo);
+                    attendance[rollNo - 1] = checkbox.checked;
+                }
+
+                // Function to generate absentees list
+                function generateAbsenteesList() {
+				    const startTimeSelect = document.querySelector('select[name="start-time"]');const endTimeSelect = document.querySelector('select[name="end-time"]');const startTime = startTimeSelect.value;const endTime = endTimeSelect.value;const startTimeOption = startTimeSelect.options[startTimeSelect.selectedIndex].text;const endTimeOption = endTimeSelect.options[endTimeSelect.selectedIndex].text;const timeOptionString = `${startTimeOption} - ${endTimeOption}`;
+
+                    // Create a new array with absentees' roll numbers
+                    const absentees =[];
+                    for (let i = 0; i < attendance.length; i++) {
+                        if (attendance[i]) {
+                            const rollNo = i + 1;
+                            absentees.push(pad(rollNo, 3));
+                        }
+                    }
+
+                    // Convert absentees array to comma-separated string
+                    const absenteesString = absentees.join(', ');
+                    // Display absentees list
+                    const absenteesList= document.getElementById('absentes');
+                    absenteesList.innerText = 'Absentees: ' + absenteesString;
+                    const adst= document.getElementById('absenteesList');
+                    
+                        const topicName = document.getElementById('topicName').value;
+                        const facultyName = document.getElementById('facultyName').value;
+                        // Add topic name and faculty name to image
+                        const topic = document.getElementById('head1');
+                        topic.textContent = "Biochemistry - "+topicName;
+                        //document.body.insertBefore(topic, img);
+
+                        const faculty = document.getElementById('head2');
+                        faculty.textContent = 'Faculty: ' + facultyName;
+                        //document.body.insertBefore(faculty, img);
+						const time = document.getElementById('head3');
+                        time.textContent = 'Time: ' + timeOptionString;
+                        //document.body.insertBefore(time, img);
+                    // Take screenshot of absentees list div and convert to image
+                    html2canvas(adst).then(function(canvas) {
+                        const image = canvas.toDataURL();
+
+                        // Add image to document
+                        var img = document.getElementById('h2cimg');
+                        img.src = image;
+                        //document.body.appendChild(img);
+
+					document.getElementById('clipbut').setAttribute("clips", "Topic:"+topicName+"    Time:"+timeOptionString+"    Faculty:"+facultyName+"   Absentees:"+absenteesString);
+
+                        // Create a new canvas element to draw the image with the topic name and faculty name
+                        //var newCanvas = document.getElementById('h2ccan');
+                        //newCanvas.width = canvas.width;
+                        /*newCanvas.height = canvas.height + 80; // Add extra space for the topic name and faculty name
+
+                        const ctx = newCanvas.getContext('2d');
+                        ctx.fillStyle = '#fff';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height + 50); // Fill the canvas with white
+
+                         Draw the image on the canvas
+                        const imgObj = new Image();
+                        imgObj.src = image;
+                        imgObj.onload = function() {
+                            //ctx.drawImage(imgObj, 10, 50);
+
+                            // Add the topic name and faculty name to the canvas
+                            ctx.font = 'bold 20px Arial';
+                            ctx.fillStyle = '#000';
+                            ctx.textAlign = 'center';
+                            ctx.fillText("", canvas.width / 2, 30);
+                            ctx.font = 'bold 20px Arial';
+                            ctx.fillStyle = '#000';
+                            ctx.textAlign = 'center';
+                            ctx.fillText('Topic : '+ topicName, canvas.width / 2, 32);
+                            ctx.font = '20px Arial';
+                            ctx.fillText('Faculty: ' + facultyName, canvas.width / 2, 50);
+							ctx.fillText('Time: ' + timeOptionString, canvas.width / 2, 15);
+
+                            // Convert the canvas to an image and replace the original image with it
+                            const newImage = newCanvas.toDataURL();
+                            img.src = newImage;*/
+                        //};
+                    });
+                }
+            function shareOnWhatsApp() {
+  // Generate the image
+  generateAbsenteesList();
+
+  // Get the image element
+  const img = document.getElementById('h2cimg');
+
+  // Create a new anchor element with the WhatsApp share URL
+  const shareUrl = 'whatsapp://send?text=Check out this attendance list! ' + encodeURIComponent(img.src);
+  const shareLink = document.createElement('a');
+  shareLink.href = shareUrl;
+
+  // Simulate a click on the anchor element to open the WhatsApp share dialog
+  shareLink.click();
+}
+			</script>
+        </tbody>
+    </table>
+
+	<div style="text-align: center;">
+	<br>
+	<button onclick='generateAbsenteesList()' style='background-color: steelblue; color: white; font-size: 16px;'>Generate List of Absentees and Convert to Image</button><br>
+	<br>
+  <button onclick="shareOnWhatsApp()" style="background-color: #25D366; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer;">Share on WhatsApp</button>
+  <button id="clipbut" onclick="navigator.clipboard.writeText(this.getAttribute('clips'));" clips="" style="background-color: #25b3d3; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer;">COPY</button>
+</div>
+
+    <div id='absenteesList'>
+	  <h1 id="head1"></h1>
+	  <h2 id="head2"></h1>
+	  <h2 id="head3"></h1>
+	  <div id="absentes"></div>
+	</div>
+	<img id='h2cimg'></img>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js'></script>
+</body>
+</html>
