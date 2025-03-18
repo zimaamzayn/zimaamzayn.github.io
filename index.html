@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+        /* Disable text selection */
+        body {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+    <script>
+        // Disable Right Click
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
+
+        // Disable Copy, Cut, and Paste
+        document.addEventListener("copy", function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener("cut", function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener("paste", function (e) {
+            e.preventDefault();
+        });
+
+        // Block Developer Tools (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+        document.addEventListener("keydown", function (e) {
+            if (
+                e.key === "F12" ||
+                (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
+                (e.ctrlKey && e.key === "U")
+            ) {
+                e.preventDefault();
+            }
+        });
+
+        // Detect DevTools Open (Debugger Trick)
+        (function () {
+            function detectDevTools() {
+                if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
+                    console.clear();
+                    alert("Developer tools detected! Please close them.");
+                    window.location.reload(); // Refresh page
+                }
+            }
+            setInterval(detectDevTools, 1000);
+        })();
+
+        // Pause Execution in Debugger (Harder to Bypass)
+        function blockDebugger() {
+            setInterval(function () {
+                debugger;
+            }, 50);
+        }
+        blockDebugger();
+    </script>
+
+    <title>Home - Zimaam Zayn</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f5f0;
+            color: #064e3b;
+        }.all-posts-button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.all-posts-button a {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.all-posts-button a:hover {
+    background-color: #45a049;
+}
+
+
+        .header {
+            background-image: url('https://images.pexels.com/photos/4827/nature-forest-industry-rails.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .rumi-quote {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #064e3b;
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 10px;
+    }
+
+        .header h1 {
+            font-size: 3rem;
+            margin: 0;
+            background-color: rgba(6, 78, 59, 0.8);
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-family: 'Georgia', serif;
+        }
+
+        .latest-posts {
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .latest-posts h2 {
+            font-family: 'Georgia', serif;
+            color: #064e3b;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #064e3b;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .post {
+            margin: 15px auto;
+            max-width: 800px;
+            border: 2px solid #a7d7c5;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .post img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .post-content h3 {
+            font-family: 'Georgia', serif;
+        }
+
+        .post-content h3 a {
+            text-decoration: none;
+            color: #064e3b;
+        }
+
+        .post-content h3 a:hover {
+            text-decoration: underline;
+        }
+
+        .contact {
+            padding: 20px;
+            background: #d7f3e4;
+            text-align: center;
+            border-top: 2px solid #a7d7c5;
+        }
+
+        .contact a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #064e3b;
+            font-weight: bold;
+        }
+
+        .contact p {
+            margin: 0;
+            font-family: 'Georgia', serif;
+        }
+
+        .article-page {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            border: 2px solid #a7d7c5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .article-header img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .article-header .author-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .article-header h1 {
+            margin: 0 0 5px;
+            color: #064e3b;
+            font-family: 'Georgia', serif;
+        }
+
+        .article-header .author-name {
+            font-size: 1rem;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: #064e3b;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .article-header .author-name img {
+            width: 16px;
+            height: 16px;
+            margin-left: 5px;
+        }
+
+        .article-content img {
+            width: 100%;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: #064e3b;
+            font-weight: bold;
+        }
+
+        .navigation a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .post-content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Homepage -->
+    <div class="header">
+        <h1>﷽</h1>
+
+
+    </div>
+    <p class="rumi-quote" id="rumi-quote">Loading quote...</p>
+
+    <script>
+        const rumiQuotes = [
+            "Don’t grieve. Anything you lose comes round in new form. ~ Rumi",
+            "You were born with wings, why prefer to crawl through life? ~ Rumi",
+            "Try not to resist the changes that come your way. Instead, embrace them, let life flow through you. ~ Rumi",
+            "The soul has been given its own ears to hear things the mind does not understand. ~ Rumi",
+            "Don't be satisfied with stories, how things have gone with others. Unfold your own myth. ~ Rumi",
+            "When the soul lies down in that grass, the world is too full to talk about ideas, language, even the phrase each other—no tracings of the self remain. ~ Rumi",
+            "Be like a tree and let the dead leaves drop. ~ Rumi",
+            "The breeze at dawn has secrets to tell you. Don’t go back to sleep. ~ Rumi",
+            "Don’t wait any longer. Dive in the ocean, leave and let the sea be you. ~ Rumi",
+            "Out beyond ideas of wrongdoing and rightdoing, there is a field. I'll meet you there. ~ Rumi",
+            "You are not a drop in the ocean. You are the entire ocean in a drop. ~ Rumi",
+            "Silence is the language of God, all else is poor translation. ~ Rumi",
+            "The wound is the place where the light enters you. ~ Rumi",
+            "Be like a flower, turn your face to the sun. ~ Rumi",
+            "If you are irritated by every rub, how will your mirror be polished? ~ Rumi",
+            "Everything that is made beautiful and fair and lovely is made for the eye of one who sees. ~ Rumi",
+            "When you let go of who you are, you become who you might be. ~ Rumi",
+            "Set your life on fire. Seek those who fan your flames. ~ Rumi",
+            "Don’t be satisfied with stories, how things have gone with others. Unfold your own myth. ~ Rumi",
+            "The moon stays bright when it doesn’t avoid the night. ~ Rumi",
+            "Live life as if everything is rigged in your favor. ~ Rumi",
+            "Be a lamp, or a lifeboat, or a ladder. ~ Rumi",
+            "You are a mirror of the entire universe. ~ Rumi",
+            "What you seek is seeking you. ~ Rumi",
+            "Try not to resist the changes that come your way. Instead, embrace them, let life flow through you. ~ Rumi",
+            "Don’t mourn. Anything you lose comes round in new form. ~ Rumi",
+            "Why are you so busy with this or that or good or bad; pay attention to how things blend. ~ Rumi",
+            "Live in the nowhere that you came from, even though you have an address here. ~ Rumi",
+            "Don't grieve. Anything you lose comes round in new form. ~ Rumi",
+            "Love is the bridge between you and everything. ~ Rumi",
+            "You were born with wings, why prefer to crawl through life? ~ Rumi",
+            "There is a voice that doesn't use words. Listen. ~ Rumi"
+        ];
+
+        // Function to get a random quote
+        function getRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * rumiQuotes.length);
+            return rumiQuotes[randomIndex];
+        }
+
+        // Display a random quote
+        document.getElementById('rumi-quote').innerHTML = getRandomQuote();
+    </script>
+    <div class="latest-posts">
+        <h2>Latest Posts</h2>
+        
+<div class="post">
+            <img src="https://i.postimg.cc/J07XvFhf/56567b91-43b6-4fe6-a4ab-421290b8ac4c.png" alt="Post Thumbnail">
+            <div class="post-content">
+                <h3><a href="post/islamic-finance.html">Islamic Finance: Principles and Basics</a></h3>
+                <p>Over the past few decades, Muslims have sought to align finance with Islamic principles. Some believe removing interest makes finance charitable, but...</p>
+            </div>
+</div>  
+        <div class="post">
+            <img src="https://i.postimg.cc/3N7GC1HL/1f443ffd-a5bf-420c-b9b9-bf08967e522c.png" alt="Post Thumbnail">
+            <div class="post-content">
+                <h3><a href="post/managing-your-emotions.html">Managing Your Emotions: Through Personal Growth, the Quran, and Sunnah</a></h3>
+                <p>Throughout the Quran, we are reminded: <em>"...Surely in that there are signs for people who reflect"</em> (ar-Ra’d 13:3). Reflection is a powerful tool...</p>
+            </div>
+</div>        <div class="post">
+            <img src="https://i.postimg.cc/qvmxcdjf/5835647343423240225.jpg" alt="Post Thumbnail">
+            <div class="post-content">
+                <h3><a href="post/the-myth-of-barbaric-muslim.html">Unveiling the Myths of the 'Barbaric' Muslim: A Critical Examination of the West
+</a></h3>
+                <p>Muslims and Islam have been at the receiving end of the most vitriolic attacks and polemics known in history, and the consequences have been dreadful...</p>
+            </div>
+        </div>
+        <div class="post">
+            <img src="https://i.postimg.cc/zX6svmt2/output-onlinepngtools.png" alt="Post Thumbnail">
+            <div class="post-content">
+                <h3><a href="post/clash-of-civilisations-bilal-philips.html">The Clash of Western & Islamic Culture</a></h3>
+                <p>It is important to understand Islam from a cultural point of view, to understand whether culture has helped us in dealing with the west..</p>
+            </div>
+        </div>
+        <div class="post">
+            <img src="https://i.postimg.cc/Dw4q5n8d/5808753886008293039.jpg" alt="Post Thumbnail">
+            <div class="post-content">
+                <h3><a href="post/myself.html">Balancing Medicine and Faith : A Medico's Journey</a></h3>
+                <p>This is my first Post and I wanted to introduce myself to you guys a little bit.</p>
+            </div>
+        </div>
+        <div class="all-posts-button">
+    <a href="post/All.html">View All Posts</a>
+    </div></div>
+    
+
+    <div class="contact">
+        <p>Contact Me: <i style="font-size:24px" class="fa">&#xf0e0;</i> <a>zayn123@duck.com</a> | <a href="https://t.me/zimaamzayn"><i class="fa-brands fa-telegram" style="font-size:24px"></i> Telegram</a></p>
+    </div>
+</body>
+</html>
