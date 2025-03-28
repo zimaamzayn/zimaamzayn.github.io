@@ -1,94 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-    <!-- Main Website -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://zayn.us.kg</loc>
         <lastmod>2023-10-01</lastmod>
-        <xhtml:title>Exploring Islam with Curiosity - Zimaam Zayn</xhtml:title>
     </url>
 
-    <!-- Homepage -->
     <url>
         <loc>https://zayn.us.kg/post/All.html</loc>
         <lastmod>2023-10-01</lastmod>
-        <xhtml:title>All Posts</xhtml:title>
     </url>
 
-    <!-- Az-Zuhd: Renouncing Worldly Pleasures for Nearness to Allah -->
     <url>
         <loc>https://zayn.us.kg/post/az-zuhd.html</loc>
         <lastmod>2023-10-01</lastmod>
-        <xhtml:title>Az-Zuhd: Renouncing Worldly Pleasures for Nearness to Allah</xhtml:title>
     </url>
 
-    <!-- Are You Addicted to Others? -->
     <url>
         <loc>https://zayn.us.kg/post/are-u-addicted-to-others.html</loc>
         <lastmod>2023-10-01</lastmod>
-        <xhtml:title>Are You Addicted to Others?</xhtml:title>
     </url>
 
-    <!-- The Clash of Western & Islamic Culture -->
     <url>
         <loc>https://zayn.us.kg/post/clash-of-civilisations-bilal-philips.html</loc>
         <lastmod>2023-10-01</lastmod>
-        <xhtml:title>The Clash of Western & Islamic Culture</xhtml:title>
     </url>
 
-    <!-- Islamic Finance: Principles and Basics -->
     <url>
         <loc>https://zayn.us.kg/post/islamic-finance.html</loc>
         <lastmod>2023-10-01</lastmod>
-        <xhtml:title>Islamic Finance: Principles and Basics</xhtml:title>
     </url>
 
-    <!-- Islamic Psychology: A Comprehensive View of Human Nature -->
     <url>
         <loc>https://zayn.us.kg/post/islamic-psychology.html</loc>
         <lastmod>2023-10-01</lastmod>
-        <xhtml:title>Islamic Psychology: A Comprehensive View of Human Nature</xhtml:title>
     </url>
 
-    <!-- Managing Your Emotions -->
     <url>
         <loc>https://zayn.us.kg/post/managing-your-emotions.html</loc>
         <lastmod>2023-10-01</lastmod>
-        <xhtml:title>Managing Your Emotions</xhtml:title>
     </url>
 
-    <!-- Balancing Medicine and Faith: A Medico's Journey -->
     <url>
         <loc>https://zayn.us.kg/post/myself.html</loc>
         <lastmod>2023-10-01</lastmod>
-        <xhtml:title>Balancing Medicine and Faith: A Medico's Journey</xhtml:title>
     </url>
 
-    <!-- Next Article (Placeholder) -->
     <url>
         <loc>https://zayn.us.kg/post/next-article.html</loc>
         <lastmod>2023-10-01</lastmod>
-        <xhtml:title>Next Article</xhtml:title>
     </url>
 
-    <!-- Living without Emotions: Reflecting a World from 'The Giver' -->
     <url>
         <loc>https://zayn.us.kg/post/the-giver-novel.html</loc>
         <lastmod>2023-10-01</lastmod>
-        <xhtml:title>Living without Emotions: Reflecting a World from 'The Giver'</xhtml:title>
     </url>
 
-    <!-- Unveiling the Myths of the 'Barbaric' Muslim -->
     <url>
         <loc>https://zayn.us.kg/post/the-myth-of-barbaric-muslim.html</loc>
         <lastmod>2023-10-01</lastmod>
-        <xhtml:title>Unveiling the Myths of the 'Barbaric' Muslim</xhtml:title>
     </url>
 
-    <!-- The Unwelcome Guests -->
     <url>
         <loc>https://zayn.us.kg/post/the-unwelcome-guests.html</loc>
         <lastmod>2023-10-01</lastmod>
-        <xhtml:title>The Unwelcome Guests</xhtml:title>
     </url>
 </urlset>
