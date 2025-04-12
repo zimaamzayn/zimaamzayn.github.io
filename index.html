@@ -113,7 +113,7 @@
             text-align: center;
         }
         
-        .rumi-quote {
+        .Q-quote {
     font-family: 'Georgia', serif;
     font-style: italic;
     font-size: 1.5rem;
@@ -291,52 +291,43 @@
 
 
     </div>
-    <p class="rumi-quote" id="rumi-quote">Loading quote...</p>
+    <p class="Q-quote" id="Q-quote">Loading quote...</p>
 
     <script>
-        const rumiQuotes = [
-            "Don’t grieve. Anything you lose comes round in new form. ~ Rumi",
-            "You were born with wings, why prefer to crawl through life? ~ Rumi",
-            "Try not to resist the changes that come your way. Instead, embrace them, let life flow through you. ~ Rumi",
-            "The soul has been given its own ears to hear things the mind does not understand. ~ Rumi",
-            "Don't be satisfied with stories, how things have gone with others. Unfold your own myth. ~ Rumi",
-            "When the soul lies down in that grass, the world is too full to talk about ideas, language, even the phrase each other—no tracings of the self remain. ~ Rumi",
-            "Be like a tree and let the dead leaves drop. ~ Rumi",
-            "The breeze at dawn has secrets to tell you. Don’t go back to sleep. ~ Rumi",
-            "Don’t wait any longer. Dive in the ocean, leave and let the sea be you. ~ Rumi",
-            "Out beyond ideas of wrongdoing and rightdoing, there is a field. I'll meet you there. ~ Rumi",
-            "You are not a drop in the ocean. You are the entire ocean in a drop. ~ Rumi",
-            "Silence is the language of God, all else is poor translation. ~ Rumi",
-            "The wound is the place where the light enters you. ~ Rumi",
-            "Be like a flower, turn your face to the sun. ~ Rumi",
-            "If you are irritated by every rub, how will your mirror be polished? ~ Rumi",
-            "Everything that is made beautiful and fair and lovely is made for the eye of one who sees. ~ Rumi",
-            "When you let go of who you are, you become who you might be. ~ Rumi",
-            "Set your life on fire. Seek those who fan your flames. ~ Rumi",
-            "Don’t be satisfied with stories, how things have gone with others. Unfold your own myth. ~ Rumi",
-            "The moon stays bright when it doesn’t avoid the night. ~ Rumi",
-            "Live life as if everything is rigged in your favor. ~ Rumi",
-            "Be a lamp, or a lifeboat, or a ladder. ~ Rumi",
-            "You are a mirror of the entire universe. ~ Rumi",
-            "What you seek is seeking you. ~ Rumi",
-            "Try not to resist the changes that come your way. Instead, embrace them, let life flow through you. ~ Rumi",
-            "Don’t mourn. Anything you lose comes round in new form. ~ Rumi",
-            "Why are you so busy with this or that or good or bad; pay attention to how things blend. ~ Rumi",
-            "Live in the nowhere that you came from, even though you have an address here. ~ Rumi",
-            "Don't grieve. Anything you lose comes round in new form. ~ Rumi",
-            "Love is the bridge between you and everything. ~ Rumi",
-            "You were born with wings, why prefer to crawl through life? ~ Rumi",
-            "There is a voice that doesn't use words. Listen. ~ Rumi"
-        ];
+        const QQuotes = [
+  "The crying of the sinners is more loved to Allah than the tasbeeh of the arrogant. ~ Ibn al-Qayyim",
+  "A person’s tongue can give you the taste of his heart. ~ Ibn al-Qayyim",
+  "Patience is when the heart doesn’t lament and the mouth doesn’t complain. ~ Ibn al-Qayyim",
+  "If scholars are wicked and worshippers are ignorant, the trial will be severe. ~ Ibn al-Qayyim",
+  "A deprivation of a few moments [of pleasure] is better than permanent regret. ~ Ibn al-Qayyim",
+  "Satisfaction is when a person submits himself to his Lord. ~ Ibn al-Qayyim",
+  "Knowledge is not about narrating a lot but it is about Taqwa (piety). ~ Ibn al-Qayyim",
+  "The happiness of the drop is to die in the river. ~ Imam al-Ghazali",
+  "Verily, the weight of half of disbelief in the world is carried by religious people who made God detestable to His servants. ~ Imam al-Ghazali",
+  "Beware of being preoccupied with rectifying others before you rectify yourself. ~ Ibn Qudamah",
+  "The Sunnah is like the Ark of Noah. Whoever embarks upon it reaches salvation and whoever refuses is drowned. ~ Imam Malik",
+  "Whoever wants to have a clean heart, then let his secret deeds be better than his public deeds. ~ Imam Malik",
+  "Fools are those who debate with ignorants. ~ Imam al-Shafi‘i",
+  "Every statement on the authority of the Prophet (S.A.W) is also my view, even if you do not hear it from me. ~ Imam al-Shafi‘i",
+  "The more I learn; the more I learn of my ignorance. ~ Imam al-Shafi‘i",
+  "Whoever gossips with you (about others) will also gossip about you (to others). ~ Imam al-Shafi‘i",
+  "Know that you cannot love Allah until you love obeying Him. ~ Hasan al-Basri",
+  "If you desire Allah to be persistent in granting you the things you love, be persistent in doing the things He loves. ~ Imam Ahmad ibn Hanbal",
+  "If destiny was presented to a man, he would choose the one that Allah has already chosen for him. ~ Imam Ahmad ibn Hanbal",
+  "Beware of developing a view that you have never heard from any scholar. ~ Imam Ahmad ibn Hanbal",
+  "I left trying to please people and from that moment I got the energy needed to speak the truth. ~ Imam Ahmad ibn Hanbal",
+  "Whoever acts without knowledge corrupts more than he rectifies. ~ Hasan al-Basri",
+  "Occupy yourself with every good deed and hasten to do it before something prevents you from doing so. ~ Imam Ahmad ibn Hanbal"
+];
 
         // Function to get a random quote
         function getRandomQuote() {
-            const randomIndex = Math.floor(Math.random() * rumiQuotes.length);
-            return rumiQuotes[randomIndex];
+            const randomIndex = Math.floor(Math.random() * QQuotes.length);
+            return QQuotes[randomIndex];
         }
 
         // Display a random quote
-        document.getElementById('rumi-quote').innerHTML = getRandomQuote();
+        document.getElementById('Q-quote').innerHTML = getRandomQuote();
     </script>
     <div class="latest-posts">
         <h2>Latest Posts</h2>
