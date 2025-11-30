@@ -170,17 +170,6 @@
 
 
         /* Existing General Styles */
-        .header {
-            background-image: url('https://images.pexels.com/photos/4827/nature-forest-industry-rails.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 40vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-        }
         
         .Q-quote {
             font-family: 'Georgia', serif;
@@ -192,14 +181,28 @@
             padding: 10px 15px;
         }
 
-        .header h1 {
-            font-size: 3rem;
-            margin: 0;
-            background-color: rgba(6, 78, 59, 0.8);
-            padding: 15px 25px;
-            border-radius: 10px;
-            font-family: 'Georgia', serif;
-        }
+        /* FIXED HEADER — no extra vertical space */
+.header {
+    background-image: url('https://images.pexels.com/photos/4827/nature-forest-industry-rails.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 35px 0;              /* natural spacing instead of 40vh */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+/* Fix ﷽ spacing */
+.header h1 {
+    font-size: 3rem;
+    margin: 0;                    /* remove default h1 margins */
+    padding: 12px 25px;
+    background-color: rgba(6, 78, 59, 0.8);
+    border-radius: 10px;
+    font-family: 'Georgia', serif;
+}
 
         .contact {
             padding: 20px;
