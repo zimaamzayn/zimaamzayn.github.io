@@ -5,148 +5,127 @@
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="HXHOlsnBbFiq_h0-lvUYp-v44DvTM3S9erwS54K1USM" />
     <meta name="description" content="Discover insightful articles and personal reflections by Zimaam Zayn. Dive into thought-provoking discussions and knowledge-based posts."> 
-<meta name="author" content="Zimaam Zayn">
-<meta name="keywords" content="Islam, Psychology, Novels, Philosophy, Emotions, Culture, Self-Development, Reflections, Zimaam Zayn, Books"> 
-<meta property="og:title" content="Exploring with Curiosity - Zimaam Zayn"> 
-<meta property="og:description" content="Discover insightful articles on Islam and personal reflections by Zimaam Zayn. Dive into thought-provoking discussions and knowledge-based posts.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://zayn.us.kg">
-<meta property="og:image" content="https://zayn.us.kg/og.png">
-     <link rel="icon" href="https://i.postimg.cc/3RS56xZj/20250119-095943-removebg-preview.png" /> 
+    <meta name="author" content="Zimaam Zayn">
+    <meta name="keywords" content="Islam, Psychology, Novels, Philosophy, Emotions, Culture, Self-Development, Reflections, Zimaam Zayn, Books"> 
+    <meta property="og:title" content="Exploring with Curiosity - Zimaam Zayn"> 
+    <meta property="og:description" content="Discover insightful articles on Islam and personal reflections by Zimaam Zayn. Dive into thought-provoking discussions and knowledge-based posts.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zayn.us.kg">
+    <meta property="og:image" content="https://zayn.us.kg/og.png">
+    <link rel="icon" href="https://i.postimg.cc/3RS56xZj/20250119-095943-removebg-preview.png" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
         /* Disable text selection */
         body {
             user-select: none;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
-        }
-    </style>
-    <script>
-        // Disable Right Click
-        document.addEventListener("contextmenu", function (e) {
-            e.preventDefault();
-        });
-
-        // Disable Copy, Cut, and Paste
-        document.addEventListener("copy", function (e) {
-            e.preventDefault();
-        });
-        document.addEventListener("cut", function (e) {
-            e.preventDefault();
-        });
-        document.addEventListener("paste", function (e) {
-            e.preventDefault();
-        });
-
-        // Block Developer Tools (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
-        document.addEventListener("keydown", function (e) {
-            if (
-                e.key === "F12" ||
-                (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
-                (e.ctrlKey && e.key === "U")
-            ) {
-                e.preventDefault();
-            }
-        });
-
-        // Detect DevTools Open (Debugger Trick)
-        (function () {
-            function detectDevTools() {
-                if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
-                    console.clear();
-                    alert("Developer tools detected! Please close them.");
-                    window.location.reload(); // Refresh page
-                }
-            }
-            setInterval(detectDevTools, 1000);
-        })();
-
-        // Pause Execution in Debugger (Harder to Bypass)
-        function blockDebugger() {
-            setInterval(function () {
-                debugger;
-            }, 50);
-        }
-        blockDebugger();
-    </script>
-
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
-    <style>
-        body {
             margin: 0;
             font-family: 'Arial', sans-serif;
             background-color: #f0f5f0;
             color: #064e3b;
-        }.all-posts-button {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.all-posts-button a {
-    display: inline-block;
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.all-posts-button a:hover {
-    background-color: #45a049;
-}
-
-
-        .header {
-            background-image: url('https://images.pexels.com/photos/4827/nature-forest-industry-rails.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 40vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
             text-align: center;
         }
         
-        .Q-quote {
-    font-family: 'Georgia', serif;
-    font-style: italic;
-    font-size: 1.5rem;
-    margin-top: 10px;
-    color: #064e3b;
-    display: inline-block;
-    padding: 10px 15px;
-    border-radius: 10px;
-    }
-
-        .header h1 {
-            font-size: 3rem;
-            margin: 0;
-            background-color: rgba(6, 78, 59, 0.8);
-            padding: 15px 25px;
-            border-radius: 10px;
-            font-family: 'Georgia', serif;
-        }
-
-        .latest-posts {
-            padding: 10px 20px;
-            text-align: center;
-        }
-
-        .latest-posts h2 {
+        /* Section Title Styles */
+        .section-title, .latest-posts-title {
             font-family: 'Georgia', serif;
             color: #064e3b;
-            margin-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 2rem;
             border-bottom: 2px solid #064e3b;
             display: inline-block;
             padding-bottom: 5px;
         }
 
+        .grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: 2px solid #a7d7c5;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h3 {
+            font-family: 'Georgia', serif;
+            color: #064e3b;
+            margin-top: 0;
+        }
+
+        .card-content p {
+            color: #333;
+            margin-bottom: 0;
+        }
+
+        /* Styling for the 'All Posts' button */
+        .all-posts-button {
+            margin: 30px auto 50px auto; 
+            text-align: center;
+            max-width: 800px; 
+            padding: 0 20px;
+        }
+
+        .all-posts-button a {
+            display: inline-block;
+            background-color: #064e3b;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.3s ease;
+        }
+
+        .all-posts-button a:hover {
+            background-color: #04372a;
+        }
+        
+        /* Latest Posts Card Styling */
+        .latest-posts-container {
+            max-width: 840px; 
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            text-align: center; 
+        }
+        
         .post {
             margin: 15px auto;
             max-width: 800px;
@@ -155,6 +134,12 @@
             overflow: hidden;
             background-color: #ffffff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .post:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
         .post img {
@@ -170,6 +155,8 @@
 
         .post-content h3 {
             font-family: 'Georgia', serif;
+            margin-top: 0;
+            color: #064e3b; 
         }
 
         .post-content h3 a {
@@ -181,11 +168,45 @@
             text-decoration: underline;
         }
 
+
+        /* Existing General Styles */
+        .header {
+            background-image: url('https://images.pexels.com/photos/4827/nature-forest-industry-rails.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .Q-quote {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            margin-top: 20px; 
+            color: #064e3b;
+            display: block;
+            padding: 10px 15px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin: 0;
+            background-color: rgba(6, 78, 59, 0.8);
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-family: 'Georgia', serif;
+        }
+
         .contact {
             padding: 20px;
             background: #d7f3e4;
             text-align: center;
             border-top: 2px solid #a7d7c5;
+            margin-top: 40px;
         }
 
         .contact a {
@@ -200,125 +221,77 @@
             font-family: 'Georgia', serif;
         }
 
-        .article-page {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            border: 2px solid #a7d7c5;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        @media (min-width: 600px) {
+            .grid .card { 
+                 width: 45%; 
+            }
         }
-
-        .article-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .article-header img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-
-        .article-header .author-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .article-header h1 {
-            margin: 0 0 5px;
-            color: #064e3b;
-            font-family: 'Georgia', serif;
-        }
-
-        .article-header .author-name {
-            font-size: 1rem;
-            font-family: 'Arial', sans-serif;
-            font-weight: bold;
-            color: #064e3b;
-            margin-right: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .article-header .author-name img {
-            width: 16px;
-            height: 16px;
-            margin-left: 5px;
-        }
-
-        .article-content img {
-            width: 100%;
-            margin: 20px 0;
-            border-radius: 10px;
-        }
-
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        .navigation a {
-            text-decoration: none;
-            color: #064e3b;
-            font-weight: bold;
-        }
-
-        .navigation a:hover {
-            text-decoration: underline;
-        }
-
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2rem;
             }
-
-            .post-content {
-                padding: 10px;
-            }
         }
     </style>
+
+    <script>
+        // Security scripts (keeping your original)
+        document.addEventListener("contextmenu", function (e) {e.preventDefault();});
+        document.addEventListener("copy", function (e) {e.preventDefault();});
+        document.addEventListener("cut", function (e) {e.preventDefault();});
+        document.addEventListener("paste", function (e) {e.preventDefault();});
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) || (e.ctrlKey && e.key === "U")) {e.preventDefault();}
+        });
+        (function () {
+            function detectDevTools() {
+                if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
+                    console.clear();
+                    alert("Developer tools detected! Please close them.");
+                    window.location.reload(); 
+                }
+            }
+            setInterval(detectDevTools, 1000);
+        })();
+        function blockDebugger() {
+            setInterval(function () {debugger;}, 50);
+        }
+        blockDebugger();
+    </script>
 </head>
 
 <body>
-    <!-- Homepage -->
     <div class="header">
         <h1>﷽</h1>
-
-
     </div>
+
     <p class="Q-quote" id="Q-quote">Loading quote...</p>
 
     <script>
         const QQuotes = [
-  "The crying of the sinners is more loved to Allah than the tasbeeh of the arrogant. ~ Ibn al-Qayyim",
-  "A person’s tongue can give you the taste of his heart. ~ Ibn al-Qayyim",
-  "Patience is when the heart doesn’t lament and the mouth doesn’t complain. ~ Ibn al-Qayyim",
-  "If scholars are wicked and worshippers are ignorant, the trial will be severe. ~ Ibn al-Qayyim",
-  "A deprivation of a few moments [of pleasure] is better than permanent regret. ~ Ibn al-Qayyim",
-  "Satisfaction is when a person submits himself to his Lord. ~ Ibn al-Qayyim",
-  "Knowledge is not about narrating a lot but it is about Taqwa (piety). ~ Ibn al-Qayyim",
-  "The happiness of the drop is to die in the river. ~ Imam al-Ghazali",
-  "Verily, the weight of half of disbelief in the world is carried by religious people who made God detestable to His servants. ~ Imam al-Ghazali",
-  "Beware of being preoccupied with rectifying others before you rectify yourself. ~ Ibn Qudamah",
-  "The Sunnah is like the Ark of Noah. Whoever embarks upon it reaches salvation and whoever refuses is drowned. ~ Imam Malik",
-  "Whoever wants to have a clean heart, then let his secret deeds be better than his public deeds. ~ Imam Malik",
-  "Fools are those who debate with ignorants. ~ Imam al-Shafi‘i",
-  "Every statement on the authority of the Prophet (S.A.W) is also my view, even if you do not hear it from me. ~ Imam al-Shafi‘i",
-  "The more I learn; the more I learn of my ignorance. ~ Imam al-Shafi‘i",
-  "Whoever gossips with you (about others) will also gossip about you (to others). ~ Imam al-Shafi‘i",
-  "Know that you cannot love Allah until you love obeying Him. ~ Hasan al-Basri",
-  "If you desire Allah to be persistent in granting you the things you love, be persistent in doing the things He loves. ~ Imam Ahmad ibn Hanbal",
-  "If destiny was presented to a man, he would choose the one that Allah has already chosen for him. ~ Imam Ahmad ibn Hanbal",
-  "Beware of developing a view that you have never heard from any scholar. ~ Imam Ahmad ibn Hanbal",
-  "I left trying to please people and from that moment I got the energy needed to speak the truth. ~ Imam Ahmad ibn Hanbal",
-  "Whoever acts without knowledge corrupts more than he rectifies. ~ Hasan al-Basri",
-  "Occupy yourself with every good deed and hasten to do it before something prevents you from doing so. ~ Imam Ahmad ibn Hanbal"
-];
+            "The crying of the sinners is more loved to Allah than the tasbeeh of the arrogant. ~ Ibn al-Qayyim",
+            "A person’s tongue can give you the taste of his heart. ~ Ibn al-Qayyim",
+            "Patience is when the heart doesn’t lament and the mouth doesn’t complain. ~ Ibn al-Qayyim",
+            "If scholars are wicked and worshippers are ignorant, the trial will be severe. ~ Ibn al-Qayyim",
+            "A deprivation of a few moments [of pleasure] is better than permanent regret. ~ Ibn al-Qayyim",
+            "Satisfaction is when a person submits himself to his Lord. ~ Ibn al-Qayyim",
+            "Knowledge is not about narrating a lot but it is about Taqwa (piety). ~ Ibn al-Qayyim",
+            "The happiness of the drop is to die in the river. ~ Imam al-Ghazali",
+            "Verily, the weight of half of disbelief in the world is carried by religious people who made God detestable to His servants. ~ Imam al-Ghazali",
+            "Beware of being preoccupied with rectifying others before you rectify yourself. ~ Ibn Qudamah",
+            "The Sunnah is like the Ark of Noah. Whoever embarks upon it reaches salvation and whoever refuses is drowned. ~ Imam Malik",
+            "Whoever wants to have a clean heart, then let his secret deeds be better than his public deeds. ~ Imam Malik",
+            "Fools are those who debate with ignorants. ~ Imam al-Shafi‘i",
+            "Every statement on the authority of the Prophet (S.A.W) is also my view, even if you do not hear it from me. ~ Imam al-Shafi‘i",
+            "The more I learn; the more I learn of my ignorance. ~ Imam al-Shafi‘i",
+            "Whoever gossips with you (about others) will also gossip about you (to others). ~ Imam al-Shafi‘i",
+            "Know that you cannot love Allah until you love obeying Him. ~ Hasan al-Basri",
+            "If you desire Allah to be persistent in granting you the things you love, be persistent in doing the things He loves. ~ Imam Ahmad ibn Hanbal",
+            "If destiny was presented to a man, he would choose the one that Allah has already chosen for him. ~ Imam Ahmad ibn Hanbal",
+            "Beware of developing a view that you have never heard from any scholar. ~ Imam Ahmad ibn Hanbal",
+            "I left trying to please people and from that moment I got the energy needed to speak the truth. ~ Imam Ahmad ibn Hanbal",
+            "Whoever acts without knowledge corrupts more than he rectifies. ~ Hasan al-Basri",
+            "Occupy yourself with every good deed and hasten to do it before something prevents you from doing so. ~ Imam Ahmad ibn Hanbal"
+        ];
 
         // Function to get a random quote
         function getRandomQuote() {
@@ -329,57 +302,72 @@
         // Display a random quote
         document.getElementById('Q-quote').innerHTML = getRandomQuote();
     </script>
-    <div class="latest-posts">
-        <h2>Latest Posts</h2>
+    
+    <h2 class="section-title">For Readers</h2>
+
+    <div class="grid">
+
+        <div class="card" onclick="location.href='/bookshelf';">
+            <img src="https://images.pexels.com/photos/8164399/pexels-photo-8164399.jpeg" alt="Book Recommendations Thumbnail - Quran and headphones">
+            <div class="card-content">
+                <h3>Book Recommendations</h3>
+                <p>Curated reading lists covering Islamic, philosophical, and self-development literature.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="location.href='/history';">
+            <img src="https://images.pexels.com/photos/34951539/pexels-photo-34951539.jpeg" alt="History Books Thumbnail - Islamic manuscripts">
+            <div class="card-content">
+                <h3>History</h3>
+                <p>Explore thought-provoking analysis on Islamic history and global events.</p>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">Our Projects</h2>
+
+    <div class="grid">
+
+        <div class="card" onclick="location.href='https://ayah.hs.vc';">
+            <img src="https://images.pexels.com/photos/9325760/pexels-photo-9325760.jpeg" alt="Quran">
+            <div class="card-content">
+                <h3>Ayah Platform</h3>
+                <p>A linguistic + contextual English tafsir of the Qur'an, verse by verse.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="location.href='/behave';">
+            <img src="https://images.pexels.com/photos/20638431/pexels-photo-20638431.jpeg" alt="Reading Islamic Book">
+            <div class="card-content">
+                <h3>Behaviour Platform</h3>
+                <p>Hadith-based guidance on behaviour in family and relationships.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="latest-posts-container">
+        <h2 class="latest-posts-title">Latest Posts</h2>
+        
         <div class="post">
             <img src="post/20250929_181004.jpg" alt="Universal-Rule Thumbnail">
             <div class="post-content">
                 <h3><a href="post/universal-rule.html">Ibn Taymiyaa on Universal Rule</a></h3>
                 <p>Discover how Ibn Taymiyya challenged the dominance of reason over revelation, in his monumental work Dar' Ta'arud.</p>
             </div>
-        </div>   
-<div class="post"><img src="https://iili.io/3pfTBYG.jpg" alt="Post Thumbnail"><div class="post-content"><h3><a href="post/social-interaction.html">Social Interaction: It's Rulings and Limitations in Islam</a></h3><p>A simple guide on Islamic principles of gender interactions, modesty, and ethical boundaries in social life.</p></div></div>
+        </div>
+
         <div class="post">
-            <img src="https://i.imgur.com/H31EmRD.jpeg" alt="Post Thumbnail">
-            <div class="post-content">
-                <h3><a href="post/nietzsche.html">Nietzsche's View Through Islamic Lens: Is He Truly A Great Philosopher?</a></h3>
-                <p>Friedrich Nietzsche is one of most discussed philosophers, whose views became so common in youth, so I compared them with Islam...</p>
-            </div>
-     </div>
-         <div class="post">
-            <img src="https://i.postimg.cc/mrdj4bkN/make-an-image-of-a-book-on-wooden-table-with-title-Ccurci-Fiction-1.jpg" alt="Post Thumbnail">
-            <div class="post-content">
-                <h3><a href="post/curcifiction.html">Curci-Fiction: A Story That Never Happened</a></h3>
-                <p>This is a polemic against the so-called crucifixion, which never happened.</p>
-            </div>
-</div>
-<div class="post">
             <img src="https://i.postimg.cc/J07XvFhf/56567b91-43b6-4fe6-a4ab-421290b8ac4c.png" alt="Post Thumbnail">
             <div class="post-content">
                 <h3><a href="post/islamic-finance.html">Islamic Finance: Principles and Basics</a></h3>
                 <p>Over the past few decades, Muslims have sought to align finance with Islamic principles. Some believe removing interest makes finance charitable, but...</p>
             </div>
-</div>  
-     <div class="post">
-            <img src="https://i.postimg.cc/qvmxcdjf/5835647343423240225.jpg" alt="Post Thumbnail">
-            <div class="post-content">
-                <h3><a href="post/the-myth-of-barbaric-muslim.html">Unveiling the Myths of the 'Barbaric' Muslim: A Critical Examination of the West
-</a></h3>
-                <p>Muslims and Islam have been at the receiving end of the most vitriolic attacks and polemics known in history, and the consequences have been dreadful...</p>
-            </div>
         </div>
-        <div class="post">
-            <img src="https://i.postimg.cc/Dw4q5n8d/5808753886008293039.jpg" alt="Post Thumbnail">
-            <div class="post-content">
-                <h3><a href="post/myself.html">Balancing Medicine and Faith : A Medico's Journey</a></h3>
-                <p>This is my first Post and I wanted to introduce myself to you guys a little bit.</p>
-            </div>
-        </div>
-        <div class="all-posts-button">
-    <a href="post/All.html">View All Posts</a>
-    </div></div>
+    </div>
+    <div class="all-posts-button">
+        <a href="post/All.html">View All Posts</a>
+    </div>
     
-
     <div class="contact">
         <p>Contact Me: <i style="font-size:24px" class="fa">&#xf0e0;</i> <a>zayn123@duck.com</a> | <a href="https://t.me/zimaamzayn"><i class="fa-brands fa-telegram" style="font-size:24px"></i> Telegram</a></p>
     </div>
