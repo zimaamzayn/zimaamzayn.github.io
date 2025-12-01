@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Islamic History Scroll</title>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* Body and overall background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    background: #f1e4d3;
+    color: #3b2f2f;
+}
+h2 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    text-align: center;
+}
+/* Container / Scroll */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: #fdf5e6; /* papyrus color */
+    border: 2px solid #d2b48c;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 50px;
+}
+
+.section h3 {
+    font-size: 22px;
+    border-bottom: 1px solid #d2b48c;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Sub-index / Section lists */
+.section ul {
+    list-style-type: disc; /* classic bullet */
+    margin: 10px 0 20px 20px; /* top, right, bottom, left */
+    padding: 0;
+}
+
+.section ul li {
+    margin: 6px 0;
+    font-size: 16px; /* smaller than main index */
+}
+
+.section ul li a {
+    color: #3b2f2f;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.section ul li a:hover {
+    text-decoration: underline;
+    color: #064e3b;
+}
+
+/* Homepage Button */
+.homepage-btn-container {
+    text-align: center;
+    margin: 30px 0; /* space below content */
+}
+
+.homepage-btn {
+    display: inline-block;
+    background-color: #8B4513; /* brown color */
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Georgia', serif;
+    transition: background-color 0.3s ease;
+}
+
+.homepage-btn:hover {
+    background-color: #5c2e08; /* darker brown on hover */
+}
+
+/* Responsive */
+@media(max-width: 500px) {
+    .container {
+        padding: 15px;
+    }
+    .section h3 {
+        font-size: 20px;
+    }
+    .section ul li {
+        font-size: 14px;
+    }
+    .homepage-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Islamic History</h2>
+    <!-- Sections with Sub-index -->
+    <div class="section" id="prophet">
+        <h3>Life of Prophet Muhammad ﷺ</h3>
+        <ul>
+            <li><a href="#">His Birth</a></li>
+            <li><a href="#">Early Life</a></li>
+            <li><a href="#">Prophethood Begins</a></li>
+            <li><a href="#">Migration (Hijrah)</a></li>
+            <li><a href="#">Major Battles</a></li>
+        </ul>
+    </div>
+
+    <div class="section" id="caliphs">
+        <h3>The Four Rightly Guided Caliphs</h3>
+        <ul>
+            <li><a href="#">Abu Bakr (r. 632–634)</a></li>
+            <li><a href="#">Umar ibn al-Khattab (r. 634–644)</a></li>
+            <li><a href="#">Uthman ibn Affan (r. 644–656)</a></li>
+            <li><a href="#">Ali ibn Abi Talib (r. 656–661)</a></li>
+        </ul>
+    </div>
+
+    <div class="section" id="umayyads">
+        <h3>Umayyad Dynasty</h3>
+        <ul>
+            <li><a href="#">Founding of the Dynasty</a></li>
+            <li><a href="#">Major Caliphs</a></li>
+            <li><a href="#">Expansion</a></li>
+            <li><a href="#">Fall of Umayyads</a></li>
+        </ul>
+    </div>
+
+    <div class="section" id="abbasids">
+        <h3>Abbasid Dynasty</h3>
+        <ul>
+            <li><a href="#">Founding of the Dynasty</a></li>
+            <li><a href="#">Major Caliphs</a></li>
+            <li><a href="#">Golden Age of Islam</a></li>
+            <li><a href="#">Decline of Abbasids</a></li>
+        </ul>
+    </div>
+
+    <div class="section" id="ottomans">
+        <h3>Ottoman Empire</h3>
+        <ul>
+            <li><a href="#">Rise of the Empire</a></li>
+            <li><a href="#">Major Sultans</a></li>
+            <li><a href="#">Expansion and Wars</a></li>
+            <li><a href="#">Fall of Ottomans</a></li>
+        </ul>
+    </div>
+
+    <div class="section" id="andalus">
+        <h3>Andalus (Muslim Spain)</h3>
+        <ul>
+            <li><a href="#">Early Conquest</a></li>
+            <li><a href="#">Cultural Achievements</a></li>
+            <li><a href="#">Decline of Andalus</a></li>
+            <li><a href="#">Legacy</a></li>
+        </ul>
+    </div>
+<!-- Homepage Button -->
+<div class="homepage-btn-container">
+    <a href="index.html" class="homepage-btn">Home</a>
+</div>
+</div>
+
+</body>
+</html>
