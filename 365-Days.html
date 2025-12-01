@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Letter</title>
+
+<!-- Handwriting Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+
+<style>
+
+/* Page Background */
+body {
+    background: #dcd9d0;
+    margin: 0;
+    padding: 15px;
+    font-family: 'Comic Neue', cursive;
+}
+
+/* White Paper */
+.paper-letter {
+    background: #ffffff;
+    padding: 30px 25px;
+    max-width: 680px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+    color: #222;
+    line-height: 1.55;
+}
+
+/* Dates */
+.dates {
+    text-align: right;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Letter Body */
+.from { margin-top: 20px; }
+.dear { margin-top: 25px; font-size: 18px; }
+
+.title {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.body-text {
+    margin-top: 12px;
+    font-size: 17px;
+}
+
+/* Signature (Left Side) */
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+    text-align: left;
+    margin-top: 40px; /* More space since "Take care" removed */
+}
+
+/* Mobile */
+@media(max-width: 500px) {
+    .paper-letter { padding: 22px; }
+    .title { font-size: 20px; }
+    .body-text { font-size: 16px; }
+    .signature { font-size: 32px; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="paper-letter">
+
+    <!-- Dates -->
+    <div class="dates">
+        <p id="gregorian-date">Loading...</p>
+        <p id="hijri-date">Loading...</p>
+    </div>
+
+    <p class="from"><strong>From:</strong> Zayn</p>
+
+    <p class="dear">Dear Reader,</p>
+
+    <h2 id="change-title" class="title">Loading...</h2>
+
+    <p id="change-text" class="body-text">Fetching today's insight...</p>
+
+    <!-- SIGNATURE ONLY — no take care, no underline -->
+    <p class="signature">Zayn</p>
+
+</div>
+
+<script>
+// ------------------
+// 1. Gregorian date
+// ------------------
+const today = new Date();
+document.getElementById("gregorian-date").innerText =
+    today.toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    });
+
+// ------------------
+// 2. Hijri API
+// ------------------
+fetch(`https://api.aladhan.com/v1/gToH?date=${today.getDate()}-${today.getMonth()+1}-${today.getFullYear()}`)
+    .then(res => res.json())
+    .then(data => {
+        let h = data.data.hijri;
+        document.getElementById("hijri-date").innerText =
+            `${h.weekday.en}, ${h.day} ${h.month.en} ${h.year} AH`;
+    });
+
+// ------------------
+// 3. Load JSON Content
+// ------------------
+const monthIndex = today.getMonth() + 1;
+const dayIndex = today.getDate();
+
+fetch(`data/month${monthIndex}.json`)
+    .then(r => r.json())
+    .then(json => {
+        let entry = json[dayIndex];
+        document.getElementById("change-title").innerText = entry.title;
+        document.getElementById("change-text").innerText = entry.text;
+    })
+    .catch(e => {
+        document.getElementById("change-title").innerText = "Content Missing";
+        document.getElementById("change-text").innerText =
+            "Please add the JSON file for this month.";
+    });
+
+</script>
+
+</body>
+</html>
