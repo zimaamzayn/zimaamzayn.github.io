@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Behaviour – Islamic Guide</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #F7F1E5;
+        background-image: radial-gradient(#e8ac9e33 1px, transparent 1px),
+                          radial-gradient(#8bbf9f33 1px, transparent 1px);
+        background-size: 40px 40px;
+        animation: bgMove 12s linear infinite;
+    }
+
+    @keyframes bgMove {
+        from { background-position: 0 0, 0 0; }
+        to { background-position: 300px 300px, 300px 300px; }
+    }
+
+    /* Modern Header */
+    header {
+        text-align: center;
+        padding: 30px 0 10px;
+        animation: fadeDown 1s ease-out;
+    }
+
+    @keyframes fadeDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #2B2B2B;
+        display: inline-block;
+        position: relative;
+        padding-bottom: 8px;
+    }
+
+    /* Animated underline */
+    .page-title::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        height: 3px;
+        width: 0;
+        background: #6DA67A;
+        border-radius: 2px;
+        transform: translateX(-50%);
+        animation: underlineExpand 1.2s ease-out forwards;
+    }
+
+    @keyframes underlineExpand {
+        from { width: 0; opacity: 0; }
+        to { width: 80%; opacity: 1; }
+    }
+
+    /* Grid */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 20px;
+        animation: fadeIn 1.2s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cards */
+    .card {
+        background: white;
+        border-radius: 18px;
+        padding: 25px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        cursor: pointer;
+        text-decoration: none;
+        color: #2B2B2B;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card::before {
+        content: "";
+        position: absolute;
+        top: -60%;
+        left: -60%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(109,166,122,0.15), transparent 60%);
+        transform: rotate(45deg);
+        transition: opacity 0.4s;
+        opacity: 0;
+    }
+
+    .card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .card:hover::before {
+        opacity: 1;
+    }
+
+    .title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #6DA67A;
+        margin-bottom: 8px;
+    }
+
+    .desc {
+        font-size: 14px;
+        color: #444;
+    }
+
+    /* Bottom Home Button (Not Floating) */
+    .home-btn-container {
+        text-align: center;
+        margin: 30px 0 40px;
+    }
+
+    .home-btn {
+        background: #6DA67A;
+        color: white;
+        padding: 14px 35px;
+        font-size: 16px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: inline-block;
+    }
+
+    .home-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+</style>
+</head>
+<body>
+
+<header>
+    <h1 class="page-title">Behaviour With Family – Islamic Guidance</h1>
+</header>
+
+<div class="grid">
+
+    <a href="parents.html" class="card">
+        <div class="title">Parents</div>
+        <div class="desc">Respect & kindness toward parents.</div>
+    </a>
+
+    <a href="siblings.html" class="card">
+        <div class="title">Siblings</div>
+        <div class="desc">Love, forgiveness & unity with siblings.</div>
+    </a>
+
+    <a href="spouse.html" class="card">
+        <div class="title">Spouse</div>
+        <div class="desc">Compassion, mercy & rights of marriage.</div>
+    </a>
+
+    <a href="relatives.html" class="card">
+        <div class="title">Relatives</div>
+        <div class="desc">Maintaining ties of kinship.</div>
+    </a>
+
+    <a href="friends.html" class="card">
+        <div class="title">Friends</div>
+        <div class="desc">Choosing righteous company.</div>
+    </a>
+
+    <a href="neighbours.html" class="card">
+        <div class="title">Neighbours</div>
+        <div class="desc">Their rights & Islamic manners.</div>
+    </a>
+
+    <a href="online.html" class="card">
+        <div class="title">Online Interactions</div>
+        <div class="desc">Manners in messages & social media.</div>
+    </a>
+
+</div>
+
+<!-- Home Button at Bottom -->
+<div class="home-btn-container">
+    <a href="index.html" class="home-btn">Home</a>
+</div>
+
+</body>
+</html>
