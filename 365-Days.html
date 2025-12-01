@@ -9,7 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
 
 <style>
-
+/* SHARE ICON (top-right) */
+.share-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.share-btn:hover { opacity: 1; }
 /* Page Background */
 body {
     background: #dcd9d0;
@@ -75,7 +83,12 @@ body {
 <body>
 
 <div class="paper-letter">
-
+<div class="share-btn" id="shareButton">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+         fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8.5 1.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707l-10.146 10.147a.5.5 0 0 1-.708-.708L12.293 2H9a.5.5 0 0 1-.5-.5z"/>
+    </svg>
+</div>
     <!-- Dates -->
     <div class="dates">
         <p id="gregorian-date">Loading...</p>
@@ -96,6 +109,21 @@ body {
 </div>
 
 <script>
+// SHARE BUTTON
+document.getElementById("shareButton").addEventListener("click", async () => {
+    const title = document.getElementById("change-title").innerText;
+    const text = document.getElementById("change-text").innerText;
+
+    if (navigator.share) {
+        navigator.share({
+            title: "Daily Letter",
+            text: `${title}\n\n${text}`,
+            url: window.location.href
+        });
+    } else {
+        alert("Sharing not supported on this device.");
+    }
+});
 // ------------------
 // 1. Gregorian date
 // ------------------
