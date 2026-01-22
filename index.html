@@ -1,309 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
+<title>Exploring with Curiosity - Zimaam Zayn</title>
 <head>
     <meta charset="UTF-8">
-    <title>Exploring with Curiosity - Zimaam Zayn</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="HXHOlsnBbFiq_h0-lvUYp-v44DvTM3S9erwS54K1USM" />
-    <meta name="description" content="Discover insightful articles and personal reflections by Zimaam Zayn. Dive into thought-provoking discussions."> 
+    <meta name="description" content="Discover insightful articles and personal reflections by Zimaam Zayn. Dive into thought-provoking discussions and knowledge-based posts."> 
     <meta name="author" content="Zimaam Zayn">
-    <meta name="keywords" content="Islam, Psychology, Novels, Philosophy, Emotions, Culture, Self-Development, Reflections, Zimaam Zayn"> 
-    
+    <meta name="keywords" content="Islam, Psychology, Novels, Philosophy, Emotions, Culture, Self-Development, Reflections, Zimaam Zayn, Books"> 
     <meta property="og:title" content="Exploring with Curiosity - Zimaam Zayn"> 
-    <meta property="og:description" content="Discover insightful articles on Islam and personal reflections by Zimaam Zayn.">
+    <meta property="og:description" content="Discover insightful articles on Islam and personal reflections by Zimaam Zayn. Dive into thought-provoking discussions and knowledge-based posts.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://zayn.us.kg">
     <meta property="og:image" content="https://zayn.us.kg/og.png">
-    
-    <link rel="icon" href="https://i.postimg.cc/3RS56xZj/20250119-095943-removebg-preview.png" />
+    <link rel="icon" href="https://i.postimg.cc/3RS56xZj/20250119-095943-removebg-preview.png" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Disable text selection */
+        body {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f5f0;
+            color: #064e3b;
+            text-align: center;
+        }
+        
+        /* Section Title Styles */
+        .section-title, .latest-posts-title {
+            font-family: 'Georgia', serif;
+            color: #064e3b;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            border-bottom: 2px solid #064e3b;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@1,700&family=Lato:wght@400;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+        .grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
 
-<style>
-:root {
-    --primary-green: #064e3b;
-    --secondary-green: #34d399;
-    --bg-color: #fcfdfc;
-    --card-bg: #ffffff;
-    --text-main: #333;
-    --gold-accent: #d4af37;
-}
+        .card {
+            background-color: #ffffff;
+            border: 2px solid #a7d7c5;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
 
-/* RESET */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
 
-body {
-    font-family: 'Lato', sans-serif;
-    background: var(--bg-color);
-    color: var(--text-main);
-    line-height: 1.6;
-    text-align: left;
-    user-select: none;
-}
+        .card-content {
+            padding: 15px;
+        }
 
-/* HEADER */
+        .card-content h3 {
+            font-family: 'Georgia', serif;
+            color: #064e3b;
+            margin-top: 0;
+        }
+
+        .card-content p {
+            color: #333;
+            margin-bottom: 0;
+        }
+
+        /* Styling for the 'All Posts' button */
+        .all-posts-button {
+            margin: 30px auto 50px auto; 
+            text-align: center;
+            max-width: 800px; 
+            padding: 0 20px;
+        }
+
+        .all-posts-button a {
+            display: inline-block;
+            background-color: #064e3b;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.3s ease;
+        }
+
+        .all-posts-button a:hover {
+            background-color: #04372a;
+        }
+        
+        /* Latest Posts Card Styling */
+        .latest-posts-container {
+            max-width: 840px; 
+            margin: 0 auto 40px;
+            padding: 0 20px;
+            text-align: center; 
+        }
+        
+        .post {
+            margin: 15px auto;
+            max-width: 800px;
+            border: 2px solid #a7d7c5;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .post:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .post img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .post-content h3 {
+            font-family: 'Georgia', serif;
+            margin-top: 0;
+            color: #064e3b; 
+        }
+
+        .post-content h3 a {
+            text-decoration: none;
+            color: #064e3b;
+        }
+
+        .post-content h3 a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Existing General Styles */
+        
+        .Q-quote {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            margin-top: 20px; 
+            color: #064e3b;
+            display: block;
+            padding: 10px 15px;
+        }
+
+        /* FIXED HEADER — no extra vertical space */
 .header {
-    background-image:
-        linear-gradient(rgba(6,78,59,0.6), rgba(6,78,59,0.4)),
-        url('https://images.pexels.com/photos/4827/nature-forest-industry-rails.jpg');
+    background-image: url('https://images.pexels.com/photos/4827/nature-forest-industry-rails.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    min-height: 35vh;
-    padding: 40px 16px;
+    padding: 35px 0;              /* natural spacing instead of 40vh */
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    color: white;
     text-align: center;
 }
 
+/* Fix ﷽ spacing */
 .header h1 {
-    font-family: 'Amiri', serif;
-    font-size: clamp(2.2rem, 6vw, 4rem);
-    padding: 16px 24px;
-    color: white;
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(6px);
-    border-radius: 14px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    font-size: 3rem;
+    margin: 0;                    /* remove default h1 margins */
+    padding: 12px 25px;
+    background-color: rgba(6, 78, 59, 0.8);
+    border-radius: 10px;
+    font-family: 'Georgia', serif;
 }
 
-/* QUOTE */
-.quote-container {
-    max-width: 800px;
-    margin: -30px auto 50px;
-    padding: 40px;
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    text-align: center;
-}
+        .contact {
+            padding: 20px;
+            background: #d7f3e4;
+            text-align: center;
+            border-top: 2px solid #a7d7c5;
+            margin-top: 40px;
+        }
 
-.Q-quote {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.3rem;
-    color: var(--primary-green);
-    position: relative;
-}
+        .contact a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #064e3b;
+            font-weight: bold;
+        }
 
-/* TITLES */
-.section-title,
-.latest-posts-title {
-    font-family: 'Playfair Display', serif;
-    color: var(--primary-green);
-    font-size: 2.1rem;
-    margin: 60px 0 30px;
-    text-align: center;
-}
+        .contact p {
+            margin: 0;
+            font-family: 'Georgia', serif;
+        }
 
-.section-title::after,
-.latest-posts-title::after {
-    content: "";
-    width: 60px;
-    height: 3px;
-    background: var(--gold-accent);
-    display: block;
-    margin: 10px auto 0;
-}
+        @media (min-width: 600px) {
+            .grid .card { 
+                 width: 45%; 
+            }
+        }
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 
-/* GRID */
-.grid {
-    max-width: 1000px;
-    margin: 0 auto 60px;
-    padding: 0 16px;
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* CARDS */
-.card, .post {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform .3s ease, box-shadow .3s ease;
-}
-
-.card { max-width: 420px; width: 100%; }
-
-.card img, .post img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.card-content, .post-content {
-    padding: 24px;
-}
-
-.card-content h3,
-.post-content h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--primary-green);
-    margin-bottom: 10px;
-}
-
-.card-content p,
-.post-content p {
-    color: #555;
-}
-
-/* POSTS */
-.post {
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-.post-content h3 a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* BUTTON */
-.all-posts-button {
-    text-align: center;
-    margin: 50px 0;
-}
-
-.all-posts-button a {
-    display: inline-block;
-    padding: 14px 28px;
-    background: var(--primary-green);
-    color: white;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* FOOTER */
-.contact {
-    background: var(--primary-green);
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.contact p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.contact a {
-    color: #d7f3e4;
-    text-decoration: none;
-}
-
-/* MOBILE FIXES */
-@media (max-width: 768px) {
-    .header {
-        background-attachment: scroll;
-    }
-}
-
-@media (max-width: 600px) {
-    .quote-container {
-        margin: 0 12px 40px;
-        padding: 24px 20px;
-    }
-
-    .Q-quote {
-        font-size: 1.1rem;
-    }
-
-    .post img {
-        height: 180px;
-    }
-}
-
-@media (max-width: 480px) {
-    .contact p {
-        flex-direction: column;
-    }
-
-    .contact span:nth-child(2) {
-        display: none;
-    }
-}
-
-/* TOUCH DEVICES */
-@media (hover: none) {
-    .card:hover,
-    .post:hover {
-        transform: none;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    }
-}
-</style>
+    <script>
+        // Security scripts (keeping your original)
+        document.addEventListener("contextmenu", function (e) {e.preventDefault();});
+        document.addEventListener("copy", function (e) {e.preventDefault();});
+        document.addEventListener("cut", function (e) {e.preventDefault();});
+        document.addEventListener("paste", function (e) {e.preventDefault();});
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) || (e.ctrlKey && e.key === "U")) {e.preventDefault();}
+        });
+        (function () {
+            function detectDevTools() {
+                if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
+                    console.clear();
+                    alert("Developer tools detected! Please close them.");
+                    window.location.reload(); 
+                }
+            }
+            setInterval(detectDevTools, 1000);
+        })();
+        function blockDebugger() {
+            setInterval(function () {debugger;}, 50);
+        }
+        blockDebugger();
+    </script>
 </head>
 
 <body>
+    <div class="header">
+        <h1>﷽</h1>
+    </div>
 
-<div class="header">
-    <h1>﷽</h1>
-</div>
+    <p class="Q-quote" id="Q-quote">Loading quote...</p>
 
-<div class="quote-container">
-    <p class="Q-quote" id="Q-quote">Loading wisdom...</p>
-</div>
+    <script>
+        const QQuotes = [
+            "The crying of the sinners is more loved to Allah than the tasbeeh of the arrogant. ~ Ibn al-Qayyim",
+            "A person’s tongue can give you the taste of his heart. ~ Ibn al-Qayyim",
+            "Patience is when the heart doesn’t lament and the mouth doesn’t complain. ~ Ibn al-Qayyim",
+            "If scholars are wicked and worshippers are ignorant, the trial will be severe. ~ Ibn al-Qayyim",
+            "A deprivation of a few moments [of pleasure] is better than permanent regret. ~ Ibn al-Qayyim",
+            "Satisfaction is when a person submits himself to his Lord. ~ Ibn al-Qayyim",
+            "Knowledge is not about narrating a lot but it is about Taqwa (piety). ~ Ibn al-Qayyim",
+            "The happiness of the drop is to die in the river. ~ Imam al-Ghazali",
+            "Verily, the weight of half of disbelief in the world is carried by religious people who made God detestable to His servants. ~ Imam al-Ghazali",
+            "Beware of being preoccupied with rectifying others before you rectify yourself. ~ Ibn Qudamah",
+            "The Sunnah is like the Ark of Noah. Whoever embarks upon it reaches salvation and whoever refuses is drowned. ~ Imam Malik",
+            "Whoever wants to have a clean heart, then let his secret deeds be better than his public deeds. ~ Imam Malik",
+            "Fools are those who debate with ignorants. ~ Imam al-Shafi‘i",
+            "Every statement on the authority of the Prophet (S.A.W) is also my view, even if you do not hear it from me. ~ Imam al-Shafi‘i",
+            "The more I learn; the more I learn of my ignorance. ~ Imam al-Shafi‘i",
+            "Whoever gossips with you (about others) will also gossip about you (to others). ~ Imam al-Shafi‘i",
+            "Know that you cannot love Allah until you love obeying Him. ~ Hasan al-Basri",
+            "If you desire Allah to be persistent in granting you the things you love, be persistent in doing the things He loves. ~ Imam Ahmad ibn Hanbal",
+            "If destiny was presented to a man, he would choose the one that Allah has already chosen for him. ~ Imam Ahmad ibn Hanbal",
+            "Beware of developing a view that you have never heard from any scholar. ~ Imam Ahmad ibn Hanbal",
+            "I left trying to please people and from that moment I got the energy needed to speak the truth. ~ Imam Ahmad ibn Hanbal",
+            "Whoever acts without knowledge corrupts more than he rectifies. ~ Hasan al-Basri",
+            "Occupy yourself with every good deed and hasten to do it before something prevents you from doing so. ~ Imam Ahmad ibn Hanbal"
+        ];
 
-<h2 class="section-title">For You</h2>
+        // Function to get a random quote
+        function getRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * QQuotes.length);
+            return QQuotes[randomIndex];
+        }
 
-<div class="grid">
-    <div class="card" onclick="location.href='/365-Days';">
-        <img src="img1.jpeg">
-        <div class="card-content">
-            <h3>365 Days to a Better You</h3>
-            <p>A year of small daily changes that slowly transform your life.</p>
+        // Display a random quote
+        document.getElementById('Q-quote').innerHTML = getRandomQuote();
+    </script>
+    
+    <h2 class="section-title">For You</h2>
+
+    <div class="grid">
+
+        <div class="card" onclick="location.href='/365-Days';">
+            <img src="img1.jpeg" alt="Book Recommendations Thumbnail - Quran and headphones">
+            <div class="card-content">
+                <h3>365 Days to a Better You</h3>
+                <p>A year of small daily changes that slowly transform your life.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="location.href='https://ayah.hs.vc';">
+            <img src="img3.jpeg" alt="Quran">
+            <div class="card-content">
+                <h3>Ayah Platform</h3>
+                <p>A linguistic + contextual English tafsir of the Qur'an, verse by verse.</p>
+            </div>
         </div>
     </div>
+    
+    <div class="latest-posts-container">
+        <h2 class="latest-posts-title">Latest Posts</h2>
+        
+        <div class="post">
+            <img src="post/20250929_181004.jpg" alt="Universal-Rule Thumbnail">
+            <div class="post-content">
+                <h3><a href="post/universal-rule.html">Ibn Taymiyaa on Universal Rule</a></h3>
+                <p>Discover how Ibn Taymiyya challenged the dominance of reason over revelation, in his monumental work Dar' Ta'arud.</p>
+            </div>
+        </div>
 
-    <div class="card" onclick="location.href='https://ayah.hs.vc';">
-        <img src="img3.jpeg">
-        <div class="card-content">
-            <h3>Ayah Platform</h3>
-            <p>A linguistic and contextual English tafsir of the Qur'an.</p>
+        <div class="post">
+            <img src="https://i.postimg.cc/J07XvFhf/56567b91-43b6-4fe6-a4ab-421290b8ac4c.png" alt="Post Thumbnail">
+            <div class="post-content">
+                <h3><a href="post/islamic-finance.html">Islamic Finance: Principles and Basics</a></h3>
+                <p>Over the past few decades, Muslims have sought to align finance with Islamic principles. Some believe removing interest makes finance charitable, but...</p>
+            </div>
         </div>
     </div>
-</div>
-
-<h2 class="latest-posts-title">Latest Posts</h2>
-
-<div class="post" onclick="location.href='post/islamic-finance.html';">
-    <img src="https://i.postimg.cc/J07XvFhf/56567b91-43b6-4fe6-a4ab-421290b8ac4c.png">
-    <div class="post-content">
-        <h3><a href="post/islamic-finance.html">Islamic Finance: Principles</a></h3>
-        <p>Understanding finance through Islamic principles.</p>
+    <div class="all-posts-button">
+        <a href="post/All.html">View All Posts</a>
     </div>
-</div>
-
-<div class="all-posts-button">
-    <a href="post/All.html">View All Posts →</a>
-</div>
-
-<div class="contact">
-    <p>
-        <span><i class="far fa-envelope"></i> <a href="mailto:zayn123@duck.com">zayn123@duck.com</a></span>
-        <span>|</span>
-        <span><i class="fab fa-telegram-plane"></i> <a href="https://t.me/zimaamzayn">Telegram Channel</a></span>
-    </p>
-    <p style="opacity:.8;font-size:.9rem;margin-top:12px;">© 2025 Zimaam Zayn</p>
-</div>
-
-<script>
-const QQuotes = [ "The crying of the sinners is more loved to Allah than the tasbeeh of the arrogant. ~ Ibn al-Qayyim", "A person’s tongue can give you the taste of his heart. ~ Ibn al-Qayyim", "Patience is when the heart doesn’t lament and the mouth doesn’t complain. ~ Ibn al-Qayyim", "If scholars are wicked and worshippers are ignorant, the trial will be severe. ~ Ibn al-Qayyim", "A deprivation of a few moments [of pleasure] is better than permanent regret. ~ Ibn al-Qayyim", "Satisfaction is when a person submits himself to his Lord. ~ Ibn al-Qayyim", "Knowledge is not about narrating a lot but it is about Taqwa (piety). ~ Ibn al-Qayyim", "The happiness of the drop is to die in the river. ~ Imam al-Ghazali", "Verily, the weight of half of disbelief in the world is carried by religious people who made God detestable to His servants. ~ Imam al-Ghazali", "Beware of being preoccupied with rectifying others before you rectify yourself. ~ Ibn Qudamah", "The Sunnah is like the Ark of Noah. Whoever embarks upon it reaches salvation and whoever refuses is drowned. ~ Imam Malik", "Whoever wants to have a clean heart, then let his secret deeds be better than his public deeds. ~ Imam Malik", "Fools are those who debate with ignorants. ~ Imam al-Shafi‘i", "Every statement on the authority of the Prophet (S.A.W) is also my view, even if you do not hear it from me. ~ Imam al-Shafi‘i", "The more I learn; the more I learn of my ignorance. ~ Imam al-Shafi‘i", "Whoever gossips with you (about others) will also gossip about you (to others). ~ Imam al-Shafi‘i", "Know that you cannot love Allah until you love obeying Him. ~ Hasan al-Basri", "If you desire Allah to be persistent in granting you the things you love, be persistent in doing the things He loves. ~ Imam Ahmad ibn Hanbal", "If destiny was presented to a man, he would choose the one that Allah has already chosen for him. ~ Imam Ahmad ibn Hanbal", "Beware of developing a view that you have never heard from any scholar. ~ Imam Ahmad ibn Hanbal", "I left trying to please people and from that moment I got the energy needed to speak the truth. ~ Imam Ahmad ibn Hanbal", "Whoever acts without knowledge corrupts more than he rectifies. ~ Hasan al-Basri", "Occupy yourself with every good deed and hasten to do it before something prevents you from doing so. ~ Imam Ahmad ibn Hanbal" ];
-document.getElementById("Q-quote").innerText =
-QQuotes[Math.floor(Math.random()*QQuotes.length)];
-</script>
-
+    
+    <div class="contact">
+        <p>Contact Me: <i style="font-size:24px" class="fa">&#xf0e0;</i> <a>zayn123@duck.com</a> | <a href="https://t.me/zimaamzayn"><i class="fa-brands fa-telegram" style="font-size:24px"></i> Telegram</a></p>
+    </div>
 </body>
 </html>
