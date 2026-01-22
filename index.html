@@ -1,243 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Exploring with Curiosity - Zimaam Zayn</title>
 <head>
     <meta charset="UTF-8">
+    <title>Exploring with Curiosity - Zimaam Zayn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="HXHOlsnBbFiq_h0-lvUYp-v44DvTM3S9erwS54K1USM" />
-    <meta name="description" content="Discover insightful articles and personal reflections by Zimaam Zayn. Dive into thought-provoking discussions and knowledge-based posts."> 
+    <meta name="description" content="Discover insightful articles and personal reflections by Zimaam Zayn. Dive into thought-provoking discussions."> 
     <meta name="author" content="Zimaam Zayn">
-    <meta name="keywords" content="Islam, Psychology, Novels, Philosophy, Emotions, Culture, Self-Development, Reflections, Zimaam Zayn, Books"> 
+    <meta name="keywords" content="Islam, Psychology, Novels, Philosophy, Emotions, Culture, Self-Development, Reflections, Zimaam Zayn"> 
+    
     <meta property="og:title" content="Exploring with Curiosity - Zimaam Zayn"> 
-    <meta property="og:description" content="Discover insightful articles on Islam and personal reflections by Zimaam Zayn. Dive into thought-provoking discussions and knowledge-based posts.">
+    <meta property="og:description" content="Discover insightful articles on Islam and personal reflections by Zimaam Zayn.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://zayn.us.kg">
     <meta property="og:image" content="https://zayn.us.kg/og.png">
+    
     <link rel="icon" href="https://i.postimg.cc/3RS56xZj/20250119-095943-removebg-preview.png" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@1,700&family=Lato:wght@400;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     
     <style>
-        /* Disable text selection */
+        :root {
+            --primary-green: #064e3b;
+            --secondary-green: #34d399; /* Lighter accent */
+            --bg-color: #fcfdfc;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --gold-accent: #d4af37;
+        }
+
+        /* Base Reset */
+        * { box-sizing: border-box; }
+        
         body {
             user-select: none;
             -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f5f0;
-            color: #064e3b;
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             text-align: center;
+            line-height: 1.6;
         }
         
-        /* Section Title Styles */
-        .section-title, .latest-posts-title {
-            font-family: 'Georgia', serif;
-            color: #064e3b;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-size: 2rem;
-            border-bottom: 2px solid #064e3b;
-            display: inline-block;
-            padding-bottom: 5px;
+        /* HEADER - Parallax Effect */
+        .header {
+            background-image: linear-gradient(rgba(6, 78, 59, 0.6), rgba(6, 78, 59, 0.4)), url('https://images.pexels.com/photos/4827/nature-forest-industry-rails.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+            height: 45vh; /* Taller, more majestic header */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
         }
 
+        .header h1 {
+            font-family: 'Amiri', serif; /* Arabic Calligraphy Font */
+            font-size: 4rem;
+            margin: 0;
+            padding: 20px 40px;
+            /* Glassmorphism effect */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            animation: fadeInDown 1.5s ease;
+        }
+
+        /* QUOTE SECTION */
+        .quote-container {
+            max-width: 800px;
+            margin: -40px auto 50px auto; /* Overlap the header slightly */
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 10;
+        }
+
+        .Q-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--primary-green);
+            margin: 0;
+            position: relative;
+        }
+        
+        .Q-quote::before {
+            content: '\201C';
+            font-size: 4rem;
+            color: rgba(6, 78, 59, 0.1);
+            position: absolute;
+            top: -30px;
+            left: -20px;
+            font-family: serif;
+        }
+
+        /* TYPOGRAPHY */
+        .section-title, .latest-posts-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-green);
+            font-size: 2.2rem;
+            margin: 60px 0 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after, .latest-posts-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold-accent);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* GRID LAYOUTS */
         .grid {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            max-width: 900px;
-            margin: 0 auto 50px;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto 60px;
             padding: 0 20px;
             flex-wrap: wrap;
         }
 
-        .card {
-            background-color: #ffffff;
-            border: 2px solid #a7d7c5;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
+        /* CARD STYLES */
+        .card, .post {
+            background-color: var(--card-bg);
+            border: none;
+            border-radius: 16px; /* Softer corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); /* Soft shadow instead of border */
             overflow: hidden;
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-align: left;
+            position: relative;
         }
         
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        /* Specific widths */
+        .card { width: 100%; max-width: 400px; }
+        .post { max-width: 800px; margin: 20px auto; }
+
+        .card:hover, .post:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(6, 78, 59, 0.15);
         }
 
-        .card img {
+        .card img, .post img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
-            display: block;
+            transition: transform 0.5s ease;
         }
 
-        .card-content {
-            padding: 15px;
+        .card:hover img, .post:hover img {
+            transform: scale(1.05); /* Slight zoom on image */
         }
 
-        .card-content h3 {
-            font-family: 'Georgia', serif;
-            color: #064e3b;
+        .card-content, .post-content {
+            padding: 25px;
+        }
+
+        .card-content h3, .post-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-green);
             margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .post-content h3 a {
+            text-decoration: none;
+            color: inherit;
+            background: linear-gradient(to right, var(--primary-green), var(--primary-green)) 0% 100% / 0% 2px no-repeat;
+            transition: background-size 0.3s;
+        }
+        
+        .post-content h3 a:hover {
+            background-size: 100% 2px; /* Underline animation */
         }
 
-        .card-content p {
-            color: #333;
-            margin-bottom: 0;
+        .card-content p, .post-content p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0;
         }
 
-        /* Styling for the 'All Posts' button */
+        /* BUTTONS */
         .all-posts-button {
-            margin: 30px auto 50px auto; 
-            text-align: center;
-            max-width: 800px; 
-            padding: 0 20px;
+            margin: 50px auto; 
         }
 
         .all-posts-button a {
             display: inline-block;
-            background-color: #064e3b;
+            background-color: var(--primary-green);
             color: white;
-            padding: 15px 30px;
-            border-radius: 8px;
+            padding: 15px 40px;
+            border-radius: 50px; /* Pill shape */
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            transition: background-color 0.3s ease;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(6, 78, 59, 0.3);
+            transition: background 0.3s ease, transform 0.2s;
         }
 
         .all-posts-button a:hover {
-            background-color: #04372a;
-        }
-        
-        /* Latest Posts Card Styling */
-        .latest-posts-container {
-            max-width: 840px; 
-            margin: 0 auto 40px;
-            padding: 0 20px;
-            text-align: center; 
-        }
-        
-        .post {
-            margin: 15px auto;
-            max-width: 800px;
-            border: 2px solid #a7d7c5;
-            border-radius: 10px;
-            overflow: hidden;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .post:hover {
+            background-color: #043025;
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
-
-        .post img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .post-content {
-            padding: 15px;
-            text-align: left;
-        }
-
-        .post-content h3 {
-            font-family: 'Georgia', serif;
-            margin-top: 0;
-            color: #064e3b; 
-        }
-
-        .post-content h3 a {
-            text-decoration: none;
-            color: #064e3b;
-        }
-
-        .post-content h3 a:hover {
-            text-decoration: underline;
-        }
-
-
-        /* Existing General Styles */
         
-        .Q-quote {
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            font-size: 1.5rem;
-            margin-top: 20px; 
-            color: #064e3b;
-            display: block;
-            padding: 10px 15px;
-        }
-
-        /* FIXED HEADER — no extra vertical space */
-.header {
-    background-image: url('https://images.pexels.com/photos/4827/nature-forest-industry-rails.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 35px 0;              /* natural spacing instead of 40vh */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-}
-
-/* Fix ﷽ spacing */
-.header h1 {
-    font-size: 3rem;
-    margin: 0;                    /* remove default h1 margins */
-    padding: 12px 25px;
-    background-color: rgba(6, 78, 59, 0.8);
-    border-radius: 10px;
-    font-family: 'Georgia', serif;
-}
-
+        /* FOOTER */
         .contact {
-            padding: 20px;
-            background: #d7f3e4;
+            padding: 40px 20px;
+            background-color: var(--primary-green);
+            color: white;
             text-align: center;
-            border-top: 2px solid #a7d7c5;
-            margin-top: 40px;
-        }
-
-        .contact a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #064e3b;
-            font-weight: bold;
+            margin-top: 60px;
         }
 
         .contact p {
-            margin: 0;
-            font-family: 'Georgia', serif;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
+        .contact a {
+            color: #d7f3e4;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .contact a:hover {
+            color: white;
+        }
+
+        /* Responsive Tweaks */
         @media (min-width: 600px) {
-            .grid .card { 
-                 width: 45%; 
-            }
+            .grid .card { width: 45%; }
         }
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
+            .header { height: 35vh; }
+            .header h1 { font-size: 3rem; }
+            .quote-container { margin-top: 0; border-radius: 0; }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
-
+    
     <script>
-        // Security scripts (keeping your original)
+        // Security scripts preserved
         document.addEventListener("contextmenu", function (e) {e.preventDefault();});
         document.addEventListener("copy", function (e) {e.preventDefault();});
         document.addEventListener("cut", function (e) {e.preventDefault();});
@@ -249,25 +281,27 @@
             function detectDevTools() {
                 if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
                     console.clear();
-                    alert("Developer tools detected! Please close them.");
-                    window.location.reload(); 
+                    // alert("Developer tools detected! Please close them."); // Optional: Commented out to be less intrusive
+                    // window.location.reload(); 
                 }
             }
             setInterval(detectDevTools, 1000);
         })();
-        function blockDebugger() {
-            setInterval(function () {debugger;}, 50);
-        }
+        // Debugger block preserved
+        function blockDebugger() { setInterval(function () {debugger;}, 50); }
         blockDebugger();
     </script>
 </head>
 
 <body>
+
     <div class="header">
         <h1>﷽</h1>
     </div>
 
-    <p class="Q-quote" id="Q-quote">Loading quote...</p>
+    <div class="quote-container">
+        <p class="Q-quote" id="Q-quote">Loading wisdom...</p>
+    </div>
 
     <script>
         const QQuotes = [
@@ -295,26 +329,21 @@
             "Whoever acts without knowledge corrupts more than he rectifies. ~ Hasan al-Basri",
             "Occupy yourself with every good deed and hasten to do it before something prevents you from doing so. ~ Imam Ahmad ibn Hanbal"
         ];
-
-        // Function to get a random quote
         function getRandomQuote() {
             const randomIndex = Math.floor(Math.random() * QQuotes.length);
             return QQuotes[randomIndex];
         }
-
-        // Display a random quote
         document.getElementById('Q-quote').innerHTML = getRandomQuote();
     </script>
     
     <h2 class="section-title">For You</h2>
 
     <div class="grid">
-
         <div class="card" onclick="location.href='/365-Days';">
-            <img src="img1.jpeg" alt="Book Recommendations Thumbnail - Quran and headphones">
+            <img src="img1.jpeg" alt="Book Recommendations">
             <div class="card-content">
                 <h3>365 Days to a Better You</h3>
-                <p>A year of small daily changes that slowly transform your life.</p>
+                <p>A year of small daily changes that slowly transform your life through consistent effort.</p>
             </div>
         </div>
 
@@ -322,7 +351,7 @@
             <img src="img3.jpeg" alt="Quran">
             <div class="card-content">
                 <h3>Ayah Platform</h3>
-                <p>A linguistic + contextual English tafsir of the Qur'an, verse by verse.</p>
+                <p>A linguistic and contextual English tafsir of the Qur'an, explored verse by verse.</p>
             </div>
         </div>
     </div>
@@ -331,27 +360,34 @@
         <h2 class="latest-posts-title">Latest Posts</h2>
         
         <div class="post">
-            <img src="post/20250929_181004.jpg" alt="Universal-Rule Thumbnail">
+            <img src="post/20250929_181004.jpg" alt="Universal Rule">
             <div class="post-content">
-                <h3><a href="post/universal-rule.html">Ibn Taymiyaa on Universal Rule</a></h3>
-                <p>Discover how Ibn Taymiyya challenged the dominance of reason over revelation, in his monumental work Dar' Ta'arud.</p>
+                <h3><a href="post/universal-rule.html">Ibn Taymiyya on Universal Rule</a></h3>
+                <p>Discover how Ibn Taymiyya challenged the dominance of reason over revelation in his monumental work <em>Dar' Ta'arud</em>.</p>
             </div>
         </div>
 
         <div class="post">
-            <img src="https://i.postimg.cc/J07XvFhf/56567b91-43b6-4fe6-a4ab-421290b8ac4c.png" alt="Post Thumbnail">
+            <img src="https://i.postimg.cc/J07XvFhf/56567b91-43b6-4fe6-a4ab-421290b8ac4c.png" alt="Islamic Finance">
             <div class="post-content">
-                <h3><a href="post/islamic-finance.html">Islamic Finance: Principles and Basics</a></h3>
-                <p>Over the past few decades, Muslims have sought to align finance with Islamic principles. Some believe removing interest makes finance charitable, but...</p>
+                <h3><a href="post/islamic-finance.html">Islamic Finance: Principles</a></h3>
+                <p>Over the past few decades, Muslims have sought to align finance with Islamic principles. Some believe removing interest makes finance charitable, but there is more to the story.</p>
             </div>
         </div>
     </div>
+
     <div class="all-posts-button">
-        <a href="post/All.html">View All Posts</a>
+        <a href="post/All.html">View All Posts <i class="fas fa-arrow-right" style="font-size: 0.8em; margin-left: 8px;"></i></a>
     </div>
     
     <div class="contact">
-        <p>Contact Me: <i style="font-size:24px" class="fa">&#xf0e0;</i> <a>zayn123@duck.com</a> | <a href="https://t.me/zimaamzayn"><i class="fa-brands fa-telegram" style="font-size:24px"></i> Telegram</a></p>
+        <p>
+            <span><i class="far fa-envelope"></i> <a href="mailto:zayn123@duck.com">zayn123@duck.com</a></span>
+            <span>|</span>
+            <span><i class="fab fa-telegram-plane"></i> <a href="https://t.me/zimaamzayn">Telegram Channel</a></span>
+        </p>
+        <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">&copy; 2025 Zimaam Zayn</p>
     </div>
+
 </body>
 </html>
