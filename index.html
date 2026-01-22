@@ -255,10 +255,24 @@
         @media (min-width: 600px) {
             .grid .card { width: 45%; }
         }
+        
+        /* UPDATED MOBILE STYLES */
         @media (max-width: 768px) {
-            .header { height: 35vh; }
-            .header h1 { font-size: 3rem; }
-            .quote-container { margin-top: 0; border-radius: 0; }
+            .header { 
+                height: 20vh; /* Reduced height for better mobile UX */
+                background-attachment: scroll; /* Smoother scrolling on mobile */
+            }
+            .header h1 { 
+                font-size: 2.2rem; /* Scaled down font */
+                padding: 10px 25px; 
+            }
+            .quote-container { 
+                margin-top: -20px; 
+                padding: 25px;
+                border-radius: 0; 
+            }
+            .Q-quote { font-size: 1.1rem; }
+            .section-title, .latest-posts-title { font-size: 1.8rem; margin: 40px 0 20px; }
         }
 
         /* Animations */
@@ -281,13 +295,10 @@
             function detectDevTools() {
                 if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
                     console.clear();
-                    // alert("Developer tools detected! Please close them."); // Optional: Commented out to be less intrusive
-                    // window.location.reload(); 
                 }
             }
             setInterval(detectDevTools, 1000);
         })();
-        // Debugger block preserved
         function blockDebugger() { setInterval(function () {debugger;}, 50); }
         blockDebugger();
     </script>
@@ -359,7 +370,7 @@
     <div class="latest-posts-container">
         <h2 class="latest-posts-title">Latest Posts</h2>
         
-        <div class="post">
+        <div class="post" onclick="location.href='post/universal-rule.html';">
             <img src="post/20250929_181004.jpg" alt="Universal Rule">
             <div class="post-content">
                 <h3><a href="post/universal-rule.html">Ibn Taymiyya on Universal Rule</a></h3>
@@ -367,7 +378,7 @@
             </div>
         </div>
 
-        <div class="post">
+        <div class="post" onclick="location.href='post/islamic-finance.html';">
             <img src="https://i.postimg.cc/J07XvFhf/56567b91-43b6-4fe6-a4ab-421290b8ac4c.png" alt="Islamic Finance">
             <div class="post-content">
                 <h3><a href="post/islamic-finance.html">Islamic Finance: Principles</a></h3>
