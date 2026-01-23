@@ -476,7 +476,7 @@
         // Function to load markdown from txt file
         async function loadMarkdownFromFile(filename) {
             try {
-                const response = await fetch(filename);
+                const response = await fetch(`data/${filename}`);
                 if (!response.ok) {
                     throw new Error(`Failed to load ${filename}`);
                 }
