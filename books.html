@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novel Summaries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-green: #52796f;
+            --medium-green: #6b9080;
+            --light-green: #95d5b2;
+            --pale-green: #d8f3dc;
+            --cream: #faf9f6;
+            --text-dark: #52796f;
+            --shadow: rgba(82, 121, 111, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, var(--pale-green) 0%, var(--cream) 50%, var(--pale-green) 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Decorative leaf background elements */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::before {
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            right: -50px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 Q70 30 60 50 Q50 70 50 90 Q50 70 40 50 Q30 30 50 10" fill="%2352796f"/></svg>');
+            background-size: contain;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        body::after {
+            width: 250px;
+            height: 250px;
+            bottom: -30px;
+            left: -30px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 Q70 30 60 50 Q50 70 50 90 Q50 70 40 50 Q30 30 50 10" fill="%236b9080"/></svg>');
+            background-size: contain;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10px, -10px) rotate(5deg); }
+            50% { transform: translate(-10px, 10px) rotate(-5deg); }
+            75% { transform: translate(5px, 5px) rotate(3deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .header h1 {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--dark-green);
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px var(--shadow);
+        }
+
+        .header p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--medium-green);
+            font-style: italic;
+        }
+
+        .novels-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 80px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .novel-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px var(--shadow);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            animation: fadeInUp 0.6s ease backwards;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+        }
+
+        .novel-card:nth-child(1) { animation-delay: 0.1s; }
+        .novel-card:nth-child(2) { animation-delay: 0.2s; }
+        .novel-card:nth-child(3) { animation-delay: 0.3s; }
+        .novel-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .novel-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--dark-green), var(--light-green));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .novel-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .novel-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px var(--shadow);
+        }
+
+        .novel-image {
+            width: 100px;
+            height: 100px;
+            min-width: 100px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: var(--pale-green);
+        }
+
+        .novel-content {
+            flex: 1;
+            padding: 0;
+        }
+
+        .novel-title {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 1.8rem;
+            color: var(--dark-green);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .novel-description {
+            font-size: 1rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        /* Reading page */
+        .reading-page {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .reading-page.active {
+            display: block;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--dark-green);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .back-button:hover {
+            background: var(--medium-green);
+            transform: translateX(-4px);
+        }
+
+        .notebook-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--cream);
+            border-radius: 12px;
+            box-shadow: 0 12px 40px var(--shadow);
+            overflow: hidden;
+        }
+
+        .notebook-header {
+            background: linear-gradient(135deg, var(--dark-green), var(--medium-green));
+            color: white;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .notebook-header h2 {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .notebook-pages {
+            position: relative;
+        }
+
+        .notebook-page {
+            background: transparent;
+            padding: 40px;
+            padding-left: 80px;
+            position: relative;
+            min-height: 500px;
+        }
+
+        /* Red margin line */
+        .notebook-page::before {
+            content: '';
+            position: absolute;
+            left: 60px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e76f51;
+            opacity: 0.3;
+        }
+
+        .notebook-content {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 1.4rem;
+            line-height: 32px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .notebook-content h1,
+        .notebook-content h2,
+        .notebook-content h3 {
+            font-family: 'Comic Sans MS', cursive;
+            color: var(--dark-green);
+            margin: 24px 0 16px 0;
+            font-weight: 700;
+        }
+
+        .notebook-content h1 { font-size: 2rem; }
+        .notebook-content h2 { font-size: 1.7rem; }
+        .notebook-content h3 { font-size: 1.5rem; }
+
+        .notebook-content p {
+            margin-bottom: 16px;
+        }
+
+        .notebook-content strong {
+            color: var(--dark-green);
+            font-weight: 700;
+        }
+
+        .notebook-content em {
+            color: var(--medium-green);
+        }
+
+        .notebook-content ul,
+        .notebook-content ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        .notebook-content li {
+            margin-bottom: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 1.3rem;
+            color: var(--medium-green);
+        }
+
+        .footer .heart {
+            color: #e76f51;
+            display: inline-block;
+            animation: heartbeat 1.5s ease infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .novel-image {
+                width: 80px;
+                height: 80px;
+                min-width: 80px;
+            }
+
+            .novel-title {
+                font-size: 1.5rem;
+            }
+
+            .novel-description {
+                font-size: 0.9rem;
+            }
+
+            .notebook-page {
+                padding: 30px 20px;
+                padding-left: 50px;
+            }
+
+            .notebook-page::before {
+                left: 40px;
+            }
+
+            .notebook-content {
+                font-size: 1.3rem;
+                line-height: 28px;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .novel-image {
+                width: 70px;
+                height: 70px;
+                min-width: 70px;
+            }
+
+            .novel-title {
+                font-size: 1.3rem;
+            }
+
+            .novel-description {
+                font-size: 0.85rem;
+            }
+
+            .notebook-content {
+                font-size: 1.2rem;
+                line-height: 26px;
+            }
+
+            .notebook-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main novels listing page -->
+    <div class="container" id="mainPage">
+        <div class="header">
+            <h1>My Reading Journal</h1>
+            <p>A collection of stories that shaped my thoughts</p>
+        </div>
+
+        <div class="novels-grid" id="novelsGrid">
+            <!-- Novel cards will be inserted here -->
+        </div>
+
+        <div class="footer">
+            Made with <span class="heart">♥</span> by Zayn
+        </div>
+    </div>
+
+    <!-- Reading page template -->
+    <div class="reading-page" id="readingPage">
+        <div class="container">
+            <button class="back-button" onclick="showMainPage()">
+                ← Back to Novels
+            </button>
+
+            <div class="notebook-container">
+                <div class="notebook-header">
+                    <h2 id="readingTitle"></h2>
+                </div>
+                <div class="notebook-pages">
+                    <div class="notebook-page">
+                        <div class="notebook-content" id="notebookContent">
+                            <!-- Markdown content will be rendered here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                Made with <span class="heart">♥</span> by Zayn
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Novel data - ADD YOUR NOVELS HERE MANUALLY
+        // Only the markdown content from reading pages will be loaded from .txt files
+        const novels = [
+            // Example format:
+            // {
+            //     id: 1,
+            //     title: "Your Novel Title",
+            //     description: "Short description for the card",
+            //     image: "https://your-image-url.com/image.jpg",
+            //     txtFile: "1.txt"
+            // },
+            // {
+            //     id: 2,
+            //     title: "Another Novel",
+            //     description: "Another description",
+            //     image: "https://another-image-url.com/image.jpg",
+            //     txtFile: "2.txt"
+            // }
+        ];
+
+        // Function to load markdown from txt file
+        async function loadMarkdownFromFile(filename) {
+            try {
+                const response = await fetch(filename);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${filename}`);
+                }
+                const markdown = await response.text();
+                return markdown;
+            } catch (error) {
+                console.error(`Error loading ${filename}:`, error);
+                return `# Error Loading Content\n\nCould not load the summary from ${filename}. Please make sure the file exists in the same directory as this HTML file.`;
+            }
+        }
+
+        // Function to parse markdown to HTML
+        function parseMarkdown(markdown) {
+            let html = markdown;
+            
+            // Remove images from markdown (we don't want them in reading page)
+            const imageRegex = /!\[([^\]]*)\]\(([^\)]+)\)/g;
+            html = html.replace(imageRegex, '');
+
+            // Headers
+            html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+            html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+            html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+
+            // Bold
+            html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
+            // Italic
+            html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+            // Lists
+            html = html.replace(/^\- (.+)$/gim, '<li>$1</li>');
+            html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+
+            // Paragraphs
+            html = html.split('\n\n').map(para => {
+                if (!para.trim().startsWith('<') && para.trim()) {
+                    return `<p>${para}</p>`;
+                }
+                return para;
+            }).join('');
+
+            return html;
+        }
+
+        // Render novel cards
+        function renderNovels() {
+            const grid = document.getElementById('novelsGrid');
+            grid.innerHTML = novels.map(novel => `
+                <div class="novel-card" onclick="showReading(${novel.id})">
+                    <img src="${novel.image}" alt="${novel.title}" class="novel-image">
+                    <div class="novel-content">
+                        <h3 class="novel-title">${novel.title}</h3>
+                        <p class="novel-description">${novel.description}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Show reading page
+        async function showReading(novelId) {
+            const novel = novels.find(n => n.id === novelId);
+            if (!novel) return;
+
+            document.getElementById('mainPage').style.display = 'none';
+            const readingPage = document.getElementById('readingPage');
+            readingPage.classList.add('active');
+
+            document.getElementById('readingTitle').textContent = novel.title;
+            
+            // Show loading message
+            document.getElementById('notebookContent').innerHTML = '<p style="text-align: center; opacity: 0.6;">Loading summary...</p>';
+
+            // Load markdown from txt file
+            const markdown = await loadMarkdownFromFile(novel.txtFile);
+            document.getElementById('notebookContent').innerHTML = parseMarkdown(markdown);
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Show main page
+        function showMainPage() {
+            document.getElementById('mainPage').style.display = 'block';
+            document.getElementById('readingPage').classList.remove('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Initialize
+        renderNovels();
+
+        // HOW TO USE THIS TEMPLATE:
+        // 
+        // MAIN PAGE (Index/Novel Cards):
+        // 1. Edit the 'novels' array above to add your novels manually
+        // 2. For each novel, provide:
+        //    - id: unique number (1, 2, 3, etc.)
+        //    - title: The novel title
+        //    - description: Short description for the card
+        //    - image: URL to a square cover image (will display as 100x100px on the left)
+        //    - txtFile: Name of the .txt file (e.g., "1.txt", "2.txt")
+        //
+        // READING PAGE (Novel Summaries):
+        // 1. Write your summaries in .txt files (1.txt, 2.txt, 3.txt, etc.)
+        // 2. Place the .txt files in the SAME DIRECTORY as this HTML file
+        // 3. Use markdown syntax in your .txt files:
+        //    - # Heading 1
+        //    - ## Heading 2
+        //    - ### Heading 3
+        //    - **bold text**
+        //    - *italic text*
+        //    - - list item
+        //
+        // Note: Images are NOT displayed in the reading page
+    </script>
+</body>
+</html>
