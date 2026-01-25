@@ -468,10 +468,10 @@
             const imageRegex = /!\[([^\]]*)\]\(([^\)]+)\)/g;
             html = html.replace(imageRegex, '');
 
-            // Headers
-            html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-            html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-            html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+            // Headers (ignore H1 to avoid duplicate title)
+html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+html = html.replace(/^# (.*$)/gim, '');
 
             // Bold
             html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
