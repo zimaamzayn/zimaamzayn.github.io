@@ -150,14 +150,7 @@
             box-shadow: 0 16px 48px var(--shadow);
         }
 
-        .novel-image {
-            width: 100px;
-            height: 100px;
-            min-width: 100px;
-            object-fit: contain;
-            border-radius: 8px;
-            background: var(--pale-green);
-        }
+        /* REMOVED: .novel-image styles */
 
         .novel-content {
             flex: 1;
@@ -350,12 +343,6 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .novel-image {
-                width: 80px;
-                height: 80px;
-                min-width: 80px;
-            }
-
             .novel-title {
                 font-size: 1.5rem;
             }
@@ -384,12 +371,6 @@
         }
 
         @media (max-width: 480px) {
-            .novel-image {
-                width: 70px;
-                height: 70px;
-                min-width: 70px;
-            }
-
             .novel-title {
                 font-size: 1.3rem;
             }
@@ -454,23 +435,14 @@
 
     <script>
         // Novel data - ADD YOUR NOVELS HERE MANUALLY
-        // Only the markdown content from reading pages will be loaded from .txt files
         const novels = [
-            // Example format:
-            // {
-            //     id: 1,
-            //     title: "Your Novel Title",
-            //     description: "Short description for the card",
-            //     image: "https://your-image-url.com/image.jpg",
-            //     txtFile: "1.txt"
-            // },
-            // {
-            //     id: 2,
-            //     title: "Another Novel",
-            //     description: "Another description",
-            //     image: "https://another-image-url.com/image.jpg",
-            //     txtFile: "2.txt"
-            // }
+            // Example:
+             {
+                 id: 1,
+                 title: "White Nights by F. Dostoevsky",
+                 description: "A lonely dreamer experiences brief love, quiet hope in St. Petersburg.",
+                 txtFile: "1.txt"
+             },
         ];
 
         // Function to load markdown from txt file
@@ -492,7 +464,7 @@
         function parseMarkdown(markdown) {
             let html = markdown;
             
-            // Remove images from markdown (we don't want them in reading page)
+            // Remove images from markdown
             const imageRegex = /!\[([^\]]*)\]\(([^\)]+)\)/g;
             html = html.replace(imageRegex, '');
 
@@ -522,12 +494,11 @@
             return html;
         }
 
-        // Render novel cards
+        // Render novel cards WITHOUT image
         function renderNovels() {
             const grid = document.getElementById('novelsGrid');
             grid.innerHTML = novels.map(novel => `
                 <div class="novel-card" onclick="showReading(${novel.id})">
-                    <img src="${novel.image}" alt="${novel.title}" class="novel-image">
                     <div class="novel-content">
                         <h3 class="novel-title">${novel.title}</h3>
                         <p class="novel-description">${novel.description}</p>
@@ -546,15 +517,11 @@
             readingPage.classList.add('active');
 
             document.getElementById('readingTitle').textContent = novel.title;
-            
-            // Show loading message
             document.getElementById('notebookContent').innerHTML = '<p style="text-align: center; opacity: 0.6;">Loading summary...</p>';
 
-            // Load markdown from txt file
             const markdown = await loadMarkdownFromFile(novel.txtFile);
             document.getElementById('notebookContent').innerHTML = parseMarkdown(markdown);
 
-            // Scroll to top
             window.scrollTo(0, 0);
         }
 
@@ -567,30 +534,6 @@
 
         // Initialize
         renderNovels();
-
-        // HOW TO USE THIS TEMPLATE:
-        // 
-        // MAIN PAGE (Index/Novel Cards):
-        // 1. Edit the 'novels' array above to add your novels manually
-        // 2. For each novel, provide:
-        //    - id: unique number (1, 2, 3, etc.)
-        //    - title: The novel title
-        //    - description: Short description for the card
-        //    - image: URL to a square cover image (will display as 100x100px on the left)
-        //    - txtFile: Name of the .txt file (e.g., "1.txt", "2.txt")
-        //
-        // READING PAGE (Novel Summaries):
-        // 1. Write your summaries in .txt files (1.txt, 2.txt, 3.txt, etc.)
-        // 2. Place the .txt files in the SAME DIRECTORY as this HTML file
-        // 3. Use markdown syntax in your .txt files:
-        //    - # Heading 1
-        //    - ## Heading 2
-        //    - ### Heading 3
-        //    - **bold text**
-        //    - *italic text*
-        //    - - list item
-        //
-        // Note: Images are NOT displayed in the reading page
     </script>
 </body>
 </html>
