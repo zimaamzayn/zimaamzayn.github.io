@@ -3,86 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explainer Feed</title>
+    <title>Video Feed - Zimaam Zayn</title>
+    <link rel="icon" href="https://i.postimg.cc/3RS56xZj/20250119-095943-removebg-preview.png" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* --- CSS THEME START --- */
-        :root {
-            --bg-dark: #051405;       /* Deepest Green */
-            --bg-card: #0c2b0c;       /* Card Background */
-            --text-main: #e0ffe0;     /* White-ish Green */
-            --text-dim: #8abf8a;      /* Dim Green */
-            --accent: #39ff14;        /* Neon Lime */
+        body {
+            user-select: none; -webkit-user-select: none;
+            margin: 0; font-family: 'Arial', sans-serif;
+            background-color: #f0f5f0; color: #064e3b; text-align: center;
         }
-        body { margin: 0; font-family: sans-serif; background-color: var(--bg-dark); color: var(--text-main); }
+
+        /* Themed Header without Bismillah */
+        .header {
+            background-image: url('https://images.pexels.com/photos/4827/nature-forest-industry-rails.jpg');
+            background-size: cover; background-position: center;
+            padding: 60px 0; display: flex; justify-content: center; align-items: center;
+            box-shadow: inset 0 0 0 1000px rgba(6, 78, 59, 0.3); /* subtle green overlay */
+        }
+
+        .section-title {
+            font-family: 'Georgia', serif; color: #064e3b;
+            margin: 40px 0 30px; font-size: 2.2rem;
+            border-bottom: 2px solid #064e3b; display: inline-block; padding-bottom: 5px;
+        }
+
+        /* Video Grid Layout */
+        .video-grid {
+            display: flex; justify-content: center; gap: 25px;
+            max-width: 1100px; margin: 0 auto 50px; padding: 0 15px; flex-wrap: wrap;
+        }
+
+        /* Clickable Card Div */
+        .video-card {
+            background-color: #ffffff;
+            border: 2px solid #a7d7c5;
+            border-radius: 12px;
+            width: 100%; max-width: 320px;
+            overflow: hidden; cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left; text-decoration: none; color: inherit; display: block;
+        }
+        .video-card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         
-        /* Navbar */
-        nav { padding: 15px 20px; background: var(--bg-card); border-bottom: 2px solid var(--accent); display: flex; justify-content: space-between; align-items: center; }
-        nav h1 { margin: 0; color: var(--accent); letter-spacing: 1px; }
+        .thumb-container { width: 100%; height: 180px; background: #000; }
+        .thumb-container img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Grid Layout */
-        .feed-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 30px;
+        .card-content { padding: 15px; }
+        .card-content h3 { font-family: 'Georgia', serif; color: #064e3b; margin: 0 0 10px 0; font-size: 1.2rem; }
+        .card-content p { color: #444; font-size: 0.95rem; margin: 0; line-height: 1.5; }
+
+        /* Footer */
+        .contact {
+            padding: 30px; background: #d7f3e4; text-align: center;
+            border-top: 2px solid #a7d7c5; margin-top: 60px;
         }
-
-        /* The Card - Clickable Div */
-        .placecard {
-            background-color: var(--bg-card);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #1a4a1a;
-            transition: all 0.2s ease;
-            text-decoration: none; /* Removes link underline */
-            display: block;        /* Makes anchor tag behave like a box */
-            color: inherit;
-        }
-
-        .placecard:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
-        }
-
-        .thumbnail {
-            width: 100%;
-            height: 170px;
-            background-color: #000;
-            object-fit: cover;
-            border-bottom: 1px solid #1a4a1a;
-        }
-
-        .info { padding: 15px; }
-        .title { margin: 0 0 8px 0; font-size: 1.1rem; font-weight: bold; color: var(--text-main); }
-        .desc { margin: 0; font-size: 0.9rem; color: var(--text-dim); line-height: 1.4; }
-        /* --- CSS THEME END --- */
+        .contact a { margin: 0 15px; text-decoration: none; color: #064e3b; font-weight: bold; font-size: 1.1rem; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <h1>Videos</h1>
-    </nav>
+    <div class="header">
+        </div>
 
-    <div class="feed-container">
-        
-        <a href="video1.html" class="placecard">
-            <img src="https://via.placeholder.com/600x400/0c2b0c/39ff14?text=Video+1" class="thumbnail">
-            <div class="info">
-                <h3 class="title">Nature Cinematic</h3>
-                <p class="desc">A beautiful look at the forest in 4k.</p>
+    <h2 class="section-title">Video Explainers</h2>
+
+    <div class="video-grid">
+        <a href="video1.html" class="video-card">
+            <div class="thumb-container">
+                <img src="https://i.postimg.cc/J07XvFhf/56567b91-43b6-4fe6-a4ab-421290b8ac4c.png" alt="Video Thumb">
+            </div>
+            <div class="card-content">
+                <h3>Islamic Finance Basics</h3>
+                <p>Principles and basics of the Islamic Banking System explained.</p>
             </div>
         </a>
 
-        <a href="video2.html" class="placecard">
-            <img src="https://via.placeholder.com/600x400/0c2b0c/39ff14?text=Video+2" class="thumbnail">
-            <div class="info">
-                <h3 class="title">Coding Tutorial</h3>
-                <p class="desc">Learn how to make green websites easily.</p>
+        <a href="video2.html" class="video-card">
+            <div class="thumb-container">
+                <img src="post/20250929_181004.jpg" alt="Video Thumb">
+            </div>
+            <div class="card-content">
+                <h3>Dar' Ta'arud Insights</h3>
+                <p>Analyzing the universal rule and revelation vs reason.</p>
             </div>
         </a>
+    </div>
 
+    <div class="contact">
+        <p>Contact Me: <a href="https://t.me/zimaamzayn"><i class="fa-brands fa-telegram"></i> Telegram</a></p>
     </div>
 
 </body>
