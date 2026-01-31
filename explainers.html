@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explainer Feed</title>
+    <style>
+        /* --- CSS THEME START --- */
+        :root {
+            --bg-dark: #051405;       /* Deepest Green */
+            --bg-card: #0c2b0c;       /* Card Background */
+            --text-main: #e0ffe0;     /* White-ish Green */
+            --text-dim: #8abf8a;      /* Dim Green */
+            --accent: #39ff14;        /* Neon Lime */
+        }
+        body { margin: 0; font-family: sans-serif; background-color: var(--bg-dark); color: var(--text-main); }
+        
+        /* Navbar */
+        nav { padding: 15px 20px; background: var(--bg-card); border-bottom: 2px solid var(--accent); display: flex; justify-content: space-between; align-items: center; }
+        nav h1 { margin: 0; color: var(--accent); letter-spacing: 1px; }
+
+        /* Grid Layout */
+        .feed-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        /* The Card - Clickable Div */
+        .placecard {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #1a4a1a;
+            transition: all 0.2s ease;
+            text-decoration: none; /* Removes link underline */
+            display: block;        /* Makes anchor tag behave like a box */
+            color: inherit;
+        }
+
+        .placecard:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 170px;
+            background-color: #000;
+            object-fit: cover;
+            border-bottom: 1px solid #1a4a1a;
+        }
+
+        .info { padding: 15px; }
+        .title { margin: 0 0 8px 0; font-size: 1.1rem; font-weight: bold; color: var(--text-main); }
+        .desc { margin: 0; font-size: 0.9rem; color: var(--text-dim); line-height: 1.4; }
+        /* --- CSS THEME END --- */
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>Videos</h1>
+    </nav>
+
+    <div class="feed-container">
+        
+        <a href="video1.html" class="placecard">
+            <img src="https://via.placeholder.com/600x400/0c2b0c/39ff14?text=Video+1" class="thumbnail">
+            <div class="info">
+                <h3 class="title">Nature Cinematic</h3>
+                <p class="desc">A beautiful look at the forest in 4k.</p>
+            </div>
+        </a>
+
+        <a href="video2.html" class="placecard">
+            <img src="https://via.placeholder.com/600x400/0c2b0c/39ff14?text=Video+2" class="thumbnail">
+            <div class="info">
+                <h3 class="title">Coding Tutorial</h3>
+                <p class="desc">Learn how to make green websites easily.</p>
+            </div>
+        </a>
+
+    </div>
+
+</body>
+</html>
