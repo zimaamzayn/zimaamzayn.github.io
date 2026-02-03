@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Couplets</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- General Reset & Theme --- */
+        body {
+            background-color: #f0fdf4; /* Very light mint green */
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #14532d; /* Dark green text for contrast */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* --- Header Styling --- */
+        h1 {
+            color: #15803d; /* Green title */
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        /* --- Container for the cards --- */
+        #couplet-container {
+            width: 100%;
+            max-width: 600px; /* Limits width on PC, full width on phone */
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Space between cards */
+        }
+
+        /* --- The Card (Goodreads Style) --- */
+        .card {
+            background-color: #ffffff;
+            border: 2px solid #4ade80; /* Bright green border */
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px); /* Slight lift on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .couplet-roman {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #166534;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #bbf7d0;
+            margin: 10px 0;
+            width: 50px; /* Short divider line */
+        }
+
+        .couplet-translation {
+            font-size: 1rem;
+            color: #4b5563; /* Greyish text for translation */
+            font-style: italic;
+        }
+
+        /* --- Footer Styling --- */
+        footer {
+            margin-top: auto; /* Pushes footer to bottom */
+            padding-top: 40px;
+            padding-bottom: 20px;
+            font-size: 0.9rem;
+            color: #15803d;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Couplets</h1>
+
+    <div id="couplet-container"></div>
+
+    <footer>
+        With ❤️ by Zayn
+    </footer>
+
+    <script>
+        // --- DATA SECTION ---
+        // You can add more couplets here. 
+        // Just copy the structure: { roman: "...", trans: "..." },
+        const coupletsArray = [
+            {
+                roman: "Ranjish se pehle hi kyun dil ne maan li haar, \nAb khud se milun to lagta hai jaise koi aur hoon.",
+                trans: "Why did my heart give up before the hurt even began, \nNow when I face myself, I feel like someone else."
+            },
+            {
+                roman: "Wo unkahi baton se bhi udas ho jata hai, \nAur zikr karne par bhi samajh nahi pata hai \nMaazrat, aye Khuda, ajeeb hai ye insaan \nJinse khafa hai, unhi ko manata hai.",
+                trans: "He grows sad even over words left unspoken \nAnd even when things are explained, he still fails to understand \nForgive me, O God, how strange this human is \nThe very ones he is upset with are the ones he tries to please."
+            },
+            {
+                roman: "Mukhtasar se safar ke liye liye rawana nahi tu, \nMain maan jaun aisa koi bahana de tu.",
+                trans: "You are not setting out for even a short journey, \nSo give me some excuse that would make me agree."
+            },
+            {
+                roman: "Ikhtiyar hai nahi tera apne wujud ke hone par, \nWaqt ne rasman hi teri aazmaish li hai.",
+                trans: "You have no control over your own existence, \nTime, as usual, has tested you."
+            },
+            {
+                roman: "Maine wafadari us bewafah se sikhi hai, \nUsne chhod kar jaana sikhaya aur maine ruk ke nibhana.",
+                trans: "I learned loyalty from the unfaithful one, /nThey showed me how to leave, and I learned how to stay."
+            }
+        ];
+
+        // --- RENDER LOGIC ---
+        const container = document.getElementById('couplet-container');
+
+        // Loop through the array and create HTML for each couplet
+        coupletsArray.forEach(item => {
+            // Create the card div
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            // Convert newlines (\n) to HTML breaks (<br>) for display
+            const formattedRoman = item.roman.replace(/\n/g, '<br>');
+            const formattedTrans = item.trans.replace(/\n/g, '<br>');
+
+            // Set the inner HTML
+            card.innerHTML = `
+                <div class="couplet-roman">${formattedRoman}</div>
+                <div class="divider"></div>
+                <div class="couplet-translation">${formattedTrans}</div>
+            `;
+
+            // Append to container
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
