@@ -2,7 +2,7 @@
   "name": "Quran Reader",
   "short_name": "Quran",
   "description": "Read Quran ayahs with English translation and commentary",
-  "start_url": "./index.html",
+  "start_url": "./tafsir.html",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#f5f0e8",
