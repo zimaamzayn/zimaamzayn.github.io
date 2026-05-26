@@ -10,7 +10,7 @@ const DATA_CACHE  = `quran-data-${VERSION}`;
 
 // Files that must be cached immediately on install
 const SHELL_FILES = [
-  './index.html',
+  './tafsir.html',
   './manifest.json',
   './icons/icon-192.png',
   './icons/icon-512.png',
@@ -86,7 +86,7 @@ async function cacheFirst(request, cacheName) {
   } catch {
     // Offline and not in cache — return a friendly offline page for HTML
     if (request.destination === 'document') {
-      const fallback = await caches.match('./index.html');
+      const fallback = await caches.match('./tafsir.html');
       if (fallback) return fallback;
     }
     return new Response('Offline', { status: 503 });
