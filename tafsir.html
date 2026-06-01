@@ -405,7 +405,7 @@ async function loadSurah(num) {
   try {
     // 3. Safely Attempt to Fetch Language Data
     // Wrapped in its own try/catch so missing lang files won't crash the app.
-    const langRes = await fetch(`lang_${num}.json`);
+    const langRes = await fetch(`data/lang_${num}.json`);
     if (langRes.ok) {
       langData = await langRes.json();
     }
