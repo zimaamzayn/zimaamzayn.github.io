@@ -3,33 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Tafsir</title>
+<title>Tafsir & Linguistics</title>
 <meta name="description" content="Tafsir Made for English Readers. Clear, authentic, and accessible Quranic explanations."> 
     <meta name="author" content="Zimaam Zayn">
-    <meta name="keywords" content="Tafsir, Quran, Islam, English Tafsir, Quranic Reflections, Zimaam Zayn, Exegesis"> 
+    <meta name="keywords" content="Tafsir, Quran, Islam, English Tafsir, Quranic Reflections, Zimaam Zayn, Exegesis, Root words"> 
     <meta property="og:title" content="Tafsir in English"> 
-    <meta property="og:description" content="Tafsir Made for English Readers.">
+    <meta property="og:description" content="Tafsir Made for English Readers with Linguistic Insights.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://zayn.us.kg/tafsir.html">
-    <meta property="og:image" content="https://zayn.us.kg/icons/icon-512.png">
-<!-- ── PWA / iOS home screen ──────────────────────────────────────────── -->
+    
 <link rel="manifest" href="manifest.json">
-
-<!-- iOS-specific (Safari ignores manifest for these) -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Quran">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Apple touch icons (different sizes for different iPhones / iPads) -->
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152.png">
-<link rel="apple-touch-icon" sizes="167x167" href="icons/apple-touch-icon-167.png">
-<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-
-<!-- Android / general -->
-<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <meta name="theme-color" content="#1a3d2b">
-<meta name="description" content="Read the Quran with English translations and detailed commentary.">
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
@@ -65,7 +51,7 @@
       radial-gradient(ellipse at 80% 100%, rgba(26,61,43,0.07) 0%, transparent 50%);
   }
 
-  /* ── Header (accounts for iPhone notch/Dynamic Island) ──────────────── */
+  /* ── Header ──────────────────────────────────────────────────────────── */
   header {
     background: var(--green-deep);
     color: var(--cream);
@@ -82,388 +68,157 @@
     box-shadow: 0 2px 16px rgba(26,61,43,0.3);
   }
 
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    flex-shrink: 0;
-  }
-
+  .brand { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
   .brand-icon {
-    width: 32px; height: 32px;
-    background: var(--green-light);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 15px;
+    width: 32px; height: 32px; background: var(--green-light); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 15px;
   }
+  .brand-name { font-family: 'Amiri', serif; font-size: 1.25rem; font-weight: 700; color: var(--gold-light); }
 
-  .brand-name {
-    font-family: 'Amiri', serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    color: var(--gold-light);
-  }
-
-  /* ── Surah selector ──────────────────────────────────────────────────── */
-  .selector-wrap {
-    position: relative;
-    flex: 1;
-    max-width: 420px;
-  }
-
+  .selector-wrap { position: relative; flex: 1; max-width: 420px; }
   .selector-wrap::after {
-    content: '▾';
-    position: absolute;
-    right: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--green-light);
-    font-size: 12px;
-    pointer-events: none;
+    content: '▾'; position: absolute; right: 14px; top: 50%;
+    transform: translateY(-50%); color: var(--green-light); font-size: 12px; pointer-events: none;
   }
 
   #surahSelect {
-    width: 100%;
-    appearance: none;
-    -webkit-appearance: none;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(82,183,136,0.35);
-    border-radius: 8px;
-    color: var(--cream);
-    font-family: 'Lora', serif;
-    font-size: 0.9rem;
-    padding: 0.55rem 2.2rem 0.55rem 0.9rem;
-    cursor: pointer;
-    outline: none;
-    transition: border-color 0.2s, background 0.2s;
+    width: 100%; appearance: none; -webkit-appearance: none;
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(82,183,136,0.35);
+    border-radius: 8px; color: var(--cream); font-family: 'Lora', serif;
+    font-size: 0.9rem; padding: 0.55rem 2.2rem 0.55rem 0.9rem; cursor: pointer; outline: none;
   }
+  #surahSelect:focus { border-color: var(--green-light); background: rgba(255,255,255,0.12); }
+  #surahSelect option { background: var(--green-deep); color: var(--cream); }
 
-  #surahSelect:focus {
-    border-color: var(--green-light);
-    background: rgba(255,255,255,0.12);
-  }
-
-  #surahSelect option {
-    background: var(--green-deep);
-    color: var(--cream);
-  }
-
-  /* ── Offline banner ──────────────────────────────────────────────────── */
-  #offlineBanner {
-    display: none;
-    background: var(--gold);
-    color: #fff;
-    text-align: center;
-    font-size: 0.78rem;
-    padding: 0.4rem 1rem;
-    letter-spacing: 0.04em;
-  }
-
+  /* ── Offline Banner ──────────────────────────────────────────────────── */
+  #offlineBanner { display: none; background: var(--gold); color: #fff; text-align: center; font-size: 0.78rem; padding: 0.4rem 1rem; letter-spacing: 0.04em; }
   #offlineBanner.show { display: block; }
 
-  /* ── Main ────────────────────────────────────────────────────────────── */
-  main {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 2rem 1.25rem calc(4rem + var(--safe-bot));
-  }
+  /* ── Main Layout ─────────────────────────────────────────────────────── */
+  main { max-width: 780px; margin: 0 auto; padding: 2rem 1.25rem calc(4rem + var(--safe-bot)); }
 
-  /* ── Surah header card ───────────────────────────────────────────────── */
   .surah-header {
-    text-align: center;
-    margin-bottom: 2.5rem;
-    padding: 2rem 1.5rem 1.75rem;
-    background: var(--green-deep);
-    border-radius: 16px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 24px rgba(26,61,43,0.2);
-    animation: fadeSlideIn 0.35s ease both;
+    text-align: center; margin-bottom: 2.5rem; padding: 2rem 1.5rem 1.75rem;
+    background: var(--green-deep); border-radius: 16px; position: relative;
+    overflow: hidden; box-shadow: 0 4px 24px rgba(26,61,43,0.2); animation: fadeSlideIn 0.35s ease both;
   }
-
   .surah-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(82,183,136,0.25) 0%, transparent 70%);
-    pointer-events: none;
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(82,183,136,0.25) 0%, transparent 70%); pointer-events: none;
   }
+  .surah-header-ornament { font-size: 1.4rem; letter-spacing: 0.5rem; color: var(--gold-light); opacity: 0.5; margin-bottom: 0.5rem; }
+  .surah-arabic { font-family: 'Amiri', serif; font-size: clamp(1.8rem, 5vw, 2.6rem); color: var(--gold-light); line-height: 1.3; margin-bottom: 0.3rem; }
+  .surah-transliteration { font-size: 1rem; color: var(--green-light); font-style: italic; margin-bottom: 0.15rem; }
+  .surah-meta { font-size: 0.8rem; color: rgba(245,240,232,0.45); letter-spacing: 0.08em; text-transform: uppercase; }
 
-  .surah-header-ornament {
-    font-size: 1.4rem;
-    letter-spacing: 0.5rem;
-    color: var(--gold-light);
-    opacity: 0.5;
-    margin-bottom: 0.5rem;
-  }
-
-  .surah-arabic {
-    font-family: 'Amiri', serif;
-    font-size: clamp(1.8rem, 5vw, 2.6rem);
-    color: var(--gold-light);
-    line-height: 1.3;
-    margin-bottom: 0.3rem;
-  }
-
-  .surah-transliteration {
-    font-size: 1rem;
-    color: var(--green-light);
-    font-style: italic;
-    margin-bottom: 0.15rem;
-  }
-
-  .surah-meta {
-    font-size: 0.8rem;
-    color: rgba(245,240,232,0.45);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  /* ── Placeholder ─────────────────────────────────────────────────────── */
-  .placeholder {
-    text-align: center;
-    padding: 5rem 2rem;
-    color: var(--text-soft);
-    animation: fadeSlideIn 0.4s ease both;
-  }
-
+  .placeholder { text-align: center; padding: 5rem 2rem; color: var(--text-soft); animation: fadeSlideIn 0.4s ease both; }
   .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; opacity: 0.35; }
+  .placeholder p { font-size: 1.05rem; font-style: italic; line-height: 1.7; }
+  .install-tip { display: none; margin-top: 1.5rem; font-size: 0.82rem; color: var(--green-mid); background: var(--green-pale); border-radius: 8px; padding: 0.75rem 1rem; line-height: 1.6; }
 
-  .placeholder p {
-    font-size: 1.05rem;
-    font-style: italic;
-    line-height: 1.7;
-  }
-
-  /* Tip shown only when accessed as installed PWA */
-  .install-tip {
-    display: none;
-    margin-top: 1.5rem;
-    font-size: 0.82rem;
-    color: var(--green-mid);
-    background: var(--green-pale);
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    line-height: 1.6;
-  }
-
-  /* ── Ayah cards ──────────────────────────────────────────────────────── */
+  /* ── Ayah Cards ──────────────────────────────────────────────────────── */
   .ayah-list { display: flex; flex-direction: column; gap: 1.25rem; }
+  .ayah-card { background: #fff; border-radius: 12px; border: 1px solid var(--cream-border); overflow: hidden; box-shadow: 0 1px 6px rgba(26,61,43,0.06); animation: fadeSlideIn 0.3s ease both; }
 
-  .ayah-card {
-    background: #fff;
-    border-radius: 12px;
-    border: 1px solid var(--cream-border);
-    overflow: hidden;
-    box-shadow: 0 1px 6px rgba(26,61,43,0.06);
-    animation: fadeSlideIn 0.3s ease both;
-  }
+  .ayah-top { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: var(--green-mist); border-bottom: 1px solid var(--cream-border); }
+  .ayah-badge { width: 32px; height: 32px; border-radius: 50%; background: var(--green-deep); color: var(--green-pale); font-size: 0.72rem; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ayah-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-soft); }
 
-  .ayah-card:nth-child(1)  { animation-delay: 0.02s }
-  .ayah-card:nth-child(2)  { animation-delay: 0.04s }
-  .ayah-card:nth-child(3)  { animation-delay: 0.06s }
-  .ayah-card:nth-child(4)  { animation-delay: 0.08s }
-  .ayah-card:nth-child(5)  { animation-delay: 0.10s }
-  .ayah-card:nth-child(n+6){ animation-delay: 0.12s }
-
-  .ayah-top {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    background: var(--green-mist);
-    border-bottom: 1px solid var(--cream-border);
-  }
-
-  .ayah-badge {
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    background: var(--green-deep);
-    color: var(--green-pale);
-    font-size: 0.72rem;
-    font-weight: 600;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .ayah-label {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-soft);
-  }
-
-  /* ── Translation ─────────────────────────────────────────────────────── */
-  .ayah-translation {
-    padding: 1rem 1.1rem 0.85rem;
-    font-size: 1.02rem;
-    line-height: 1.75;
-    color: var(--text-main);
-    border-bottom: 1px solid var(--cream-border);
-    position: relative;
-  }
-
-  .ayah-translation::before {
-    content: '"';
+  /* ── Arabic Verse Text & Translation ──────────────────────────────────── */
+  .ayah-translation { padding: 1rem 1.1rem 0.85rem; border-bottom: 1px solid var(--cream-border); position: relative; }
+  .ayah-translation::before { content: '"'; font-family: 'Amiri', serif; font-size: 2.8rem; color: var(--green-light); opacity: 0.28; position: absolute; top: 0.1rem; left: 0.7rem; line-height: 1; }
+  
+  .verse-arabic {
     font-family: 'Amiri', serif;
-    font-size: 2.8rem;
-    color: var(--green-light);
-    opacity: 0.28;
-    position: absolute;
-    top: 0.1rem; left: 0.7rem;
-    line-height: 1;
-  }
-
-  .translation-text { padding-left: 1.4rem; }
-
-  /* ── Commentary ──────────────────────────────────────────────────────── */
-  .commentary-toggle {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.7rem 1.1rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: 'Lora', serif;
-    font-size: 0.8rem;
-    color: var(--green-mid);
-    text-align: left;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    font-weight: 600;
-    transition: background 0.15s;
-    -webkit-tap-highlight-color: transparent;
-    min-height: 44px; /* iOS tap target */
-  }
-
-  .commentary-toggle:hover,
-  .commentary-toggle:active { background: var(--green-pale); }
-
-  .toggle-chevron {
-    font-size: 0.75rem;
-    transition: transform 0.25s ease;
-    flex-shrink: 0;
-  }
-
-  .commentary-toggle[aria-expanded="true"] .toggle-chevron {
-    transform: rotate(180deg);
-  }
-
-  .commentary-body {
-    display: none;
-    padding: 0 1.1rem 1.1rem;
-    color: var(--text-mid);
-    font-size: 0.97rem;
-    line-height: 1.85;
-    border-top: 1px dashed var(--cream-border);
-  }
-
-  .commentary-body.open {
-    display: block;
-    animation: expandIn 0.2s ease both;
-  }
-
-  .commentary-body .cm-arabic {
-    font-family: 'Amiri', serif;
-    font-size: 1.25rem;
+    font-size: 2rem;
+    line-height: 1.8;
     color: var(--green-deep);
     direction: rtl;
     text-align: right;
-    display: block;
-    margin: 0.6rem 0 0.9rem;
-    line-height: 1.7;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed var(--cream-border);
   }
 
-  .commentary-body h2, .commentary-body h3 {
-    font-family: 'Lora', serif;
+  .translation-text {
+    padding-left: 1.4rem;
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: var(--text-main);
+  }
+
+  /* ── Language Insights CSS ───────────────────────────────────────────── */
+  .language-insights {
+    padding: 1rem 1.1rem 0.5rem;
+    border-bottom: 1px solid var(--cream-border);
+    background: linear-gradient(to bottom, rgba(255,255,255,0), var(--green-mist));
+  }
+  .insights-title { font-family: 'Lora', serif; font-size: 0.75rem; color: var(--green-mid); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+  .insights-title::before { content: '✧'; color: var(--gold); font-size: 0.85rem; }
+  .insight-item { display: flex; gap: 1rem; margin-bottom: 0.85rem; align-items: flex-start; }
+  
+  .insight-arabic {
+    font-family: 'Amiri', serif; 
+    font-size: 1.35rem; 
     color: var(--green-deep);
-    margin: 1.1rem 0 0.4rem;
-    font-weight: 600;
+    direction: rtl; 
+    line-height: 1.6; /* Prevents tall Arabic marks from clipping */
+    background: var(--green-pale); 
+    padding: 0.4rem 0.7rem; 
+    border-radius: 6px; 
+    white-space: normal; /* Prevents layout breaking on small screens */
+    border: 1px solid rgba(82,183,136,0.2); 
+    text-align: right;
   }
+  
+  .insight-text { font-size: 0.92rem; line-height: 1.6; color: var(--text-mid); padding-top: 0.2rem; }
+  
+  .insight-type-badge {
+    display: inline-block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em;
+    background: var(--cream-border); color: var(--text-mid); padding: 0.15rem 0.4rem; border-radius: 4px; margin-right: 0.4rem; vertical-align: middle;
+  }
+  
+  /* Type specific colors */
+  .type-word { background: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; }
+  .type-phrase { background: #f3e5f5; color: #4a148c; border: 1px solid #e1bee7; }
+  .type-verse { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
 
+  /* ── Commentary CSS ──────────────────────────────────────────────────── */
+  .commentary-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 1.1rem; background: none; border: none; cursor: pointer; font-family: 'Lora', serif; font-size: 0.8rem; color: var(--green-mid); text-align: left; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; transition: background 0.15s; }
+  .commentary-toggle:hover { background: var(--green-pale); }
+  .toggle-chevron { font-size: 0.75rem; transition: transform 0.25s ease; flex-shrink: 0; }
+  .commentary-toggle[aria-expanded="true"] .toggle-chevron { transform: rotate(180deg); }
+
+  .commentary-body { display: none; padding: 0 1.1rem 1.1rem; color: var(--text-mid); font-size: 0.97rem; line-height: 1.85; border-top: 1px dashed var(--cream-border); }
+  .commentary-body.open { display: block; animation: expandIn 0.2s ease both; }
+
+  .commentary-body .cm-arabic { font-family: 'Amiri', serif; font-size: 1.25rem; color: var(--green-deep); direction: rtl; text-align: right; display: block; margin: 0.6rem 0 0.9rem; line-height: 1.7; }
+  .commentary-body h2, .commentary-body h3 { font-family: 'Lora', serif; color: var(--green-deep); margin: 1.1rem 0 0.4rem; font-weight: 600; }
   .commentary-body h2 { font-size: 1rem; }
   .commentary-body h3 { font-size: 0.93rem; font-style: italic; }
   .commentary-body p  { margin-bottom: 0.85rem; }
   .commentary-body strong { color: var(--green-deep); font-weight: 600; }
   .commentary-body em     { color: var(--text-soft); font-style: italic; }
+  .no-commentary { padding: 0.55rem 1.1rem 0.8rem; font-size: 0.78rem; color: var(--text-soft); font-style: italic; }
 
-  .no-commentary {
-    padding: 0.55rem 1.1rem 0.8rem;
-    font-size: 0.78rem;
-    color: var(--text-soft);
-    font-style: italic;
-  }
-
-  /* ── Loader / error ──────────────────────────────────────────────────── */
-  .loader {
-    text-align: center;
-    padding: 4rem 2rem;
-    color: var(--text-soft);
-    font-style: italic;
-    animation: pulse 1.4s ease-in-out infinite;
-  }
-
-  .error-msg {
-    background: #fdf0f0;
-    border: 1px solid #e8c5c5;
-    border-radius: 10px;
-    padding: 1.25rem 1.5rem;
-    color: #7a3535;
-    font-size: 0.92rem;
-    line-height: 1.6;
-    margin-top: 1rem;
-  }
-
-  /* ── Animations ──────────────────────────────────────────────────────── */
-  @keyframes fadeSlideIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes expandIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 0.5; }
-    50%       { opacity: 1;   }
-  }
-
-  /* ── Scroll to top ───────────────────────────────────────────────────── */
-  #scrollTop {
-    position: fixed;
-    bottom: calc(1.5rem + var(--safe-bot));
-    right: 1.5rem;
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: var(--green-deep);
-    color: var(--cream);
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 2px 12px rgba(26,61,43,0.3);
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.25s, transform 0.25s;
-    pointer-events: none;
-    z-index: 99;
-    -webkit-tap-highlight-color: transparent;
-  }
-
+  /* ── Loaders & Utils ─────────────────────────────────────────────────── */
+  .loader { text-align: center; padding: 4rem 2rem; color: var(--text-soft); font-style: italic; animation: pulse 1.4s ease-in-out infinite; }
+  .error-msg { background: #fdf0f0; border: 1px solid #e8c5c5; border-radius: 10px; padding: 1.25rem 1.5rem; color: #7a3535; font-size: 0.92rem; line-height: 1.6; margin-top: 1rem; }
+  #scrollTop { position: fixed; bottom: calc(1.5rem + var(--safe-bot)); right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: var(--green-deep); color: var(--cream); border: none; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(26,61,43,0.3); opacity: 0; transform: translateY(8px); transition: opacity 0.25s, transform 0.25s; pointer-events: none; z-index: 99; }
   #scrollTop.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+  @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes expandIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
 
   /* ── Mobile ──────────────────────────────────────────────────────────── */
   @media (max-width: 480px) {
-    header { padding: 0.7rem 1rem; padding-top: var(--safe-top); flex-wrap: wrap; min-height: unset; }
-    .brand-name  { font-size: 1.1rem; }
-    .selector-wrap { max-width: 100%; }
+    header { padding: 0.7rem 1rem; flex-wrap: wrap; }
     main { padding: 1.25rem 0.85rem calc(3rem + var(--safe-bot)); }
     .surah-header { padding: 1.5rem 1rem 1.25rem; }
-    .ayah-translation { font-size: 0.97rem; }
-    .commentary-body  { font-size: 0.93rem; }
+    .insight-item { flex-direction: column; gap: 0.4rem; }
+    .insight-arabic { align-self: stretch; text-align: right; }
+    .verse-arabic { font-size: 1.7rem; }
   }
 </style>
 </head>
@@ -494,226 +249,148 @@
 <button id="scrollTop" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-// ── Register service worker ───────────────────────────────────────────────
+// ── Service Worker & PWA Logic ────────────────────────────────────────────
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').then(reg => {
-      console.log('[SW] registered, scope:', reg.scope);
-    }).catch(err => {
-      console.warn('[SW] registration failed:', err);
-    });
+    navigator.serviceWorker.register('./sw.js').catch(err => console.warn('[SW] failed:', err));
   });
 }
-
-// ── Offline banner ────────────────────────────────────────────────────────
 window.addEventListener('online',  () => document.getElementById('offlineBanner').classList.remove('show'));
 window.addEventListener('offline', () => document.getElementById('offlineBanner').classList.add('show'));
 if (!navigator.onLine) document.getElementById('offlineBanner').classList.add('show');
-
-// ── Show install tip when running as installed PWA ────────────────────────
-if (window.matchMedia('(display-mode: standalone)').matches ||
-    window.navigator.standalone === true) {
+if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
   document.getElementById('installTip').style.display = 'block';
 }
 
-// ── Surah metadata ────────────────────────────────────────────────────────
+// ── Surah Metadata ────────────────────────────────────────────────────────
 const SURAHS = [
-  [1,"Al-Fatihah","الفاتحة","The Opener",7],
-  [2,"Al-Baqarah","البقرة","The Cow",286],
-  [3,"Ali 'Imran","آل عمران","Family of Imran",200],
-  [4,"An-Nisa","النساء","The Women",176],
-  [5,"Al-Ma'idah","المائدة","The Table Spread",120],
-  [6,"Al-An'am","الأنعام","The Cattle",165],
-  [7,"Al-A'raf","الأعراف","The Heights",206],
-  [8,"Al-Anfal","الأنفال","The Spoils of War",75],
-  [9,"At-Tawbah","التوبة","The Repentance",129],
-  [10,"Yunus","يونس","Jonah",109],
-  [11,"Hud","هود","Hud",123],
-  [12,"Yusuf","يوسف","Joseph",111],
-  [13,"Ar-Ra'd","الرعد","The Thunder",43],
-  [14,"Ibrahim","إبراهيم","Abraham",52],
-  [15,"Al-Hijr","الحجر","The Rocky Tract",99],
-  [16,"An-Nahl","النحل","The Bee",128],
-  [17,"Al-Isra","الإسراء","The Night Journey",111],
-  [18,"Al-Kahf","الكهف","The Cave",110],
-  [19,"Maryam","مريم","Mary",98],
-  [20,"Ta-Ha","طه","Ta-Ha",135],
-  [21,"Al-Anbya","الأنبياء","The Prophets",112],
-  [22,"Al-Hajj","الحج","The Pilgrimage",78],
-  [23,"Al-Mu'minun","المؤمنون","The Believers",118],
-  [24,"An-Nur","النور","The Light",64],
-  [25,"Al-Furqan","الفرقان","The Criterion",77],
-  [26,"Ash-Shu'ara","الشعراء","The Poets",227],
-  [27,"An-Naml","النمل","The Ant",93],
-  [28,"Al-Qasas","القصص","The Stories",88],
-  [29,"Al-'Ankabut","العنكبوت","The Spider",69],
-  [30,"Ar-Rum","الروم","The Romans",60],
-  [31,"Luqman","لقمان","Luqman",34],
-  [32,"As-Sajdah","السجدة","The Prostration",30],
-  [33,"Al-Ahzab","الأحزاب","The Combined Forces",73],
-  [34,"Saba","سبأ","Sheba",54],
-  [35,"Fatir","فاطر","Originator",45],
-  [36,"Ya-Sin","يس","Ya Sin",83],
-  [37,"As-Saffat","الصافات","Those Ranged in Ranks",182],
-  [38,"Sad","ص","The Letter Sad",88],
-  [39,"Az-Zumar","الزمر","The Troops",75],
-  [40,"Ghafir","غافر","The Forgiver",85],
-  [41,"Fussilat","فصلت","Explained in Detail",54],
-  [42,"Ash-Shuraa","الشورى","The Consultation",53],
-  [43,"Az-Zukhruf","الزخرف","The Ornaments of Gold",89],
-  [44,"Ad-Dukhan","الدخان","The Smoke",59],
-  [45,"Al-Jathiyah","الجاثية","The Crouching",37],
-  [46,"Al-Ahqaf","الأحقاف","The Wind-Curved Sandhills",35],
-  [47,"Muhammad","محمد","Muhammad",38],
-  [48,"Al-Fath","الفتح","The Victory",29],
-  [49,"Al-Hujurat","الحجرات","The Rooms",18],
-  [50,"Qaf","ق","The Letter Qaf",45],
-  [51,"Adh-Dhariyat","الذاريات","The Winnowing Winds",60],
-  [52,"At-Tur","الطور","The Mount",49],
-  [53,"An-Najm","النجم","The Star",62],
-  [54,"Al-Qamar","القمر","The Moon",55],
-  [55,"Ar-Rahman","الرحمان","The Beneficent",78],
-  [56,"Al-Waqi'ah","الواقعة","The Inevitable",96],
-  [57,"Al-Hadid","الحديد","The Iron",29],
-  [58,"Al-Mujadila","المجادلة","The Pleading Woman",22],
-  [59,"Al-Hashr","الحشر","The Exile",24],
-  [60,"Al-Mumtahanah","الممتحنة","She That is to be Examined",13],
-  [61,"As-Saf","الصف","The Ranks",14],
-  [62,"Al-Jumu'ah","الجمعة","The Congregation",11],
-  [63,"Al-Munafiqun","المنافقون","The Hypocrites",11],
-  [64,"At-Taghabun","التغابن","The Mutual Disillusion",18],
-  [65,"At-Talaq","الطلاق","The Divorce",12],
-  [66,"At-Tahrim","التحريم","The Prohibition",12],
-  [67,"Al-Mulk","الملك","The Sovereignty",30],
-  [68,"Al-Qalam","القلم","The Pen",52],
-  [69,"Al-Haqqah","الحاقة","The Reality",52],
-  [70,"Al-Ma'arij","المعارج","The Ascending Stairways",44],
-  [71,"Nuh","نوح","Noah",28],
-  [72,"Al-Jinn","الجن","The Jinn",28],
-  [73,"Al-Muzzammil","المزمل","The Enshrouded One",20],
-  [74,"Al-Muddaththir","المدثر","The Cloaked One",56],
-  [75,"Al-Qiyamah","القيامة","The Resurrection",40],
-  [76,"Al-Insan","الإنسان","The Man",31],
-  [77,"Al-Mursalat","المرسلات","The Emissaries",50],
-  [78,"An-Naba","النبأ","The Tidings",40],
-  [79,"An-Nazi'at","النازعات","Those who drag forth",46],
-  [80,"'Abasa","عبس","He Frowned",42],
-  [81,"At-Takwir","التكوير","The Overthrowing",29],
-  [82,"Al-Infitar","الانفطار","The Cleaving",19],
-  [83,"Al-Mutaffifin","المطففين","The Defrauding",36],
-  [84,"Al-Inshiqaq","الانشقاق","The Sundering",25],
-  [85,"Al-Buruj","البروج","The Mansions of the Stars",22],
-  [86,"At-Tariq","الطارق","The Nightcomer",17],
-  [87,"Al-A'la","الأعلى","The Most High",19],
-  [88,"Al-Ghashiyah","الغاشية","The Overwhelming",26],
-  [89,"Al-Fajr","الفجر","The Dawn",30],
-  [90,"Al-Balad","البلد","The City",20],
-  [91,"Ash-Shams","الشمس","The Sun",15],
-  [92,"Al-Layl","الليل","The Night",21],
-  [93,"Ad-Duha","الضحى","The Morning Hours",11],
-  [94,"Ash-Sharh","الشرح","The Relief",8],
-  [95,"At-Tin","التين","The Fig",8],
-  [96,"Al-'Alaq","العلق","The Clot",19],
-  [97,"Al-Qadr","القدر","The Power",5],
-  [98,"Al-Bayyinah","البينة","The Clear Proof",8],
-  [99,"Az-Zalzalah","الزلزلة","The Earthquake",8],
-  [100,"Al-'Adiyat","العاديات","The Courser",11],
-  [101,"Al-Qari'ah","القارعة","The Calamity",11],
-  [102,"At-Takathur","التكاثر","The Rivalry in World Increase",8],
-  [103,"Al-'Asr","العصر","The Declining Day",3],
-  [104,"Al-Humazah","الهمزة","The Traducer",9],
-  [105,"Al-Fil","الفيل","The Elephant",5],
-  [106,"Quraysh","قريش","Quraysh",4],
-  [107,"Al-Ma'un","الماعون","The Small Kindnesses",7],
-  [108,"Al-Kawthar","الكوثر","The Abundance",3],
-  [109,"Al-Kafirun","الكافرون","The Disbelievers",6],
-  [110,"An-Nasr","النصر","The Divine Support",3],
-  [111,"Al-Masad","المسد","The Palm Fiber",5],
-  [112,"Al-Ikhlas","الإخلاص","The Sincerity",4],
-  [113,"Al-Falaq","الفلق","The Daybreak",5],
-  [114,"An-Nas","الناس","The Mankind",6],
+  [1,"Al-Fatihah","الفاتحة","The Opener",7], [2,"Al-Baqarah","البقرة","The Cow",286],
+  [3,"Ali 'Imran","آل عمران","Family of Imran",200], [4,"An-Nisa","النساء","The Women",176],
+  [5,"Al-Ma'idah","المائدة","The Table Spread",120], [6,"Al-An'am","الأنعام","The Cattle",165],
+  [7,"Al-A'raf","الأعراف","The Heights",206], [8,"Al-Anfal","الأنفال","The Spoils of War",75],
+  [9,"At-Tawbah","التوبة","The Repentance",129], [10,"Yunus","يونس","Jonah",109],
+  [11,"Hud","هود","Hud",123], [12,"Yusuf","يوسف","Joseph",111],
+  [13,"Ar-Ra'd","الرعد","The Thunder",43], [14,"Ibrahim","إبراهيم","Abraham",52],
+  [15,"Al-Hijr","الحجر","The Rocky Tract",99], [16,"An-Nahl","النحل","The Bee",128],
+  [17,"Al-Isra","الإسراء","The Night Journey",111], [18,"Al-Kahf","الكهف","The Cave",110],
+  [19,"Maryam","مريم","Mary",98], [20,"Ta-Ha","طه","Ta-Ha",135],
+  [21,"Al-Anbya","الأنبياء","The Prophets",112], [22,"Al-Hajj","الحج","The Pilgrimage",78],
+  [23,"Al-Mu'minun","المؤمنون","The Believers",118], [24,"An-Nur","النور","The Light",64],
+  [25,"Al-Furqan","الفرقان","The Criterion",77], [26,"Ash-Shu'ara","الشعراء","The Poets",227],
+  [27,"An-Naml","النمل","The Ant",93], [28,"Al-Qasas","القصص","The Stories",88],
+  [29,"Al-'Ankabut","العنكبوت","The Spider",69], [30,"Ar-Rum","الروم","The Romans",60],
+  [31,"Luqman","لقمان","Luqman",34], [32,"As-Sajdah","السجدة","The Prostration",30],
+  [33,"Al-Ahzab","الأحزاب","The Combined Forces",73], [34,"Saba","سبأ","Sheba",54],
+  [35,"Fatir","فاطر","Originator",45], [36,"Ya-Sin","يس","Ya Sin",83],
+  [37,"As-Saffat","الصافات","Those Ranged in Ranks",182], [38,"Sad","ص","The Letter Sad",88],
+  [39,"Az-Zumar","الزمر","The Troops",75], [40,"Ghafir","غافر","The Forgiver",85],
+  [41,"Fussilat","فصلت","Explained in Detail",54], [42,"Ash-Shuraa","الشورى","The Consultation",53],
+  [43,"Az-Zukhruf","الزخرف","The Ornaments of Gold",89], [44,"Ad-Dukhan","الدخان","The Smoke",59],
+  [45,"Al-Jathiyah","الجاثية","The Crouching",37], [46,"Al-Ahqaf","الأحقاف","The Wind-Curved Sandhills",35],
+  [47,"Muhammad","محمد","Muhammad",38], [48,"Al-Fath","الفتح","The Victory",29],
+  [49,"Al-Hujurat","الحجرات","The Rooms",18], [50,"Qaf","ق","The Letter Qaf",45],
+  [51,"Adh-Dhariyat","الذاريات","The Winnowing Winds",60], [52,"At-Tur","الطور","The Mount",49],
+  [53,"An-Najm","النجم","The Star",62], [54,"Al-Qamar","القمر","The Moon",55],
+  [55,"Ar-Rahman","الرحمان","The Beneficent",78], [56,"Al-Waqi'ah","الواقعة","The Inevitable",96],
+  [57,"Al-Hadid","الحديد","The Iron",29], [58,"Al-Mujadila","المجادلة","The Pleading Woman",22],
+  [59,"Al-Hashr","الحشر","The Exile",24], [60,"Al-Mumtahanah","الممتحنة","She That is to be Examined",13],
+  [61,"As-Saf","الصف","The Ranks",14], [62,"Al-Jumu'ah","الجمعة","The Congregation",11],
+  [63,"Al-Munafiqun","المنافقون","The Hypocrites",11], [64,"At-Taghabun","التغابن","The Mutual Disillusion",18],
+  [65,"At-Talaq","الطلاق","The Divorce",12], [66,"At-Tahrim","التحريم","The Prohibition",12],
+  [67,"Al-Mulk","الملك","The Sovereignty",30], [68,"Al-Qalam","القلم","The Pen",52],
+  [69,"Al-Haqqah","الحاقة","The Reality",52], [70,"Al-Ma'arij","المعارج","The Ascending Stairways",44],
+  [71,"Nuh","نوح","Noah",28], [72,"Al-Jinn","الجن","The Jinn",28],
+  [73,"Al-Muzzammil","المزمل","The Enshrouded One",20], [74,"Al-Muddaththir","المدثر","The Cloaked One",56],
+  [75,"Al-Qiyamah","القيامة","The Resurrection",40], [76,"Al-Insan","الإنسان","The Man",31],
+  [77,"Al-Mursalat","المرسلات","The Emissaries",50], [78,"An-Naba","النبأ","The Tidings",40],
+  [79,"An-Nazi'at","النازعات","Those who drag forth",46], [80,"'Abasa","عبس","He Frowned",42],
+  [81,"At-Takwir","التكوير","The Overthrowing",29], [82,"Al-Infitar","الانفطار","The Cleaving",19],
+  [83,"Al-Mutaffifin","المطففين","The Defrauding",36], [84,"Al-Inshiqaq","الانشقاق","The Sundering",25],
+  [85,"Al-Buruj","البروج","The Mansions of the Stars",22], [86,"At-Tariq","الطارق","The Nightcomer",17],
+  [87,"Al-A'la","الأعلى","The Most High",19], [88,"Al-Ghashiyah","الغاشية","The Overwhelming",26],
+  [89,"Al-Fajr","الفجر","The Dawn",30], [90,"Al-Balad","البلد","The City",20],
+  [91,"Ash-Shams","الشمس","The Sun",15], [92,"Al-Layl","الليل","The Night",21],
+  [93,"Ad-Duha","الضحى","The Morning Hours",11], [94,"Ash-Sharh","الشرح","The Relief",8],
+  [95,"At-Tin","التين","The Fig",8], [96,"Al-'Alaq","العلق","The Clot",19],
+  [97,"Al-Qadr","القدر","The Power",5], [98,"Al-Bayyinah","البينة","The Clear Proof",8],
+  [99,"Az-Zalzalah","الزلزلة","The Earthquake",8], [100,"Al-'Adiyat","العاديات","The Courser",11],
+  [101,"Al-Qari'ah","القارعة","The Calamity",11], [102,"At-Takathur","التكاثر","The Rivalry in World Increase",8],
+  [103,"Al-'Asr","العصر","The Declining Day",3], [104,"Al-Humazah","الهمزة","The Traducer",9],
+  [105,"Al-Fil","الفيل","The Elephant",5], [106,"Quraysh","قريش","Quraysh",4],
+  [107,"Al-Ma'un","الماعون","The Small Kindnesses",7], [108,"Al-Kawthar","الكوثر","The Abundance",3],
+  [109,"Al-Kafirun","الكافرون","The Disbelievers",6], [110,"An-Nasr","النصر","The Divine Support",3],
+  [111,"Al-Masad","المسد","The Palm Fiber",5], [112,"Al-Ikhlas","الإخلاص","The Sincerity",4],
+  [113,"Al-Falaq","الفلق","The Daybreak",5], [114,"An-Nas","الناس","The Mankind",6]
 ];
 
-// ── Populate dropdown ─────────────────────────────────────────────────────
 const select = document.getElementById('surahSelect');
-const ph = document.createElement('option');
-ph.value = ''; ph.textContent = '— Choose a Surah —';
-ph.disabled = true; ph.selected = true;
-select.appendChild(ph);
-
+select.innerHTML = '<option value="" disabled selected>— Choose a Surah —</option>';
 SURAHS.forEach(([num, translit, arabic, meaning, verses]) => {
-  const opt = document.createElement('option');
-  opt.value = num;
-  opt.textContent = `${num}. ${translit} (${verses})`;
-  select.appendChild(opt);
+  select.innerHTML += `<option value="${num}">${num}. ${translit} (${verses})</option>`;
 });
 
-// ── Scroll-to-top ─────────────────────────────────────────────────────────
-const scrollBtn = document.getElementById('scrollTop');
-window.addEventListener('scroll', () => {
-  scrollBtn.classList.toggle('visible', window.scrollY > 300);
-}, { passive: true });
+// Utilities
+function escHtml(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function toggleCommentary(btn) { btn.setAttribute('aria-expanded', btn.nextElementSibling.classList.toggle('open')); }
 
-// ── Commentary renderer ───────────────────────────────────────────────────
-function escHtml(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+// Strips out raw <br> tags and random hyphens from the language JSON texts
+function cleanText(rawStr) {
+  let str = rawStr.trim();
+  str = str.replace(/^(?:<br\s*\/?>\s*|-|—)+/gi, '').trim();
+  str = str.replace(/(?:<br\s*\/?>\s*)+$/gi, '').trim();
+  return str;
 }
 
 function renderCommentary(raw) {
   if (!raw) return '';
   const lines = raw.split('\n');
-  let html = '';
-  let i = 0;
-
-  if (lines[0] && /[\u0600-\u06FF]/.test(lines[0])) {
-    html += `<span class="cm-arabic">${escHtml(lines[0])}</span>`;
-    i = 1;
-  }
-
-  const segments = lines.slice(i).join('\n').split('\n\n');
-  segments.forEach(seg => {
+  let html = ''; let i = 0;
+  if (lines[0] && /[\u0600-\u06FF]/.test(lines[0])) { html += `<span class="cm-arabic">${escHtml(lines[0])}</span>`; i = 1; }
+  lines.slice(i).join('\n').split('\n\n').forEach(seg => {
     const t = seg.trim();
     if (!t) return;
-    if      (t.startsWith('### ')) html += `<h3>${escHtml(t.slice(4))}</h3>`;
-    else if (t.startsWith('## '))  html += `<h2>${escHtml(t.slice(3))}</h2>`;
-    else if (t.startsWith('# '))   html += `<h2>${escHtml(t.slice(2))}</h2>`;
-    else {
-      const body = t
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.+?)\*/g, '<em>$1</em>')
-        .split('\n').join('<br>');
-      html += `<p>${body}</p>`;
-    }
+    if (t.startsWith('### ')) html += `<h3>${escHtml(t.slice(4))}</h3>`;
+    else if (t.startsWith('## ')) html += `<h2>${escHtml(t.slice(3))}</h2>`;
+    else if (t.startsWith('# ')) html += `<h2>${escHtml(t.slice(2))}</h2>`;
+    else html += `<p>${t.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>').split('\n').join('<br>')}</p>`;
   });
   return html;
 }
 
-function toggleCommentary(btn) {
-  const body = btn.nextElementSibling;
-  const open = body.classList.toggle('open');
-  btn.setAttribute('aria-expanded', open);
-}
-
-// ── Load surah ────────────────────────────────────────────────────────────
+// ── App State & Fetching ────────────────────────────────────────────────
 let currentLoad = 0;
+let cachedQuranData = null; // Caches quran.json so it only loads once
 
-select.addEventListener('change', () => {
-  const num = parseInt(select.value);
-  if (num) loadSurah(num);
-});
+select.addEventListener('change', () => loadSurah(parseInt(select.value)));
+
+const scrollBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => scrollBtn.classList.toggle('visible', window.scrollY > 300), { passive: true });
 
 async function loadSurah(num) {
   const myLoad = ++currentLoad;
   const mainEl = document.getElementById('main');
-  const meta   = SURAHS[num - 1];
+  const meta = SURAHS[num - 1];
 
   mainEl.innerHTML = `<div class="loader">Loading ${meta[1]}…</div>`;
 
-  let data;
+  let tafsirData = null;
+  let langData = null;
+
   try {
-    const res = await fetch(`data/${num}.json`);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    data = await res.json();
+    // 1. Fetch Arabic Quran Data (Caching it globally)
+    if (!cachedQuranData) {
+      const quranRes = await fetch(`data/quran.json`);
+      if (quranRes.ok) {
+        cachedQuranData = await quranRes.json();
+      } else {
+        console.warn('Could not load data/quran.json');
+      }
+    }
+
+    // 2. Fetch Main Tafsir Data
+    const tafsirRes = await fetch(`data/${num}.json`);
+    if (!tafsirRes.ok) throw new Error(`Tafsir HTTP error: ${tafsirRes.status}`);
+    tafsirData = await tafsirRes.json();
   } catch(e) {
     if (myLoad !== currentLoad) return;
     mainEl.innerHTML = `
@@ -725,8 +402,29 @@ async function loadSurah(num) {
     return;
   }
 
+  try {
+    // 3. Safely Attempt to Fetch Language Data
+    // Wrapped in its own try/catch so missing lang files won't crash the app.
+    const langRes = await fetch(`lang_${num}.json`);
+    if (langRes.ok) {
+      langData = await langRes.json();
+    }
+  } catch(e) {
+    console.warn(`Linguistic insights for Surah ${num} not found. Skipping.`);
+  }
+
   if (myLoad !== currentLoad) return;
 
+  // Extract this specific surah's Arabic verses from the cached array
+  let currentSurahArabicVerses = [];
+  if (cachedQuranData) {
+    const qMatch = cachedQuranData.find(s => s.id === num);
+    if (qMatch && qMatch.verses) {
+      currentSurahArabicVerses = qMatch.verses;
+    }
+  }
+
+  // Render Header
   let html = `
     <div class="surah-header">
       <div class="surah-header-ornament">— ✦ —</div>
@@ -736,8 +434,14 @@ async function loadSurah(num) {
     </div>
     <div class="ayah-list">`;
 
-  data.forEach(({ surah, ayah: n, translation, commentary }) => {
-    const hasComm = commentary && commentary.trim().length > 0;
+  // Render Ayahs
+  tafsirData.forEach(({ surah, ayah: n, translation, commentary }) => {
+    
+    // Find the matching Arabic text for this specific ayah
+    let arabicText = '';
+    const arabicMatch = currentSurahArabicVerses.find(v => v.id === n);
+    if (arabicMatch) arabicText = arabicMatch.text;
+
     html += `
       <div class="ayah-card">
         <div class="ayah-top">
@@ -745,14 +449,45 @@ async function loadSurah(num) {
           <span class="ayah-label">Surah ${surah} · Ayah ${n}</span>
         </div>
         <div class="ayah-translation">
+          ${arabicText ? `<div class="verse-arabic">${escHtml(arabicText)}</div>` : ''}
           <div class="translation-text">${escHtml(translation || '—')}</div>
         </div>`;
 
+    // ── Inject Linguistic Insights if available ──
+    if (langData && langData.language_insights) {
+      const searchRef = `${surah}_${n}`;
+      const ayahInsights = langData.language_insights.find(ins => ins.formatted_ayah_ref === searchRef);
+
+      if (ayahInsights && ayahInsights.details && ayahInsights.details.length > 0) {
+        html += `
+          <div class="language-insights">
+            <div class="insights-title">Linguistic Notes</div>`;
+        
+        ayahInsights.details.forEach(detail => {
+          const cleanedText = cleanText(detail.text);
+          const badgeClass = `type-${(detail.insight_type || 'word').toLowerCase()}`;
+          
+          html += `
+            <div class="insight-item">
+              ${detail.arabic_part ? `<div class="insight-arabic">${escHtml(detail.arabic_part)}</div>` : ''}
+              <div class="insight-text">
+                <span class="insight-type-badge ${badgeClass}">${escHtml(detail.insight_type || 'Note')}</span>
+                ${cleanedText}
+              </div>
+            </div>`;
+        });
+        
+        html += `</div>`; 
+      }
+    }
+
+    // ── Inject Commentary ──
+    const hasComm = commentary && commentary.trim().length > 0;
     if (hasComm) {
       html += `
         <div class="commentary-section">
           <button class="commentary-toggle" onclick="toggleCommentary(this)" aria-expanded="false">
-            Commentary <span class="toggle-chevron">▾</span>
+            Detailed Tafsir <span class="toggle-chevron">▾</span>
           </button>
           <div class="commentary-body">${renderCommentary(commentary)}</div>
         </div>`;
