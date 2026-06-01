@@ -1,0 +1,685 @@
+{
+    "language_insights": [
+        {
+            "formatted_ayah_ref": "5_1",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: الْعُقُودِ (Al-‘Uqood) is the plural of عَقْد (‘Aqd) which means “a knot”. The word عَقِيدَة (Aqeedah) comes from it. عُقُود (‘Uqood) refer to all the contracts and agreements that are binding and which you are tied to. ",
+                    "insight_type": "word",
+                    "arabic_part": "بِٱلْعُقُودِ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: الْأَنْعَامِ (Al-An’aam) refers to cattle like camels, sheep and cows and also includes all animals that eat from the earth (i.e., herbivores) and are permissible to eat. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "ٱلْأَنْعَٰمِ"
+                },
+                {
+                    "part_num": 3,
+                    "text": "<br>Derivative: بَهِيمَةُ (Baheemah) refers to every animal that has four legs.",
+                    "insight_type": "word",
+                    "arabic_part": "بَهِيمَةُ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_100",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: أَلْبَابِ (Albaab) is the plural of لُبّ (Lubb) and it refers to the pure mind that is free of blemishes and biases i.e., something that contaminates it.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "ٱلْأَلْبَٰبِ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_103",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: سَائِبَةٍ is said to refer to a camel that was set free in superstitious circumstances and left to graze freely for their idols. It was not permitted to be loaded, ridden or for its milk to be drunk by the people (with the exception of a guest). ",
+                    "insight_type": "word",
+                    "arabic_part": "سَآئِبَةٍ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: حَامٍ refers to the male camel that was used for impregnating the she-camels which they would let free for their idols and not put it to work.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "حَامٍ"
+                },
+                {
+                    "part_num": 3,
+                    "text": "<br>Derivative: بَحِيرَةٍ (Baheerah) is said to refer to a she-camel the milk of which is given to idols and is forbidden for the people. It has also been said that it refers to a camel that has its ears cut in superstitious circumstances.",
+                    "insight_type": "word",
+                    "arabic_part": "بَحِيرَةٍ"
+                },
+                {
+                    "part_num": 4,
+                    "text": "<br>Derivative: وَصِيلَةٍ is said to refer to a she-camel that gives birth to a she-camel as its first delivery and second delivery which was let go free and was dedicated to the idols.",
+                    "insight_type": "word",
+                    "arabic_part": "وَصِيلَةٍ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_104",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: تَعَالَوْا is the plural of تَعَالَ is a verb that only comes in the command form but its origin is عَلَا – يَعْلُو which carries the meaning of “height” or “to be high”. تَعَالَ (Ta’aala) implies the meaning of the command to “come on up”. It implies that you have something to see and are inviting somebody to come up so that they can see also just as it can imply an invitation to something that will raise you up i.e., elevate you.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "تَعَالَوْا۟"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_108",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>- “Upon (وَجْهِهَا) its face (عَلَىٰ)” is an expression to mean “upon its true face” i.e., correctly and truthfully. <br> ",
+                    "insight_type": "phrase",
+                    "arabic_part": "عَلَىٰ وَجْهِهَا"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>- “That is (ذَٰلِكَ) closer or nearer (أَدْنَىٰ)” – This expression implies the meaning that it will be better, safer or more efficient i.e., for the purpose of reaching the desired outcome.",
+                    "insight_type": "phrase",
+                    "arabic_part": "ذَٰلِكَ أَدْنَىٰ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_11",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: هَمَّ – يَهُمُّ – هَمًّا means to be determined and resolved to do something. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "هَمَّ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_110",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>- “And when we taught you (وَإِذْ عَلَّمْتُكَ) Al-Kitaab (الْكِتَابَ) and Al-Hikmah (وَالْحِكْمَةَ) and At-Tawrah (وَالتَّوْرَاةَ) and Al-Injeel (وَالْإِنجِيلَ)” – One understanding is that the وَاو (Waw) between Al-Kitaab and Al-Hikmah one side and At-Tawrah and Al-Injeel on the other side is عَطْف البَيان (‘Atf ul-Bayaan) which means that what comes after the ‘Waw’ is an explanation for what is before the ‘Waw’. The meaning would therefore be that At-Tawrah refers to Al-Kitaab and Al-Injeel refers to Al-Hikmah. Other understandings however state that each of Al-Kitaab, Al-Hikmah, At-Tawrah and Al-Injeel have their own specific meanings and the “Waw” is just a normal “Waw” which adds another separate meaning following each instance of it.<br> ",
+                    "insight_type": "phrase",
+                    "arabic_part": "وَإِذْ عَلَّمْتُكَ الْكِتَابَ وَالْحِكْمَةَ وَالتَّوْرَاةَ وَالْإِنجِيلَ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_12",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: عَزَّرْتُم is from عَزَّرَ – يُعَزِّرُ – تَعْزِير which means “to help or aid” someone out of respect and honour for them. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "وَعَزَّرْتُمُوهُمْ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_13",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: حَظًّا (Hazhzh) is one of the words used in the Qur’an to refer to “a portion” of something and implies something that has goodness and benefit in it. It can imply “a significant portion”.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "حَظًّا"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_14",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: أَغْرَيْنَا is from أَغْرَى – يُغْرِي – إِغْرَاء which carries the meanings of to incite, entice and spur on.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "فَأَغْرَيْنَا"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_19",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: فَتْرَةٍ comes from فَتَرَ which means “to abate and let up”. فَتْرَةٍ (Fatrah) refers to a period of time when something was absent like an intermission between two things.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "فَتْرَةٍ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_24",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>- هُنَا (Hunaa) means “here” and the addition of هَا to it, to make هَاهُنَا expresses the meaning of “right here”. In this context of them remaining and staying هَاهُنَا “right here” implies the meaning of \"We are not going to move an inch”. <br> ",
+                    "insight_type": "phrase",
+                    "arabic_part": "هَاهُنَا"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_27",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: قُرْبَا is the dual form of قَرَّبَ – يُقَرِّبُ – تَقْرِيب which means to bring or draw something near. Here it is used to refer to an attempt for someone to bring himself close to Allah. قُرْبَانًا (Qurbaan) is that act the purpose of which is to draw someone close to Allah. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "قُرْبَانًا"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_3",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: مَخْمَصَةٍ is one of the words used for “Hunger”. It is used to refer to a long period of hunger when there is no hope of obtaining food, like starvation at the point of death.",
+                    "insight_type": "word",
+                    "arabic_part": "مَخْمَصَةٍ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: أَكْمَلْتُ “I completed” is from أَكْمَلَ which means to complete and أَتْمَمْتُ “I completed” comes from أَتَمَّ which also means to complete. أَتَمَّ – يُتِمُّ - إِتْمَام is used when something is finished or completed without needing anything else from outside to complete it. أَكْمَلَ – يُكْمِلُ – إِكْمَال is used when you start something and spend time in it until it is finished and completed.",
+                    "insight_type": "word",
+                    "arabic_part": "أَكْمَلْتُ"
+                },
+                {
+                    "part_num": 3,
+                    "text": "<br>Derivative: مُتَجَانِفٍ is from تَجَانَفَ which means to be inclined towards something.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "مُتَجَانِفٍ"
+                },
+                {
+                    "part_num": 4,
+                    "text": "<br>Derivative: ذَكَّيْتُمْ from ذَكَّى – يُذكِّي – تَذْكِيَة and is another word for ذَبْح (Dhabh) which means to slaughter. Its meaning here is to slaughter an animal from the aforementioned examples before it dies.",
+                    "insight_type": "word",
+                    "arabic_part": "ذَكَّيْتُمْ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_30",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: طَوَّعَتْ from طَوَّعَ which in origin means to render obedient and implies to facilitate and make something feasible or fair seeming i.e., to be contented to allow oneself to do something. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "فَطَوَّعَتْ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_31",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>- يَا وَيْلَتَىٰ (Yaa Wailataa) is an expression that carries the meaning “O What terrible destruction or ruin has fallen upon me!”<br> ",
+                    "insight_type": "phrase",
+                    "arabic_part": "يَا وَيْلَتَىٰ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_32",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: مُسْرِفُونَ – A مُسْرِف (Musrif) is someone who engages in excess and goes beyond the limits that are set or appropriate. In this Aayah مُسْرِفُونَ (Musrifoon) refers to those who commit murder and killing of innocents in excess. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "لَمُسْرِفُونَ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_33",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: يُحَارِبُونَ comes from حَارَبَ - مُحَارَبَة which means to wage حَرْب (Harb - War). The original meaning of the word حَرْب (Harb - War) includes the meanings of taking and robbing.",
+                    "insight_type": "word",
+                    "arabic_part": "يُحَارِبُونَ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: يُصَلَّبُوا means to be tied or fastened to a raised place where his being killed can be seen as a lesson and warning to deter others.",
+                    "insight_type": "word",
+                    "arabic_part": "يُصَلَّبُوٓا۟"
+                },
+                {
+                    "part_num": 3,
+                    "text": "<br>Derivative: يُقَتَّلُوا is the passive plural form from قَتَّلَ – تَقْتِيل and it means to kill in a ruthless manner and is stronger in meaning that قَتَلَ – قتْل which just means “to kill”.",
+                    "insight_type": "word",
+                    "arabic_part": "يُقَتَّلُوٓا۟"
+                },
+                {
+                    "part_num": 4,
+                    "text": "this verse mentions the punishment for what are known as highway robbers, who block the routes and attack those passing through robbing and killing them or go about engaged in robbery using weapons. <br> <br> ",
+                    "insight_type": "verse",
+                    "arabic_part": ""
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_35",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: تُفْلِحُونَ comes from أَفْلَحَ – إِفْلَاح which means to attain success after putting in effort and labour.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "تُفْلِحُونَ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: الْوَسِيلَةَ (Al-Waseelah) refers to “a means” that is used to get close to something or somebody. وَسِيلَةَ (Waseelah) has also been interpreted to mean دَرَجَة (Darajah) “a rank” and قُرْبَة (Qurbah) “closeness”. Its verb وَسَلَ is used to refer to the deeds that someone does to gain closeness to Allah and وَاسِل (Waasil) is used to refer to the one who desires and seeks Allah i.e., to attain His pleasure. ",
+                    "insight_type": "word",
+                    "arabic_part": "ٱلْوَسِيلَةَ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_37",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: مُقِيمٌ (Muqeem) in reference to punishment means “lasting, staying and standing” i.e., one that remains in place.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "مُّقِيمٌ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_38",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: نَكَالًا (Nakaal) refers to an exemplary punishment which acts as a deterrent and warning i.e., to make an example of somebody.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "نَكَٰلًا"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_4",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: الْجَوَارِحِ is the plural of جَارِحَة which is a predatory animal like birds of prey and refers here to those which are trained to hunt and catch animals without killing them.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "ٱلْجَوَارِحِ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_42",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: سَمَّاعُونَ is the plural of سَمَّاع (Sammaa’) and means someone who incessantly and eagerly listens to something.",
+                    "insight_type": "word",
+                    "arabic_part": "سَمَّٰعُونَ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: السُّحْت (Suht) refers to something that is prohibited in relation to money (illicit money) in terms of its acquisition, consumption, earning, spending and includes Ribaa (usury).  <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "لِلسُّحْتِ"
+                },
+                {
+                    "part_num": 3,
+                    "text": "<br>Derivative: أَكَّالُونَ is the plural of أَكَّال (Akkaal) and means someone who incessantly and eagerly eats, consumes or devours something.",
+                    "insight_type": "word",
+                    "arabic_part": "أَكَّٰلُونَ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_44",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: الرَّبَّانِيُّونَ is the plural of رَبَّانِيّ (Rabbaaniy) which refers to someone attached or belonging to Rabb i.e., what is said to be a Godly person. It can refer to the scholars or Rabbis of the Jews. It is also said to refer to those who take of and manage the affairs of the people which comes from the meaning of رَبَّى – تَرْبِيَة (Tarbiyah). ",
+                    "insight_type": "word",
+                    "arabic_part": "وَٱلرَّبَّٰنِيُّونَ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: اسْتُحْفِظُوا is from اِسْتَحْفَظَ which means to ask to guard or protect something and also to entrust someone with something. اسْتُحْفِظُوا is in the passive voice and means either “They were asked to guard and protect” or “They were entrusted”.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "ٱسْتُحْفِظُوا۟"
+                },
+                {
+                    "part_num": 3,
+                    "text": "<br>Derivative: الْأَحْبَارُ (Al-Ahbaar) which is the plural of حَبْر (Habr) and refers to someone who is knowledgeable in respect to the religion. It can refer to Rabbis, priests and scholars. ",
+                    "insight_type": "word",
+                    "arabic_part": "وَٱلْأَحْبَارُ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_45",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: تَصَدَّقَ means to give in charity and here it means to give up his right of Qisaas (equal retribution) out of Sadaqah (charity) i.e., he lets off the person from whom his right is due. ",
+                    "insight_type": "word",
+                    "arabic_part": "تَصَدَّقَ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: كَفَّارَةٌ (Kaffaarah) comes from كَفَّرَ which literally means to hide or cover something. It is used to mean an “expiation” for one’s bad deeds i.e., to bury and cover them. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "كَفَّارَةٌ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_46",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>- The expression بَيْنَ يَدَي (Bayna Yaday) which literally means “Between the two hands (of something)” means “Before or in front of” when used to indicate positioning and placement, and “Before (something)” when time is the context.<br> ",
+                    "insight_type": "phrase",
+                    "arabic_part": "بَيْنَ يَدَيْهِ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_48",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: شِرْعَةً (Shir’ah) comes from شُروع (Shuroo’) which means beginning. It’s also a word used for a path or way that leads to water. Water to the Arabs is synonymous with life. It provides the meaning of starting upon a journey or follow a path that will give you life. When somebody does that then he is upon a شَرِيعَة (Sharee’ah) and شِرْعَةً (Shir’ah) carries the same meaning. ",
+                    "insight_type": "word",
+                    "arabic_part": "شِرْعَةً"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: مُهَيْمِنًا comes from هَيْمَنَ which means to protect and guard over something. The meaning here in the context of the Qur’an is that it is the validator and ultimate authority over what preceded it. ",
+                    "insight_type": "word",
+                    "arabic_part": "وَمُهَيْمِنًا"
+                },
+                {
+                    "part_num": 3,
+                    "text": "<br>Derivative: مِنْهَاجًا (Minhaaj) – نَهْج (Nahj) refers to an entire path that is clear. It also refers to the way, method and manner of how you travel upon and traverse a path. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "وَمِنْهَاجًا"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_54",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: أَذِلَّةٍ (Adhillah) is the plural of ذَلِيل (Dhaleel) which refers to someone who is extremely humble. It means that someone acts so lowly that he does not have any self-respect before others. It can carry the meaning of being lowly, despicable, humiliated submissive and servile. However, the meaning here is to be extremely humble towards believers with gentleness, kindness and compassion.",
+                    "insight_type": "word",
+                    "arabic_part": "أَذِلَّةٍ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: أَعِزَّةٍ (A’izzah) is the plural of عَزِيز (‘Azeez) and he is the person who possesses عِزَّة (‘Izzah) which is strength and the upholding of honour. In respect to the disbelievers within this context it means maintaining a position of strength and authority and not allowing oneself to be dominated. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "أَعِزَّةٍ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_55",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>- “Whilst they (وَهُمْ) are bowing (رَاكِعُونَ)” – The meaning of رَاكِعُونَ (Raaki’oon) here means to be in a state of humility and subservience to Allah. <br> ",
+                    "insight_type": "phrase",
+                    "arabic_part": "وَهُمْ رَاكِعُونَ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_56",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: حِزْبَ (Hizb) refers to a collective of people who are brought together or unified upon a particular opinion, agenda or objective.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "حِزْبَ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_59",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: تَنقِمُونَ is from نَقَمَ – نَقَمَ مِن means to take vengeance from somebody and also to be hostile and vindicative against somebody.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "تَنقِمُونَ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_6",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: تَيَمَّمُوا comes from تَيَمَّمَ – يَتَيَمَّمُ – تَيَمُّم which linguistically means to head, intend or aim for something or to betake and utilise it. It is used here to refer to making use of clean or pure soil to wipe your faces and hands. The verb تَيَمَّمَ (Tayammama) and noun تَيَمُّم (Tayammum) then became synonymous with the act of wiping with soil when water is not available. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "فَتَيَمَّمُوا۟"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_66",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: مُّقْتَصِدَةٌ (Muqtasidah) is from اِقْتَصَدَ – اِقْتِصاد which means to adopt a middle course. مُقْتَصِد (Muqtasid) is the one who adopts a middle course and its meaning here is to follow the path of guidance and to stay on course without excess or falling short or deviating from it. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "مُّقْتَصِدَةٌ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>“They would have certainly eaten (or consumed) from above them and from under their feet” means that they would have been provided for in abundance in the life of this world. ",
+                    "insight_type": "phrase",
+                    "arabic_part": "لَأَكَلُوا مِن فَوْقِهِمْ وَمِن تَحْتِ أَرْجُلِهِم"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_68",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: تَأْسَ from أسَى – يَأْسَى means to grieve or be distressed over something. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "تَأْسَ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>- “You are not (لَسْتُمْ) upon (عَلَىٰ) anything (شَيْءٍ)” – لَيْسَ عَلَى شَيْءٍ (Laysa ‘Alaa Shay’in) is an expression to mean that someone or something has no basis, foundation or standing. لَسْتُمْ عَلَىٰ شَيْءٍ means: “You have no basis or foundation or standing” i.e., in respect to your Deen.",
+                    "insight_type": "phrase",
+                    "arabic_part": "لَسْتُمْ عَلَىٰ شَيْءٍ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_79",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: يَتَنَاهَوْنَ – نَهَى means to forbid or prevent something. تَنَاهَى – يَتَنَاهَى means to forbid and prevent each other from something. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "يَتَنَاهَوْنَ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_8",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: قَوَّامِينَ is the plural of قَوَّام (Qawwaam) which is in the فَعَّال (Fa’’aal) pattern form. It is a kind of emphatic or hyperbolised (Mubaalaghah) form which implies repetition. It is the hyperbolised form of قَائم (Qaa’im) which refers to “someone who is standing”. قَوَّام (Qawwaam) implies “someone who is really standing” i.e., constantly and repetitively standing. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "قَوَّٰمِينَ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_80",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: سَخِطَ means to be angry and to have rage. When anger and rage lead to a harsh punishment that anger is called سَخَط (Sakhat).<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "سَخِطَ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: قَدَّمَتْ comes from قَدَّمَ – يُقَدِّمُ – تَقْدِيم and means to advance or send something forward. It is used here with the meaning of “sending forth investment for the future” i.e., the deeds that they will be held accountable for.",
+                    "insight_type": "word",
+                    "arabic_part": "قَدَّمَتْ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_82",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: رُهْبَانًا (Ruhbaan) is the plural of رَاهِب (Raahib) and refers to someone who removes himself from worldly pursuits to dedicate himself to the worship of Allah and is derived from رَهْبَة (Rahbah) which means “fear”.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "وَرُهْبَانًا"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: قِسِّيسِينَ is the plural of قِسِّيس (Qissees) and comes from قَسَّ (Qassa) which means to follow or pursue something. قِسِّيسِينَ (Qisseeseen) refers to Priests or Christian scholars who pursue knowledge. ",
+                    "insight_type": "word",
+                    "arabic_part": "قِسِّيسِينَ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_83",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: تَفِيضُ comes from فَاضَ – يَفِيضُ – فَيْضًا which means to overflow and to flood. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "تَفِيضُ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_85",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: أَثَابَ – يُثِيبُ – إِثَابَة means to cause something to return (to someone or something) and includes the meaning of to recompense, reward and repay.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "فَأَثَٰبَهُمُ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_89",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: عَقَّدتُّمُ is from عَقَّدَ which means to tie and know. Here it implies the meaning of firmly resolving or intending to do something. عَقَّدتُّمُ means “you have firmly resolved or intended”.",
+                    "insight_type": "word",
+                    "arabic_part": "عَقَّدتُّمُ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: أَيْمَانِ (Aymaan) is the plural of يَمِين (Yameen) which refers to the “right hand”. It is used to refer to an “oath” because of the use of the right hand when affirming a pledge, vow or oath to do something or about something. ",
+                    "insight_type": "word",
+                    "arabic_part": "أَيْمَٰنِكُمْ"
+                },
+                {
+                    "part_num": 3,
+                    "text": "<br>Derivative: حَلَفْتُمْ is from حَلَفَ – يَحِلِفُ – حِلْف means to make a commitment or to swear to something and is used with يَمِين (Yameen - Oath) to mean “to swear an oath”.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "حَلَفْتُمْ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_90",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: الْخَمْرُ (Al-Khamr) comes from خَمَرَ – يَخْمُرُ - خَمْرًا which means to cover, conceal and veil. الْخَمْرُ (Al-Khamr) was used to refer to wine because it places a covering over the mind and your ability to judge. It therefore applies to any intoxicant that covers the mind.",
+                    "insight_type": "word",
+                    "arabic_part": "ٱلْخَمْرُ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: أَزْلَامُ (Azlaam) is the plural of زَلَم (Zalam) which refers to a type of arrow which was used by the pagan Arabs for divination i.e., to predict the future and other superstitious reasons.",
+                    "insight_type": "word",
+                    "arabic_part": "وَٱلْأَزْلَٰمُ"
+                },
+                {
+                    "part_num": 3,
+                    "text": "<br>Derivative: رِجْسٌ (Rijs) refers to any repugnant, abominable and despicable act or thing.<br> ",
+                    "insight_type": "word",
+                    "arabic_part": "رِجْسٌ"
+                },
+                {
+                    "part_num": 4,
+                    "text": "<br>Derivative: أَنصَابُ (Ansaab) is the plural of نُصب (Nusb or Nusub) which originally refers to a monument or statue that is put up and erected which was turned into a shrine or object of worship. It is being used here to refer to idol statues or the stone that was placed before the idol statues to make sacrifices to the idol. ",
+                    "insight_type": "word",
+                    "arabic_part": "وَٱلْأَنصَابُ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_91",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: يُوقِعَ is from أَوْقَعَ – يُوقِعُ – إِيقَاع which means to cause something to fall, happen, to bring it about or to install, instil and plant something within something. In this context it is used with a meaning similar to the Phrase: “To sow the seeds of” something. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "يُوقِعَ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_94",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>- “In the unseen (بِالْغَيْبِ)” - بِالْغَيْبِ (Bil-Ghaibi) can mean without having seen Allah or can also mean when he (the individual) is unseen i.e., when alone and nobody else is around.<br> ",
+                    "insight_type": "phrase",
+                    "arabic_part": "بِالْغَيْبِ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "5_97",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: قِيَامًا (Qiyaaman) refers to something that puts something right, uphold it or make it upright. Here it implies that the Ka’bah and Masjid Al-Haraam uphold the affairs of the Deen and Dunya of the people who visit it. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "قِيَٰمًا"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: الْحَرَامَ (Al-Haraam) refers to that which is inviolable in terms of it being sacred and prohibited to engage in specific acts in its vicinity. And it also implies the status of honour and respect attributed to it.",
+                    "insight_type": "word",
+                    "arabic_part": "ٱلْحَرَامَ"
+                }
+            ]
+        }
+    ]
+}

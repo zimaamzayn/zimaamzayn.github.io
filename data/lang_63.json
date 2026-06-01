@@ -1,0 +1,61 @@
+{
+    "language_insights": [
+        {
+            "formatted_ayah_ref": "63_2",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: جُنَّةً is a shield. It is from جَنَّ which means to cover. جُنَّةً is something that covers you. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "جُنَّةً"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "63_4",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br> <br>Derivative: مُسَنَّدَةٌ means to be propped up referring to something that relies on something else to support and prop it up to give it its strength.",
+                    "insight_type": "word",
+                    "arabic_part": "مُّسَنَّدَةٌ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: أَجْسَامُ is the plural of جِسْمٌ and refers to the physical body and form. The use here makes the focus attached to what is on the outside or to the outward appearance. ",
+                    "insight_type": "word",
+                    "arabic_part": "أَجْسَامُهُمْ"
+                },
+                {
+                    "part_num": 3,
+                    "text": "<br>- قَاتَلَهُمُ اللَّهُ – Literally means: “May Allah fight against them” but its understood meaning is: “May Allah destroy them”. It is a Du’aa against them.<br> ",
+                    "insight_type": "phrase",
+                    "arabic_part": "قَاتَلَهُمُ اللَّهُ"
+                }
+            ]
+        },
+        {
+            "formatted_ayah_ref": "63_5",
+            "details": [
+                {
+                    "part_num": 1,
+                    "text": "<br>Derivative: يَصُدُّونَ means to stop, block or impede yourself or others, to ward off or to turn away from something.",
+                    "insight_type": "word",
+                    "arabic_part": "يَصُدُّونَ"
+                },
+                {
+                    "part_num": 2,
+                    "text": "<br>Derivative: مُسْتَكْبِرُونَ – “To be arrogant”. The use of the اِسْم (Ism – noun) here مُسْتَكْبِرُونَ instead of the فِعْل (Fi’l – verb) يَسْتَكْبِرُونَ implies that this is a permanent and constant state. <br> ",
+                    "insight_type": "word",
+                    "arabic_part": "مُّسْتَكْبِرُونَ"
+                },
+                {
+                    "part_num": 3,
+                    "text": "<br>Derivative: لَوَّوْا means they turned or tilted. ",
+                    "insight_type": "word",
+                    "arabic_part": "لَوَّوْا۟"
+                }
+            ]
+        }
+    ]
+}
