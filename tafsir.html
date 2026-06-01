@@ -75,7 +75,16 @@
   }
   .brand-name { font-family: 'Amiri', serif; font-size: 1.25rem; font-weight: 700; color: var(--gold-light); }
 
-  .selector-wrap { position: relative; flex: 1; max-width: 420px; }
+  .header-actions { display: flex; align-items: center; gap: 0.5rem; flex: 1; max-width: 420px; justify-content: flex-end; }
+  
+  .back-btn {
+    display: none; background: var(--gold); color: #fff; border: none; 
+    border-radius: 6px; padding: 0.4rem 0.8rem; font-size: 0.85rem; 
+    cursor: pointer; font-family: 'Lora', serif; font-weight: 600;
+  }
+  .back-btn:hover { background: #9d7530; }
+
+  .selector-wrap { position: relative; flex: 1; }
   .selector-wrap::after {
     content: '▾'; position: absolute; right: 14px; top: 50%;
     transform: translateY(-50%); color: var(--green-light); font-size: 12px; pointer-events: none;
@@ -101,24 +110,43 @@
     text-align: center; margin-bottom: 2.5rem; padding: 2rem 1.5rem 1.75rem;
     background: var(--green-deep); border-radius: 16px; position: relative;
     overflow: hidden; box-shadow: 0 4px 24px rgba(26,61,43,0.2); animation: fadeSlideIn 0.35s ease both;
+    cursor: pointer; transition: transform 0.2s;
   }
+  .surah-header:hover { transform: scale(1.02); }
   .surah-header::before {
     content: ''; position: absolute; inset: 0;
     background: radial-gradient(ellipse at 50% 0%, rgba(82,183,136,0.25) 0%, transparent 70%); pointer-events: none;
   }
-  .surah-header-ornament { font-size: 1.4rem; letter-spacing: 0.5rem; color: var(--gold-light); opacity: 0.5; margin-bottom: 0.5rem; }
-  .surah-arabic { font-family: 'Amiri', serif; font-size: clamp(1.8rem, 5vw, 2.6rem); color: var(--gold-light); line-height: 1.3; margin-bottom: 0.3rem; }
-  .surah-transliteration { font-size: 1rem; color: var(--green-light); font-style: italic; margin-bottom: 0.15rem; }
-  .surah-meta { font-size: 0.8rem; color: rgba(245,240,232,0.45); letter-spacing: 0.08em; text-transform: uppercase; }
+  .surah-header-ornament { font-size: 1.4rem; letter-spacing: 0.5rem; color: var(--gold-light); opacity: 0.5; margin-bottom: 0.5rem; pointer-events: none; }
+  .surah-arabic { font-family: 'Amiri', serif; font-size: clamp(1.8rem, 5vw, 2.6rem); color: var(--gold-light); line-height: 1.3; margin-bottom: 0.3rem; pointer-events: none; }
+  .surah-transliteration { font-size: 1rem; color: var(--green-light); font-style: italic; margin-bottom: 0.15rem; pointer-events: none; }
+  .surah-meta { font-size: 0.8rem; color: rgba(245,240,232,0.45); letter-spacing: 0.08em; text-transform: uppercase; pointer-events: none; }
 
   .placeholder { text-align: center; padding: 5rem 2rem; color: var(--text-soft); animation: fadeSlideIn 0.4s ease both; }
   .placeholder-icon { font-size: 3.5rem; margin-bottom: 1rem; opacity: 0.35; }
   .placeholder p { font-size: 1.05rem; font-style: italic; line-height: 1.7; }
   .install-tip { display: none; margin-top: 1.5rem; font-size: 0.82rem; color: var(--green-mid); background: var(--green-pale); border-radius: 8px; padding: 0.75rem 1rem; line-height: 1.6; }
 
+  /* ── Themes CSS ──────────────────────────────────────────────────────── */
+  .ayah-list { display: flex; flex-direction: column; }
+  .theme-wrapper { margin-bottom: 1.25rem; }
+  .theme-toggle {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    background: var(--gold-light); color: var(--green-deep);
+    padding: 0.85rem 1.2rem; border: none; border-radius: 12px;
+    font-family: 'Lora', serif; font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; box-shadow: 0 2px 8px rgba(181, 136, 58, 0.2);
+    margin-bottom: 1rem; transition: background 0.2s;
+  }
+  .theme-toggle:hover { background: #e8cd8b; }
+  .theme-toggle .theme-title { text-align: left; line-height: 1.4; padding-right: 1rem; }
+  .theme-toggle .toggle-chevron { transition: transform 0.25s; font-size: 1.2rem; }
+  .theme-toggle[aria-expanded="false"] .toggle-chevron { transform: rotate(-90deg); }
+  .theme-body { display: flex; flex-direction: column; gap: 1.25rem; }
+
   /* ── Ayah Cards ──────────────────────────────────────────────────────── */
-  .ayah-list { display: flex; flex-direction: column; gap: 1.25rem; }
-  .ayah-card { background: #fff; border-radius: 12px; border: 1px solid var(--cream-border); overflow: hidden; box-shadow: 0 1px 6px rgba(26,61,43,0.06); animation: fadeSlideIn 0.3s ease both; }
+  .ayah-card { background: #fff; border-radius: 12px; border: 1px solid var(--cream-border); overflow: hidden; box-shadow: 0 1px 6px rgba(26,61,43,0.06); animation: fadeSlideIn 0.3s ease both; scroll-margin-top: 100px; }
+  .ayah-card.highlight { border: 2px solid var(--gold); box-shadow: 0 0 15px rgba(181, 136, 58, 0.4); }
 
   .ayah-top { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: var(--green-mist); border-bottom: 1px solid var(--cream-border); }
   .ayah-badge { width: 32px; height: 32px; border-radius: 50%; background: var(--green-deep); color: var(--green-pale); font-size: 0.72rem; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -135,6 +163,14 @@
     color: var(--green-deep);
     direction: rtl;
     text-align: right;
+    margin-bottom: 0.5rem;
+  }
+  
+  .verse-transliteration {
+    font-size: 0.95rem;
+    color: var(--green-mid);
+    font-style: italic;
+    text-align: left;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px dashed var(--cream-border);
@@ -162,11 +198,11 @@
     font-size: 1.35rem; 
     color: var(--green-deep);
     direction: rtl; 
-    line-height: 1.6; /* Prevents tall Arabic marks from clipping */
+    line-height: 1.6;
     background: var(--green-pale); 
     padding: 0.4rem 0.7rem; 
     border-radius: 6px; 
-    white-space: normal; /* Prevents layout breaking on small screens */
+    white-space: normal;
     border: 1px solid rgba(82,183,136,0.2); 
     text-align: right;
   }
@@ -178,19 +214,19 @@
     background: var(--cream-border); color: var(--text-mid); padding: 0.15rem 0.4rem; border-radius: 4px; margin-right: 0.4rem; vertical-align: middle;
   }
   
-  /* Type specific colors */
   .type-word { background: #e3f2fd; color: #1565c0; border: 1px solid #bbdefb; }
   .type-phrase { background: #f3e5f5; color: #4a148c; border: 1px solid #e1bee7; }
   .type-verse { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
 
-  /* ── Commentary CSS ──────────────────────────────────────────────────── */
-  .commentary-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 1.1rem; background: none; border: none; cursor: pointer; font-family: 'Lora', serif; font-size: 0.8rem; color: var(--green-mid); text-align: left; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; transition: background 0.15s; }
-  .commentary-toggle:hover { background: var(--green-pale); }
+  /* ── Commentary & Matching CSS ───────────────────────────────────────── */
+  .section-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 1.1rem; background: none; border: none; border-bottom: 1px solid transparent; cursor: pointer; font-family: 'Lora', serif; font-size: 0.8rem; color: var(--green-mid); text-align: left; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; transition: background 0.15s; }
+  .section-toggle:hover { background: var(--green-pale); }
   .toggle-chevron { font-size: 0.75rem; transition: transform 0.25s ease; flex-shrink: 0; }
-  .commentary-toggle[aria-expanded="true"] .toggle-chevron { transform: rotate(180deg); }
+  .section-toggle[aria-expanded="true"] .toggle-chevron { transform: rotate(180deg); }
+  .section-toggle[aria-expanded="true"] { border-bottom-color: var(--cream-border); }
 
-  .commentary-body { display: none; padding: 0 1.1rem 1.1rem; color: var(--text-mid); font-size: 0.97rem; line-height: 1.85; border-top: 1px dashed var(--cream-border); }
-  .commentary-body.open { display: block; animation: expandIn 0.2s ease both; }
+  .section-body { display: none; padding: 1.1rem; color: var(--text-mid); font-size: 0.97rem; line-height: 1.85; }
+  .section-body.open { display: block; animation: expandIn 0.2s ease both; }
 
   .commentary-body .cm-arabic { font-family: 'Amiri', serif; font-size: 1.25rem; color: var(--green-deep); direction: rtl; text-align: right; display: block; margin: 0.6rem 0 0.9rem; line-height: 1.7; }
   .commentary-body h2, .commentary-body h3 { font-family: 'Lora', serif; color: var(--green-deep); margin: 1.1rem 0 0.4rem; font-weight: 600; }
@@ -199,9 +235,26 @@
   .commentary-body p  { margin-bottom: 0.85rem; }
   .commentary-body strong { color: var(--green-deep); font-weight: 600; }
   .commentary-body em     { color: var(--text-soft); font-style: italic; }
-  .no-commentary { padding: 0.55rem 1.1rem 0.8rem; font-size: 0.78rem; color: var(--text-soft); font-style: italic; }
+  
+  .matching-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .matching-link { display: inline-block; padding: 0.4rem 0.8rem; background: var(--green-pale); border: 1px solid var(--green-light); border-radius: 6px; color: var(--green-deep); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: background 0.2s; }
+  .matching-link:hover { background: var(--green-light); color: white; }
 
-  /* ── Loaders & Utils ─────────────────────────────────────────────────── */
+  .no-data { padding: 0.55rem 1.1rem 0.8rem; font-size: 0.78rem; color: var(--text-soft); font-style: italic; border-top: 1px dashed var(--cream-border); }
+
+  /* ── Modals & Utils ──────────────────────────────────────────────────── */
+  dialog {
+    margin: auto; padding: 2rem; border-radius: 12px; border: 1px solid var(--cream-border);
+    box-shadow: 0 4px 24px rgba(26,61,43,0.3); max-width: 90%; width: 450px;
+    background: var(--cream); color: var(--text-main); font-family: 'Lora', serif;
+  }
+  dialog::backdrop { background: rgba(26,61,43,0.6); backdrop-filter: blur(2px); }
+  .dialog-title { font-family: 'Amiri', serif; font-size: 1.8rem; color: var(--green-deep); margin-bottom: 0.5rem; text-align: center; }
+  .dialog-meta { font-size: 0.9rem; color: var(--text-soft); margin-bottom: 1.5rem; text-align: center; text-transform: uppercase; letter-spacing: 0.05em; }
+  .dialog-content { font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; }
+  .dialog-close { display: block; width: 100%; padding: 0.75rem; background: var(--green-deep); color: white; border: none; border-radius: 8px; font-family: 'Lora', serif; font-size: 1rem; cursor: pointer; transition: background 0.2s; }
+  .dialog-close:hover { background: var(--green-mid); }
+
   .loader { text-align: center; padding: 4rem 2rem; color: var(--text-soft); font-style: italic; animation: pulse 1.4s ease-in-out infinite; }
   .error-msg { background: #fdf0f0; border: 1px solid #e8c5c5; border-radius: 10px; padding: 1.25rem 1.5rem; color: #7a3535; font-size: 0.92rem; line-height: 1.6; margin-top: 1rem; }
   #scrollTop { position: fixed; bottom: calc(1.5rem + var(--safe-bot)); right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: var(--green-deep); color: var(--cream); border: none; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 12px rgba(26,61,43,0.3); opacity: 0; transform: translateY(8px); transition: opacity 0.25s, transform 0.25s; pointer-events: none; z-index: 99; }
@@ -214,6 +267,7 @@
   /* ── Mobile ──────────────────────────────────────────────────────────── */
   @media (max-width: 480px) {
     header { padding: 0.7rem 1rem; flex-wrap: wrap; }
+    .header-actions { min-width: 100%; order: 3; justify-content: space-between; }
     main { padding: 1.25rem 0.85rem calc(3rem + var(--safe-bot)); }
     .surah-header { padding: 1.5rem 1rem 1.25rem; }
     .insight-item { flex-direction: column; gap: 0.4rem; }
@@ -231,8 +285,11 @@
     <div class="brand-icon">☽</div>
     <span class="brand-name">Quran Reader</span>
   </div>
-  <div class="selector-wrap">
-    <select id="surahSelect" aria-label="Select a Surah"></select>
+  <div class="header-actions">
+    <button id="backBtn" class="back-btn" onclick="goBack()">◂ Back</button>
+    <div class="selector-wrap">
+      <select id="surahSelect" aria-label="Select a Surah"></select>
+    </div>
   </div>
 </header>
 
@@ -247,6 +304,10 @@
 </main>
 
 <button id="scrollTop" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<dialog id="surahInfoModal">
+  <!-- Content injected via JS -->
+</dialog>
 
 <script>
 // ── Service Worker & PWA Logic ────────────────────────────────────────────
@@ -330,10 +391,19 @@ SURAHS.forEach(([num, translit, arabic, meaning, verses]) => {
 });
 
 // Utilities
-function escHtml(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function toggleCommentary(btn) { btn.setAttribute('aria-expanded', btn.nextElementSibling.classList.toggle('open')); }
+function escHtml(s) { return (s||'').toString().replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-// Strips out raw <br> tags and random hyphens from the language JSON texts
+function toggleSection(btn) { 
+  btn.setAttribute('aria-expanded', btn.nextElementSibling.classList.toggle('open')); 
+}
+
+function toggleTheme(btn) {
+  const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', !isExpanded);
+  const body = btn.nextElementSibling;
+  body.style.display = isExpanded ? 'none' : 'flex';
+}
+
 function cleanText(rawStr) {
   let str = rawStr.trim();
   str = str.replace(/^(?:<br\s*\/?>\s*|-|—)+/gi, '').trim();
@@ -357,16 +427,73 @@ function renderCommentary(raw) {
   return html;
 }
 
+function showSurahInfo(num) {
+  const meta = SURAHS[num - 1];
+  const dialog = document.getElementById('surahInfoModal');
+  
+  let infoHtml = `
+    <div class="dialog-title">${meta[2]}</div>
+    <div class="dialog-meta">Surah ${meta[1]}</div>
+    <div class="dialog-content">
+      <strong>Meaning:</strong> ${meta[3]}<br><br>
+      <strong>Total Verses:</strong> ${meta[4]} Ayahs<br><br>
+  `;
+
+  if (cachedSurahInfo && cachedSurahInfo[num]) {
+      const details = cachedSurahInfo[num];
+      infoHtml += `<strong>Introduction:</strong><br>${details.short_text || details.text || ''}`;
+  } else {
+      infoHtml += `<em>Detailed contextual information is currently loading or unavailable.</em>`;
+  }
+
+  infoHtml += `
+    </div>
+    <button class="dialog-close" onclick="this.closest('dialog').close()">Close</button>
+  `;
+  
+  dialog.innerHTML = infoHtml;
+  dialog.showModal();
+}
+
 // ── App State & Fetching ────────────────────────────────────────────────
 let currentLoad = 0;
-let cachedQuranData = null; // Caches quran.json so it only loads once
+let cachedQuranData = null; 
+let cachedTransliteration = null; 
+let cachedThemesData = null;
+let cachedSurahInfo = null;
+let cachedMatchingAyahs = null; // Caches matching-ayah.json[cite: 2]
+let historyStack = [];
 
-select.addEventListener('change', () => loadSurah(parseInt(select.value)));
+select.addEventListener('change', () => {
+    historyStack = [];
+    document.getElementById('backBtn').style.display = 'none';
+    loadSurah(parseInt(select.value));
+});
 
 const scrollBtn = document.getElementById('scrollTop');
 window.addEventListener('scroll', () => scrollBtn.classList.toggle('visible', window.scrollY > 300), { passive: true });
 
-async function loadSurah(num) {
+function jumpToAyah(surah, ayah) {
+  const currentSurah = parseInt(select.value);
+  historyStack.push({ surah: currentSurah, scrollY: window.scrollY });
+  document.getElementById('backBtn').style.display = 'block';
+  select.value = surah;
+  loadSurah(surah, ayah);
+}
+
+function goBack() {
+  if (historyStack.length === 0) return;
+  const prev = historyStack.pop();
+  
+  if (historyStack.length === 0) {
+      document.getElementById('backBtn').style.display = 'none';
+  }
+  
+  select.value = prev.surah;
+  loadSurah(prev.surah, null, prev.scrollY);
+}
+
+async function loadSurah(num, targetAyah = null, targetScroll = null) {
   const myLoad = ++currentLoad;
   const mainEl = document.getElementById('main');
   const meta = SURAHS[num - 1];
@@ -377,17 +504,32 @@ async function loadSurah(num) {
   let langData = null;
 
   try {
-    // 1. Fetch Arabic Quran Data (Caching it globally)
     if (!cachedQuranData) {
       const quranRes = await fetch(`data/quran.json`);
-      if (quranRes.ok) {
-        cachedQuranData = await quranRes.json();
-      } else {
-        console.warn('Could not load data/quran.json');
-      }
+      if (quranRes.ok) cachedQuranData = await quranRes.json();
+    }
+    
+    if (!cachedTransliteration) {
+        const transRes = await fetch(`data/english-transliteration-tajweed-simple.json`);
+        if (transRes.ok) cachedTransliteration = await transRes.json();
     }
 
-    // 2. Fetch Main Tafsir Data
+    if (!cachedThemesData) {
+        const themesRes = await fetch(`data/themes_output.json`);
+        if (themesRes.ok) cachedThemesData = await themesRes.json();
+    }
+
+    if (!cachedSurahInfo) {
+        const infoRes = await fetch(`data/surah-info-en.json`);
+        if (infoRes.ok) cachedSurahInfo = await infoRes.json();
+    }
+    
+    // Fetch matching ayahs mapped data[cite: 2]
+    if (!cachedMatchingAyahs) {
+        const matchRes = await fetch(`data/matching-ayah.json`);
+        if (matchRes.ok) cachedMatchingAyahs = await matchRes.json();
+    }
+
     const tafsirRes = await fetch(`data/${num}.json`);
     if (!tafsirRes.ok) throw new Error(`Tafsir HTTP error: ${tafsirRes.status}`);
     tafsirData = await tafsirRes.json();
@@ -403,30 +545,54 @@ async function loadSurah(num) {
   }
 
   try {
-    // 3. Safely Attempt to Fetch Language Data
-    // Wrapped in its own try/catch so missing lang files won't crash the app.
     const langRes = await fetch(`data/lang_${num}.json`);
-    if (langRes.ok) {
-      langData = await langRes.json();
-    }
+    if (langRes.ok) langData = await langRes.json();
   } catch(e) {
     console.warn(`Linguistic insights for Surah ${num} not found. Skipping.`);
   }
 
   if (myLoad !== currentLoad) return;
 
-  // Extract this specific surah's Arabic verses from the cached array
+  // Pre-process Surah Data
   let currentSurahArabicVerses = [];
   if (cachedQuranData) {
     const qMatch = cachedQuranData.find(s => s.id === num);
-    if (qMatch && qMatch.verses) {
-      currentSurahArabicVerses = qMatch.verses;
+    if (qMatch && qMatch.verses) currentSurahArabicVerses = qMatch.verses;
+  }
+
+  const surahThemes = (cachedThemesData || [])
+                        .filter(t => t.surah_number === num)
+                        .sort((a,b) => a.ayah_from - b.ayah_from);
+
+  // ── Group Ayahs into Thematic Blocks ──
+  let blocks = [];
+  let currentBlock = { theme: null, ayahs: [] };
+
+  tafsirData.forEach(ayahObj => {
+    const ayahNum = ayahObj.ayah || ayahObj.id;
+    
+    // Find if this ayah belongs to any defined theme scope
+    const matchingTheme = surahThemes.find(t => ayahNum >= t.ayah_from && ayahNum <= t.ayah_to);
+    
+    if (matchingTheme !== currentBlock.theme) {
+        // Push the previous block if it has content
+        if (currentBlock.ayahs.length > 0) blocks.push(currentBlock);
+        
+        // Start a new block
+        currentBlock = { theme: matchingTheme, ayahs: [ayahObj] };
+    } else {
+        // Add to the current block
+        currentBlock.ayahs.push(ayahObj);
     }
+  });
+  
+  if (currentBlock.ayahs.length > 0) {
+      blocks.push(currentBlock);
   }
 
   // Render Header
   let html = `
-    <div class="surah-header">
+    <div class="surah-header" onclick="showSurahInfo(${num})" title="Click to view Surah info">
       <div class="surah-header-ornament">— ✦ —</div>
       <div class="surah-arabic">${escHtml(meta[2])}</div>
       <div class="surah-transliteration">${escHtml(meta[1])}</div>
@@ -434,73 +600,139 @@ async function loadSurah(num) {
     </div>
     <div class="ayah-list">`;
 
-  // Render Ayahs
-  tafsirData.forEach(({ surah, ayah: n, translation, commentary }) => {
-    
-    // Find the matching Arabic text for this specific ayah
-    let arabicText = '';
-    const arabicMatch = currentSurahArabicVerses.find(v => v.id === n);
-    if (arabicMatch) arabicText = arabicMatch.text;
-
-    html += `
-      <div class="ayah-card">
-        <div class="ayah-top">
-          <div class="ayah-badge">${n}</div>
-          <span class="ayah-label">Surah ${surah} · Ayah ${n}</span>
-        </div>
-        <div class="ayah-translation">
-          ${arabicText ? `<div class="verse-arabic">${escHtml(arabicText)}</div>` : ''}
-          <div class="translation-text">${escHtml(translation || '—')}</div>
-        </div>`;
-
-    // ── Inject Linguistic Insights if available ──
-    if (langData && langData.language_insights) {
-      const searchRef = `${surah}_${n}`;
-      const ayahInsights = langData.language_insights.find(ins => ins.formatted_ayah_ref === searchRef);
-
-      if (ayahInsights && ayahInsights.details && ayahInsights.details.length > 0) {
-        html += `
-          <div class="language-insights">
-            <div class="insights-title">Linguistic Notes</div>`;
-        
-        ayahInsights.details.forEach(detail => {
-          const cleanedText = cleanText(detail.text);
-          const badgeClass = `type-${(detail.insight_type || 'word').toLowerCase()}`;
-          
+  // Render Ayahs mapped to themes
+  blocks.forEach(block => {
+      
+      if (block.theme) {
           html += `
-            <div class="insight-item">
-              ${detail.arabic_part ? `<div class="insight-arabic">${escHtml(detail.arabic_part)}</div>` : ''}
-              <div class="insight-text">
-                <span class="insight-type-badge ${badgeClass}">${escHtml(detail.insight_type || 'Note')}</span>
-                ${cleanedText}
-              </div>
-            </div>`;
-        });
-        
-        html += `</div>`; 
+          <div class="theme-wrapper">
+              <button class="theme-toggle" onclick="toggleTheme(this)" aria-expanded="true">
+                  <span class="theme-title">🔖 Theme: ${escHtml(block.theme.theme)}</span>
+                  <span class="toggle-chevron">▾</span>
+              </button>
+              <div class="theme-body">
+          `;
+      } else {
+          html += `<div class="theme-wrapper"><div class="theme-body">`;
       }
-    }
+      
+      block.ayahs.forEach(ayahObj => {
+          const surahNum = ayahObj.surah || num;
+          const ayahNum = ayahObj.ayah || ayahObj.id;
+          const translation = ayahObj.translation || ayahObj.text || '';
+          const commentary = ayahObj.commentary || ayahObj.tafsir || '';
+          
+          let arabicText = '';
+          const arabicMatch = currentSurahArabicVerses.find(v => v.id === ayahNum);
+          if (arabicMatch) arabicText = arabicMatch.text;
+          
+          let transText = '';
+          if (cachedTransliteration && cachedTransliteration[`${surahNum}:${ayahNum}`]) {
+              transText = cachedTransliteration[`${surahNum}:${ayahNum}`].t;
+          }
+      
+          html += `
+            <div class="ayah-card ${targetAyah === ayahNum ? 'highlight' : ''}" id="ayah-${ayahNum}">
+              <div class="ayah-top">
+                <div class="ayah-badge">${ayahNum}</div>
+                <span class="ayah-label">Surah ${surahNum} · Ayah ${ayahNum}</span>
+              </div>
+              <div class="ayah-translation">
+                ${arabicText ? `<div class="verse-arabic">${escHtml(arabicText)}</div>` : ''}
+                ${transText ? `<div class="verse-transliteration">${escHtml(transText)}</div>` : ''}
+                <div class="translation-text">${escHtml(translation || '—')}</div>
+              </div>`;
+      
+          // Language Insights
+          if (langData && langData.language_insights) {
+            const searchRef = `${surahNum}_${ayahNum}`;
+            const ayahInsights = langData.language_insights.find(ins => ins.formatted_ayah_ref === searchRef);
+      
+            if (ayahInsights && ayahInsights.details && ayahInsights.details.length > 0) {
+              html += `
+                <div class="language-insights">
+                  <div class="insights-title">Linguistic Notes</div>`;
+              
+              ayahInsights.details.forEach(detail => {
+                const cleanedText = cleanText(detail.text);
+                const badgeClass = `type-${(detail.insight_type || 'word').toLowerCase()}`;
+                
+                html += `
+                  <div class="insight-item">
+                    ${detail.arabic_part ? `<div class="insight-arabic">${escHtml(detail.arabic_part)}</div>` : ''}
+                    <div class="insight-text">
+                      <span class="insight-type-badge ${badgeClass}">${escHtml(detail.insight_type || 'Note')}</span>
+                      ${cleanedText}
+                    </div>
+                  </div>`;
+              });
+              html += `</div>`; 
+            }
+          }
+      
+          // Commentary
+          const hasComm = commentary && commentary.trim().length > 0;
+          if (hasComm) {
+            html += `
+              <div class="commentary-section">
+                <button class="section-toggle" onclick="toggleSection(this)" aria-expanded="false">
+                  Detailed Tafsir <span class="toggle-chevron">▾</span>
+                </button>
+                <div class="section-body commentary-body">${renderCommentary(commentary)}</div>
+              </div>`;
+          } else {
+            html += `<div class="no-data">No commentary available.</div>`;
+          }
+      
+          // Matching Ayahs[cite: 2]
+          const matchKey = `${surahNum}:${ayahNum}`;
+          let matching = [];
+          if (cachedMatchingAyahs && cachedMatchingAyahs[matchKey]) {
+              matching = cachedMatchingAyahs[matchKey];
+          }
 
-    // ── Inject Commentary ──
-    const hasComm = commentary && commentary.trim().length > 0;
-    if (hasComm) {
-      html += `
-        <div class="commentary-section">
-          <button class="commentary-toggle" onclick="toggleCommentary(this)" aria-expanded="false">
-            Detailed Tafsir <span class="toggle-chevron">▾</span>
-          </button>
-          <div class="commentary-body">${renderCommentary(commentary)}</div>
-        </div>`;
-    } else {
-      html += `<div class="no-commentary">No commentary available.</div>`;
-    }
-
-    html += `</div>`;
+          if (matching && matching.length > 0) {
+              html += `
+              <div class="matching-section">
+                <button class="section-toggle" onclick="toggleSection(this)" aria-expanded="false">
+                  Related Verses <span class="toggle-chevron">▾</span>
+                </button>
+                <div class="section-body matching-body">
+                  <div class="matching-links">`;
+              matching.forEach(m => {
+                  const [mSurah, mAyah] = m.matched_ayah_key.split(':');
+                  html += `<a href="javascript:void(0)" onclick="jumpToAyah(${mSurah}, ${mAyah})" class="matching-link">Surah ${mSurah}, Ayah ${mAyah}</a>`;
+              });
+              html += `</div></div></div>`;
+          }
+      
+          html += `</div>`;
+      });
+      
+      html += `</div></div>`; // End of theme-body and theme-wrapper
   });
 
-  html += `</div>`;
+  html += `</div>`; // End of ayah-list
   mainEl.innerHTML = html;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  
+  // Handling Scroll/Jump target logic
+  if (targetAyah) {
+      setTimeout(() => {
+          const el = document.getElementById(`ayah-${targetAyah}`);
+          if (el) {
+              const yOffset = el.getBoundingClientRect().top + window.scrollY - 80;
+              window.scrollTo({ top: yOffset, behavior: 'smooth' });
+              
+              setTimeout(() => { el.classList.remove('highlight'); }, 3000);
+          }
+      }, 100);
+  } else if (targetScroll !== null) {
+      setTimeout(() => {
+          window.scrollTo({ top: targetScroll, behavior: 'instant' });
+      }, 50);
+  } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+  }
 }
 </script>
 </body>
