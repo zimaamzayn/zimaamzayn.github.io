@@ -165,6 +165,17 @@
     text-align: right;
     margin-bottom: 0.5rem;
   }
+
+  /* ── Word-By-Word Roots Styling ──────────────────────────────────────── */
+  .wbw-word.has-root {
+    border-bottom: 2px dotted var(--gold);
+    cursor: pointer;
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+  }
+  .wbw-word.has-root:hover {
+    color: var(--gold);
+    border-bottom-color: var(--green-deep);
+  }
   
   .verse-transliteration {
     font-size: 0.95rem;
@@ -306,8 +317,7 @@
 <button id="scrollTop" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <dialog id="surahInfoModal">
-  <!-- Content injected via JS -->
-</dialog>
+  </dialog>
 
 <script>
 // ── Service Worker & PWA Logic ────────────────────────────────────────────
@@ -455,13 +465,44 @@ function showSurahInfo(num) {
   dialog.showModal();
 }
 
+function showRootInfo(rootStr) {
+  const dialog = document.getElementById('surahInfoModal');
+  
+  if (!cachedRootsIndex || !cachedRootsIndex[rootStr]) {
+      dialog.innerHTML = `
+          <div class="dialog-title">Not Found</div>
+          <div class="dialog-content">Root meaning for <strong>${escHtml(rootStr)}</strong> could not be loaded.</div>
+          <button class="dialog-close" onclick="this.closest('dialog').close()">Close</button>
+      `;
+      dialog.showModal();
+      return;
+  }
+  
+  const rData = cachedRootsIndex[rootStr];
+  let infoHtml = `
+      <div class="dialog-title">${escHtml(rootStr)}</div>
+      <div class="dialog-meta">Root Word Information</div>
+      <div class="dialog-content">
+          <strong>Transliteration:</strong> ${escHtml(rData.b)}<br><br>
+          <strong>Meaning:</strong> ${escHtml(rData.m)}<br><br>
+          <strong>Frequency:</strong> Occurs ${rData.f} times in the Quran<br><br>
+          ${rData.fam ? `<strong>Theme / Family:</strong> ${escHtml(rData.fam)}` : ''}
+      </div>
+      <button class="dialog-close" onclick="this.closest('dialog').close()">Close</button>
+  `;
+  
+  dialog.innerHTML = infoHtml;
+  dialog.showModal();
+}
+
 // ── App State & Fetching ────────────────────────────────────────────────
 let currentLoad = 0;
 let cachedQuranData = null; 
 let cachedTransliteration = null; 
 let cachedThemesData = null;
 let cachedSurahInfo = null;
-let cachedMatchingAyahs = null; // Caches matching-ayah.json[cite: 2]
+let cachedMatchingAyahs = null;
+let cachedRootsIndex = null; 
 let historyStack = [];
 
 select.addEventListener('change', () => {
@@ -502,6 +543,7 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
 
   let tafsirData = null;
   let langData = null;
+  let wbwData = null; 
 
   try {
     if (!cachedQuranData) {
@@ -524,10 +566,22 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
         if (infoRes.ok) cachedSurahInfo = await infoRes.json();
     }
     
-    // Fetch matching ayahs mapped data[cite: 2]
+    if (!cachedRootsIndex) {
+        const rootsRes = await fetch(`data/roots_index.json`);
+        if (rootsRes.ok) cachedRootsIndex = await rootsRes.json();
+    }
+
     if (!cachedMatchingAyahs) {
         const matchRes = await fetch(`data/matching-ayah.json`);
         if (matchRes.ok) cachedMatchingAyahs = await matchRes.json();
+    }
+
+    // Try fetching the word-by-word structural data
+    try {
+        const wbwRes = await fetch(`wbw/${num}.json`);
+        if (wbwRes.ok) wbwData = await wbwRes.json();
+    } catch(e) {
+        console.warn(`WBW data for Surah ${num} not found.`);
     }
 
     const tafsirRes = await fetch(`data/${num}.json`);
@@ -622,9 +676,26 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
           const translation = ayahObj.translation || ayahObj.text || '';
           const commentary = ayahObj.commentary || ayahObj.tafsir || '';
           
-          let arabicText = '';
-          const arabicMatch = currentSurahArabicVerses.find(v => v.id === ayahNum);
-          if (arabicMatch) arabicText = arabicMatch.text;
+          // Assemble Arabic Html with Word-by-Word roots
+          let arabicHtml = '';
+          if (wbwData) {
+              const wbwMatch = wbwData.find(v => v.a === ayahNum);
+              if (wbwMatch && wbwMatch.words) {
+                  arabicHtml = wbwMatch.words.map(w => {
+                      if (w.r) {
+                          const escapedRoot = w.r.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                          return `<span class="wbw-word has-root" onclick="showRootInfo('${escapedRoot}')">${escHtml(w.t)}</span>`;
+                      } else {
+                          return `<span class="wbw-word">${escHtml(w.t)}</span>`;
+                      }
+                  }).join(' ');
+              }
+          }
+          // Fallback to static text if wbw payload is missing or lacks the ayah
+          if (!arabicHtml && currentSurahArabicVerses.length > 0) {
+              const staticMatch = currentSurahArabicVerses.find(v => v.id === ayahNum);
+              if (staticMatch) arabicHtml = escHtml(staticMatch.text);
+          }
           
           let transText = '';
           if (cachedTransliteration && cachedTransliteration[`${surahNum}:${ayahNum}`]) {
@@ -638,7 +709,7 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
                 <span class="ayah-label">Surah ${surahNum} · Ayah ${ayahNum}</span>
               </div>
               <div class="ayah-translation">
-                ${arabicText ? `<div class="verse-arabic">${escHtml(arabicText)}</div>` : ''}
+                ${arabicHtml ? `<div class="verse-arabic">${arabicHtml}</div>` : ''}
                 ${transText ? `<div class="verse-transliteration">${escHtml(transText)}</div>` : ''}
                 <div class="translation-text">${escHtml(translation || '—')}</div>
               </div>`;
@@ -684,7 +755,7 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
             html += `<div class="no-data">No commentary available.</div>`;
           }
       
-          // Matching Ayahs[cite: 2]
+          // Matching Ayahs
           const matchKey = `${surahNum}:${ayahNum}`;
           let matching = [];
           if (cachedMatchingAyahs && cachedMatchingAyahs[matchKey]) {
