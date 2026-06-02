@@ -177,6 +177,13 @@
     border-bottom-color: var(--green-deep);
   }
   
+  .phrase-highlight {
+    background-color: rgba(240, 217, 160, 0.6);
+    border-radius: 4px;
+    padding: 0 4px;
+    transition: background-color 0.3s ease;
+  }
+  
   .verse-transliteration {
     font-size: 0.95rem;
     color: var(--green-mid);
@@ -501,8 +508,12 @@ let cachedQuranData = null;
 let cachedTransliteration = null; 
 let cachedThemesData = null;
 let cachedSurahInfo = null;
-let cachedMatchingAyahs = null;
 let cachedRootsIndex = null; 
+
+// Mutashabihat Variables
+let cachedPhrases = null; 
+let cachedPhraseVerses = null; 
+
 let historyStack = [];
 
 select.addEventListener('change', () => {
@@ -514,12 +525,12 @@ select.addEventListener('change', () => {
 const scrollBtn = document.getElementById('scrollTop');
 window.addEventListener('scroll', () => scrollBtn.classList.toggle('visible', window.scrollY > 300), { passive: true });
 
-function jumpToAyah(surah, ayah) {
+function jumpToAyah(surah, ayah, phraseId = null) {
   const currentSurah = parseInt(select.value);
   historyStack.push({ surah: currentSurah, scrollY: window.scrollY });
   document.getElementById('backBtn').style.display = 'block';
   select.value = surah;
-  loadSurah(surah, ayah);
+  loadSurah(surah, ayah, null, phraseId);
 }
 
 function goBack() {
@@ -531,10 +542,11 @@ function goBack() {
   }
   
   select.value = prev.surah;
-  loadSurah(prev.surah, null, prev.scrollY);
+  // Passing phraseId as null when going back so the highlight clears naturally
+  loadSurah(prev.surah, null, prev.scrollY, null); 
 }
 
-async function loadSurah(num, targetAyah = null, targetScroll = null) {
+async function loadSurah(num, targetAyah = null, targetScroll = null, targetPhraseId = null) {
   const myLoad = ++currentLoad;
   const mainEl = document.getElementById('main');
   const meta = SURAHS[num - 1];
@@ -571,12 +583,16 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
         if (rootsRes.ok) cachedRootsIndex = await rootsRes.json();
     }
 
-    if (!cachedMatchingAyahs) {
-        const matchRes = await fetch(`data/matching-ayah.json`);
-        if (matchRes.ok) cachedMatchingAyahs = await matchRes.json();
+    // Fetch Mutashabihat Data
+    if (!cachedPhrases) {
+        const pRes = await fetch(`data/phrases.json`);
+        if (pRes.ok) cachedPhrases = await pRes.json();
+    }
+    if (!cachedPhraseVerses) {
+        const pvRes = await fetch(`data/phrase_verses.json`);
+        if (pvRes.ok) cachedPhraseVerses = await pvRes.json();
     }
 
-    // Try fetching the word-by-word structural data
     try {
         const wbwRes = await fetch(`wbw/${num}.json`);
         if (wbwRes.ok) wbwData = await wbwRes.json();
@@ -607,7 +623,6 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
 
   if (myLoad !== currentLoad) return;
 
-  // Pre-process Surah Data
   let currentSurahArabicVerses = [];
   if (cachedQuranData) {
     const qMatch = cachedQuranData.find(s => s.id === num);
@@ -618,24 +633,17 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
                         .filter(t => t.surah_number === num)
                         .sort((a,b) => a.ayah_from - b.ayah_from);
 
-  // ── Group Ayahs into Thematic Blocks ──
   let blocks = [];
   let currentBlock = { theme: null, ayahs: [] };
 
   tafsirData.forEach(ayahObj => {
     const ayahNum = ayahObj.ayah || ayahObj.id;
-    
-    // Find if this ayah belongs to any defined theme scope
     const matchingTheme = surahThemes.find(t => ayahNum >= t.ayah_from && ayahNum <= t.ayah_to);
     
     if (matchingTheme !== currentBlock.theme) {
-        // Push the previous block if it has content
         if (currentBlock.ayahs.length > 0) blocks.push(currentBlock);
-        
-        // Start a new block
         currentBlock = { theme: matchingTheme, ayahs: [ayahObj] };
     } else {
-        // Add to the current block
         currentBlock.ayahs.push(ayahObj);
     }
   });
@@ -644,7 +652,6 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
       blocks.push(currentBlock);
   }
 
-  // Render Header
   let html = `
     <div class="surah-header" onclick="showSurahInfo(${num})" title="Click to view Surah info">
       <div class="surah-header-ornament">— ✦ —</div>
@@ -654,9 +661,7 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
     </div>
     <div class="ayah-list">`;
 
-  // Render Ayahs mapped to themes
   blocks.forEach(block => {
-      
       if (block.theme) {
           html += `
           <div class="theme-wrapper">
@@ -676,22 +681,36 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
           const translation = ayahObj.translation || ayahObj.text || '';
           const commentary = ayahObj.commentary || ayahObj.tafsir || '';
           
-          // Assemble Arabic Html with Word-by-Word roots
+          // Assemble Arabic Html with Word-by-Word roots AND Mutashabihat Highlighting
           let arabicHtml = '';
           if (wbwData) {
               const wbwMatch = wbwData.find(v => v.a === ayahNum);
               if (wbwMatch && wbwMatch.words) {
-                  arabicHtml = wbwMatch.words.map(w => {
-                      if (w.r) {
-                          const escapedRoot = w.r.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                          return `<span class="wbw-word has-root" onclick="showRootInfo('${escapedRoot}')">${escHtml(w.t)}</span>`;
-                      } else {
-                          return `<span class="wbw-word">${escHtml(w.t)}</span>`;
-                      }
+                  
+                  // Extract Word Highlight Ranges
+                  let highlightRanges = [];
+                  if (targetPhraseId && cachedPhrases && cachedPhrases[targetPhraseId]) {
+                      const ranges = cachedPhrases[targetPhraseId].ayah[`${surahNum}:${ayahNum}`];
+                      if (ranges) highlightRanges.push(...ranges);
+                  }
+
+                  // Build output string for words
+                  arabicHtml = wbwMatch.words.map((w, index) => {
+                      const wordNum = index + 1; // 1-based indexing for words
+                      const isHighlighted = highlightRanges.some(r => wordNum >= r[0] && wordNum <= r[1]);
+                      
+                      let classes = "wbw-word";
+                      if (w.r) classes += " has-root";
+                      if (isHighlighted) classes += " phrase-highlight"; 
+                      
+                      const rText = w.r ? w.r.replace(/'/g, "\\'").replace(/"/g, '&quot;') : '';
+                      const onClick = w.r ? `onclick="showRootInfo('${rText}')"` : '';
+                      
+                      return `<span class="${classes}" ${onClick}>${escHtml(w.t)}</span>`;
                   }).join(' ');
               }
           }
-          // Fallback to static text if wbw payload is missing or lacks the ayah
+          
           if (!arabicHtml && currentSurahArabicVerses.length > 0) {
               const staticMatch = currentSurahArabicVerses.find(v => v.id === ayahNum);
               if (staticMatch) arabicHtml = escHtml(staticMatch.text);
@@ -714,7 +733,6 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
                 <div class="translation-text">${escHtml(translation || '—')}</div>
               </div>`;
       
-          // Language Insights
           if (langData && langData.language_insights) {
             const searchRef = `${surahNum}_${ayahNum}`;
             const ayahInsights = langData.language_insights.find(ins => ins.formatted_ayah_ref === searchRef);
@@ -741,7 +759,6 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
             }
           }
       
-          // Commentary
           const hasComm = commentary && commentary.trim().length > 0;
           if (hasComm) {
             html += `
@@ -755,38 +772,46 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
             html += `<div class="no-data">No commentary available.</div>`;
           }
       
-          // Matching Ayahs
+          // Mutashabihat (Shared Phrases) 
           const matchKey = `${surahNum}:${ayahNum}`;
-          let matching = [];
-          if (cachedMatchingAyahs && cachedMatchingAyahs[matchKey]) {
-              matching = cachedMatchingAyahs[matchKey];
-          }
-
-          if (matching && matching.length > 0) {
+          if (cachedPhraseVerses && cachedPhraseVerses[matchKey]) {
+              const phraseIds = cachedPhraseVerses[matchKey];
+              
               html += `
               <div class="matching-section">
                 <button class="section-toggle" onclick="toggleSection(this)" aria-expanded="false">
-                  Related Verses <span class="toggle-chevron">▾</span>
+                  Related Verses (Mutashabihat) <span class="toggle-chevron">▾</span>
                 </button>
-                <div class="section-body matching-body">
-                  <div class="matching-links">`;
-              matching.forEach(m => {
-                  const [mSurah, mAyah] = m.matched_ayah_key.split(':');
-                  html += `<a href="javascript:void(0)" onclick="jumpToAyah(${mSurah}, ${mAyah})" class="matching-link">Surah ${mSurah}, Ayah ${mAyah}</a>`;
+                <div class="section-body matching-body">`;
+                
+              phraseIds.forEach(pId => {
+                  const pData = cachedPhrases && cachedPhrases[pId];
+                  if (pData && pData.ayah) {
+                      html += `<div style="font-size:0.85rem; color:var(--green-deep); margin-bottom:0.4rem; font-weight:600; opacity:0.8;">Shared Phrase Segment:</div>`;
+                      html += `<div class="matching-links" style="margin-bottom: 1rem;">`;
+                      
+                      Object.keys(pData.ayah).forEach(aKey => {
+                          if (aKey !== matchKey) { 
+                              const [mSurah, mAyah] = aKey.split(':');
+                              html += `<a href="javascript:void(0)" onclick="jumpToAyah(${mSurah}, ${mAyah}, '${pId}')" class="matching-link">Surah ${mSurah}, Ayah ${mAyah}</a>`;
+                          }
+                      });
+                      html += `</div>`;
+                  }
               });
-              html += `</div></div></div>`;
+              
+              html += `</div></div>`;
           }
       
           html += `</div>`;
       });
       
-      html += `</div></div>`; // End of theme-body and theme-wrapper
+      html += `</div></div>`;
   });
 
-  html += `</div>`; // End of ayah-list
+  html += `</div>`; 
   mainEl.innerHTML = html;
   
-  // Handling Scroll/Jump target logic
   if (targetAyah) {
       setTimeout(() => {
           const el = document.getElementById(`ayah-${targetAyah}`);
