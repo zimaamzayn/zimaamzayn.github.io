@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Tafsir & Linguistics</title>
+<title>Tafsir - Zayn</title>
 <meta name="description" content="Tafsir Made for English Readers. Clear, authentic, and accessible Quranic explanations."> 
     <meta name="author" content="Zimaam Zayn">
     <meta name="keywords" content="Tafsir, Quran, Islam, English Tafsir, Quranic Reflections, Zimaam Zayn, Exegesis, Root words"> 
@@ -168,7 +168,7 @@
 
   /* ── Word-By-Word Roots Styling ──────────────────────────────────────── */
   .wbw-word.has-root {
-    border-bottom: 1px dotted rgba(181, 136, 58, 0.8); /* Reduced alpha (0.4) for more transparency */
+    border-bottom: 1px dotted rgba(181, 136, 58, 0.8);
     cursor: pointer;
     transition: color 0.2s ease, border-bottom-color 0.2s ease;
   }
@@ -235,6 +235,47 @@
   .toggle-chevron { font-size: 0.75rem; transition: transform 0.25s ease; flex-shrink: 0; }
   .section-toggle[aria-expanded="true"] .toggle-chevron { transform: rotate(180deg); }
   .section-toggle[aria-expanded="true"] { border-bottom-color: var(--cream-border); }
+
+  /* ── Tabbed Tafsir Buttons (Half & Half) ──────────────────────────────── */
+  .tafsir-toggles {
+      display: flex;
+      width: 100%;
+      border-bottom: 1px solid transparent;
+  }
+  .tafsir-toggle-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.7rem 0.5rem;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      font-family: 'Lora', serif;
+      font-size: 0.8rem;
+      color: var(--green-mid);
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: background 0.15s, border-bottom-color 0.15s;
+  }
+  .tafsir-toggle-btn:hover:not(:disabled) { background: var(--green-pale); }
+  .tafsir-toggle-btn[aria-expanded="true"] {
+      background: var(--green-pale);
+      border-bottom-color: var(--green-mid);
+  }
+  .tafsir-toggle-btn[aria-expanded="true"] .toggle-chevron { transform: rotate(180deg); }
+  .tafsir-toggle-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      color: var(--text-soft);
+  }
+  .tafsir-toggles .tafsir-toggle-btn:first-child {
+      border-right: 1px solid var(--cream-border);
+  }
 
   .section-body { display: none; padding: 1.1rem; color: var(--text-mid); font-size: 0.97rem; line-height: 1.85; }
   .section-body.open { display: block; animation: expandIn 0.2s ease both; }
@@ -316,8 +357,7 @@
 
 <button id="scrollTop" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<dialog id="surahInfoModal">
-  </dialog>
+<dialog id="surahInfoModal"></dialog>
 
 <script>
 // ── Service Worker & PWA Logic ────────────────────────────────────────────
@@ -405,6 +445,34 @@ function escHtml(s) { return (s||'').toString().replace(/&/g,'&amp;').replace(/<
 
 function toggleSection(btn) { 
   btn.setAttribute('aria-expanded', btn.nextElementSibling.classList.toggle('open')); 
+}
+
+// Handles switching between Concise and Detailed Tafsir tabs
+function toggleTafsirView(btn, type) {
+    const container = btn.closest('.commentary-section');
+    const conciseBtn = container.querySelector('.tafsir-toggle-btn:nth-child(1)');
+    const detailedBtn = container.querySelector('.tafsir-toggle-btn:nth-child(2)');
+    const conciseBody = container.querySelector('.concise-body');
+    const detailedBody = container.querySelector('.detailed-body');
+
+    const isCurrentlyExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+    // Reset both states
+    if (conciseBtn) conciseBtn.setAttribute('aria-expanded', 'false');
+    if (detailedBtn) detailedBtn.setAttribute('aria-expanded', 'false');
+    if (conciseBody) conciseBody.classList.remove('open');
+    if (detailedBody) detailedBody.classList.remove('open');
+
+    // If it was already expanded, we just close it (handled above). 
+    // If it wasn't, we open the selected tab.
+    if (!isCurrentlyExpanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        if (type === 'concise' && conciseBody) {
+            conciseBody.classList.add('open');
+        } else if (type === 'detailed' && detailedBody) {
+            detailedBody.classList.add('open');
+        }
+    }
 }
 
 function toggleTheme(btn) {
@@ -542,6 +610,7 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
   mainEl.innerHTML = `<div class="loader">Loading ${meta[1]}…</div>`;
 
   let tafsirData = null;
+  let conciseTafsirData = null; // New variable for Concise Tafsir
   let langData = null;
   let wbwData = null; 
 
@@ -584,9 +653,19 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
         console.warn(`WBW data for Surah ${num} not found.`);
     }
 
+    // Fetch original detailed Tafsir data
     const tafsirRes = await fetch(`data/${num}.json`);
     if (!tafsirRes.ok) throw new Error(`Tafsir HTTP error: ${tafsirRes.status}`);
     tafsirData = await tafsirRes.json();
+    
+    // Fetch newly added concise Islahi Tafsir data
+    try {
+        const conciseRes = await fetch(`data/surah_${num}_translated.json`);
+        if (conciseRes.ok) conciseTafsirData = await conciseRes.json();
+    } catch(e) {
+        console.warn(`Concise Tafsir data for Surah ${num} not found.`);
+    }
+
   } catch(e) {
     if (myLoad !== currentLoad) return;
     mainEl.innerHTML = `
@@ -741,15 +820,31 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
             }
           }
       
-          // Commentary
-          const hasComm = commentary && commentary.trim().length > 0;
-          if (hasComm) {
+          // Fetch specific Concise text for this ayah
+          let conciseText = '';
+          if (conciseTafsirData) {
+              const cMatch = conciseTafsirData.find(c => c.AyahNumber === ayahNum);
+              if (cMatch && cMatch.Tafseer) conciseText = cMatch.Tafseer;
+          }
+
+          const detailedText = commentary;
+          const hasDetailed = detailedText && detailedText.trim().length > 0;
+          const hasConcise = conciseText && conciseText.trim().length > 0;
+          
+          // Side-by-side Tabs for Tafsir (Concise | Detailed)
+          if (hasDetailed || hasConcise) {
             html += `
               <div class="commentary-section">
-                <button class="section-toggle" onclick="toggleSection(this)" aria-expanded="false">
-                  Detailed Tafsir <span class="toggle-chevron">▾</span>
-                </button>
-                <div class="section-body commentary-body">${renderCommentary(commentary)}</div>
+                <div class="tafsir-toggles">
+                  <button class="tafsir-toggle-btn" onclick="toggleTafsirView(this, 'concise')" ${!hasConcise ? 'disabled' : ''} aria-expanded="false">
+                    Concise Tafsir <span class="toggle-chevron">▾</span>
+                  </button>
+                  <button class="tafsir-toggle-btn" onclick="toggleTafsirView(this, 'detailed')" ${!hasDetailed ? 'disabled' : ''} aria-expanded="false">
+                    Detailed Tafsir <span class="toggle-chevron">▾</span>
+                  </button>
+                </div>
+                ${hasConcise ? `<div class="section-body commentary-body concise-body">${renderCommentary(conciseText)}</div>` : ''}
+                ${hasDetailed ? `<div class="section-body commentary-body detailed-body">${renderCommentary(detailedText)}</div>` : ''}
               </div>`;
           } else {
             html += `<div class="no-data">No commentary available.</div>`;
