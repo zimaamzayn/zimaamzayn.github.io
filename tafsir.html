@@ -836,13 +836,13 @@ async function loadSurah(num, targetAyah = null, targetScroll = null) {
             html += `
               <div class="commentary-section">
                 <div class="tafsir-toggles">
-                  <button class="tafsir-toggle-btn" onclick="toggleTafsirView(this, 'concise')" ${!hasConcise ? 'disabled' : ''} aria-expanded="false">
-                    Coherent Tafsir <span class="toggle-chevron">▾</span>
-                  </button>
-                  <button class="tafsir-toggle-btn" onclick="toggleTafsirView(this, 'detailed')" ${!hasDetailed ? 'disabled' : ''} aria-expanded="false">
-                    Concise Tafsir <span class="toggle-chevron">▾</span>
-                  </button>
-                </div>
+  <button class="tafsir-toggle-btn" onclick="toggleTafsirView(this, 'detailed')" ${!hasDetailed ? 'disabled' : ''} aria-expanded="false">
+    Concise Tafsir <span class="toggle-chevron">▾</span>
+  </button>
+  <button class="tafsir-toggle-btn" onclick="toggleTafsirView(this, 'concise')" ${!hasConcise ? 'disabled' : ''} aria-expanded="false">
+    Coherent Tafsir <span class="toggle-chevron">▾</span>
+  </button>
+</div>
                 ${hasConcise ? `<div class="section-body commentary-body concise-body">${renderCommentary(conciseText)}</div>` : ''}
                 ${hasDetailed ? `<div class="section-body commentary-body detailed-body">${renderCommentary(detailedText)}</div>` : ''}
               </div>`;
